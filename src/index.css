@@ -1,0 +1,420 @@
+@import "tailwindcss";
+
+@layer base {
+  body {
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #F5F8FC;
+    color: #172033;
+    transition: background-color 0.25s ease, color 0.25s ease;
+  }
+
+  .font-bengali {
+    font-family: 'Hind Siliguri', 'Plus Jakarta Sans', sans-serif;
+  }
+
+  .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* =========================================================
+   OFFICIAL ENTERPRISE BACKGROUND THEMES
+   ========================================================= */
+
+/* Default: Premium Light Experience */
+:root,
+.theme-official-light {
+  --official-canvas: #F5F8FC;
+  --official-surface: #FFFFFF;
+  --official-surface-alt: #EEF3F8;
+  --official-card: #FFFFFF;
+  --official-border: #E2E8F0;
+  --official-text: #172033;
+  --official-text-muted: #64748B;
+  --brand-emerald: #087F6A;
+  --brand-emerald-hover: #066653;
+  --brand-teal: #0D9488;
+  background-color: #F5F8FC;
+  color: #172033;
+}
+
+body {
+  background-color: #F5F8FC;
+  color: #172033;
+}
+
+.theme-official-purple body {
+  background-color: #19042B;
+  color: #FAF5FF;
+}
+
+.theme-official-purple .bg-official-grid {
+  background-color: #140221;
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(168, 85, 247, 0.14) 0%, transparent 60%),
+    radial-gradient(circle at 90% 40%, rgba(126, 34, 206, 0.09) 0%, transparent 50%),
+    linear-gradient(to right, rgba(192, 132, 252, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(192, 132, 252, 0.03) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+}
+
+.theme-official-purple .official-card {
+  background: rgba(46, 10, 80, 0.75);
+  border: 1px solid rgba(192, 132, 252, 0.22);
+  box-shadow: 0 14px 40px -10px rgba(17, 2, 30, 0.7);
+}
+
+.theme-official-purple .official-card:hover {
+  border-color: rgba(192, 132, 252, 0.5);
+  box-shadow: 0 18px 45px -8px rgba(126, 34, 206, 0.35);
+}
+
+.theme-official-purple .glass-panel {
+  background: rgba(43, 7, 75, 0.75);
+  border-color: rgba(192, 132, 252, 0.2);
+}
+
+.theme-official-purple .glass-nav {
+  background: rgba(30, 5, 52, 0.85);
+  border-bottom-color: rgba(192, 132, 252, 0.22);
+  box-shadow: 0 10px 30px -5px rgba(17, 2, 30, 0.6);
+}
+
+.theme-official-purple .glass-sidebar {
+  background: rgba(26, 4, 46, 0.9);
+  border-right-color: rgba(192, 132, 252, 0.18);
+}
+
+/* 2. Official Corporate Slate (Executive Default) */
+.theme-official-slate {
+  --official-canvas: #0B1120;
+  --official-surface: rgba(15, 23, 42, 0.85);
+  --official-surface-alt: rgba(15, 23, 42, 0.6);
+  --official-card: rgba(30, 41, 59, 0.65);
+  --official-border: rgba(148, 163, 184, 0.15);
+  --official-text: #F8FAFC;
+  --official-text-muted: #94A3B8;
+  background-color: #0B1120;
+  color: #F8FAFC;
+}
+
+/* 2. Official Executive Navy (BGMEA Deep Blue) */
+.theme-official-navy {
+  --official-canvas: #071326;
+  --official-surface: rgba(10, 25, 47, 0.9);
+  --official-surface-alt: rgba(13, 33, 55, 0.65);
+  --official-card: rgba(15, 37, 66, 0.7);
+  --official-border: rgba(56, 189, 248, 0.18);
+  --official-text: #F8FAFC;
+  --official-text-muted: #94A3B8;
+  background-color: #071326;
+  color: #F8FAFC;
+}
+
+/* 3. Official Office Light (Crisp Boardroom & Factory Office Daylight) */
+.theme-official-light {
+  --official-canvas: #F8FAFC;
+  --official-surface: #FFFFFF;
+  --official-surface-alt: #F1F5F9;
+  --official-card: #FFFFFF;
+  --official-border: #E2E8F0;
+  --official-text: #0F172A;
+  --official-text-muted: #475569;
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+.theme-official-light body {
+  background-color: #F8FAFC;
+  color: #0F172A;
+}
+
+/* In Light mode, smoothly invert or calibrate default dark elements */
+.theme-official-light .text-white {
+  color: #0F172A !important;
+}
+.theme-official-light .text-slate-100 {
+  color: #0F172A !important;
+}
+.theme-official-light .text-slate-200 {
+  color: #1E293B !important;
+}
+.theme-official-light .text-slate-300 {
+  color: #334155 !important;
+}
+.theme-official-light .text-slate-400 {
+  color: #475569 !important;
+}
+.theme-official-light .text-gray-300 {
+  color: #334155 !important;
+}
+.theme-official-light .text-gray-400 {
+  color: #475569 !important;
+}
+
+.theme-official-light .bg-slate-900,
+.theme-official-light .bg-slate-950,
+.theme-official-light .bg-black\/40,
+.theme-official-light .bg-black\/50,
+.theme-official-light .bg-black\/70,
+.theme-official-light .bg-black\/80 {
+  background-color: #FFFFFF !important;
+  color: #0F172A !important;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.theme-official-light .border-slate-800,
+.theme-official-light .border-slate-800\/80,
+.theme-official-light .border-white\/10,
+.theme-official-light .border-white\/5 {
+  border-color: #E2E8F0 !important;
+}
+
+.theme-official-light .glass-nav {
+  background: rgba(255, 255, 255, 0.88);
+  border-bottom-color: #E2E8F0;
+  box-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.05);
+}
+
+.theme-official-light .glass-sidebar {
+  background: rgba(255, 255, 255, 0.92);
+  border-right-color: #E2E8F0;
+}
+
+.theme-official-light .glass-card,
+.theme-official-light .glass-panel {
+  background: #FFFFFF !important;
+  border-color: #E2E8F0 !important;
+  box-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.06) !important;
+}
+
+.theme-official-light .glass-input {
+  background: #FFFFFF !important;
+  border-color: #CBD5E1 !important;
+  color: #0F172A !important;
+}
+
+/* Official Architectural Micro Grid */
+.bg-official-grid {
+  background-size: 40px 40px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.07) 1px, transparent 1px);
+}
+
+.theme-official-light .bg-official-grid {
+  background-image: 
+    linear-gradient(to right, rgba(15, 23, 42, 0.05) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(15, 23, 42, 0.05) 1px, transparent 1px);
+}
+
+/* Official Watermark & Security Seal Pattern */
+.bg-official-dots {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.12) 1.2px, transparent 1.2px);
+  background-size: 24px 24px;
+}
+
+.theme-official-light .bg-official-dots {
+  background-image: radial-gradient(rgba(15, 23, 42, 0.08) 1.2px, transparent 1.2px);
+}
+
+/* Executive Card Elevation - Premium Light Default */
+.official-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+  transition: all 0.2s ease;
+}
+
+.official-card:hover {
+  border-color: #CBD5E1;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -4px rgba(0, 0, 0, 0.04);
+  transform: translateY(-1px);
+}
+
+.theme-official-light .official-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+.theme-official-light .official-card:hover {
+  border-color: #087F6A;
+  box-shadow: 0 10px 15px -3px rgba(8, 127, 106, 0.08), 0 4px 6px -4px rgba(8, 127, 106, 0.04);
+  transform: translateY(-1px);
+}
+
+/* Light Glass Utilities */
+.glass-panel {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+}
+
+.glass-panel-deep {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.06);
+}
+
+.glass-card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  background: #FFFFFF;
+  border-color: #CBD5E1;
+  box-shadow: 0 8px 16px -2px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+.glass-card-static {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+}
+
+.glass-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.glass-sidebar {
+  background: #FFFFFF;
+  border-right: 1px solid #E2E8F0;
+}
+
+.glass-emerald {
+  background: rgba(8, 127, 106, 0.06);
+  border: 1px solid rgba(8, 127, 106, 0.2);
+}
+
+.glass-emerald-glow {
+  box-shadow: 0 0 20px rgba(8, 127, 106, 0.15), inset 0 0 10px rgba(8, 127, 106, 0.05);
+}
+
+.glass-emerald-btn {
+  background: #087F6A;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(8, 127, 106, 0.25);
+  transition: all 0.2s ease;
+}
+
+.glass-emerald-btn:hover {
+  background: #066653;
+  box-shadow: 0 4px 12px rgba(8, 127, 106, 0.35);
+  transform: translateY(-1px);
+}
+
+.glass-purple {
+  background: rgba(124, 58, 237, 0.06);
+  border: 1px solid rgba(124, 58, 237, 0.2);
+}
+
+.glass-purple-btn {
+  background: #087F6A;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(8, 127, 106, 0.25);
+  transition: all 0.2s ease;
+}
+
+.glass-purple-btn:hover {
+  background: #066653;
+  box-shadow: 0 4px 12px rgba(8, 127, 106, 0.35);
+  transform: translateY(-1px);
+}
+
+.glass-orange {
+  background: rgba(249, 115, 22, 0.06);
+  border: 1px solid rgba(249, 115, 22, 0.2);
+}
+
+.glass-rose {
+  background: rgba(244, 63, 94, 0.06);
+  border: 1px solid rgba(244, 63, 94, 0.2);
+}
+
+.glass-blue {
+  background: rgba(37, 99, 235, 0.06);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+}
+
+.glass-input {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  color: #172033;
+  transition: all 0.2s ease;
+}
+
+.glass-input:focus {
+  border-color: #087F6A;
+  box-shadow: 0 0 0 3px rgba(8, 127, 106, 0.15);
+  outline: none;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Subtle grid pattern fallback */
+.bg-grid-pattern {
+  background-size: 32px 32px;
+  background-image: 
+    linear-gradient(to right, rgba(148, 163, 184, 0.06) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(148, 163, 184, 0.06) 1px, transparent 1px);
+}
+
+.bg-dot-pattern {
+  background-image: radial-gradient(rgba(148, 163, 184, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Keyframes & Pulse effects */
+@keyframes radar-pulse {
+  0% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(0.95);
+    opacity: 0.8;
+  }
+}
+
+.animate-radar {
+  animation: radar-pulse 3s infinite ease-in-out;
+}
+
+@keyframes scanline {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(1000%);
+  }
+}
+
+.animate-scan {
+  animation: scanline 4s linear infinite;
+}
