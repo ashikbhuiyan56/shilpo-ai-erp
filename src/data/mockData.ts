@@ -490,18 +490,17 @@ export const CORE_MODULES = [
 
 export const TEAM_MEMBERS = [
   {
-    name: 'Tanjila Tasnim Punna',
-    role: 'CO-FOUNDER',
-    domain: 'Industry Workflow · Operations Strategy',
-    bio: 'Deep domain expertise in apparel industrial engineering, garment line operations, and apparel export workflows across Bangladesh manufacturing hubs.',
-  },
-  {
-    name: 'Dewan Mamun Raza',
+   name: 'Dewan Mamun Raza',
     role: 'FOUNDER',
     title: 'Assistant Professor, Dept. of CSE, Daffodil International University',
     domain: 'AI-ERP Vision · AI Strategy · Product Architecture',
     bio: 'Academic researcher and systems architect specializing in applied machine learning, industrial optimization, and verified distributed systems for manufacturing.',
   },
+  {
+    name: 'Tanjila Tasnim Punna',
+    role: 'CO-FOUNDER',
+    domain: 'Industry Workflow · Operations Strategy',
+    bio: 'Deep domain expertise in apparel industrial engineering, garment line operations, and apparel export workflows across Bangladesh manufacturing hubs.',
   {
     name: 'Ashik Bhuiyan',
     role: 'CO-FOUNDER',
