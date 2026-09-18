@@ -1,6 +1,6 @@
 {
   "name": "শিল্পAI ERP - AI-Based RMG ERP & Verified Capacity Matching",
-  "description": "The Intelligent Operating System for Bangladesh's Apparel Industry. AI-native factory ERP, predictive production intelligence, verified capacity matching, and trusted audit records for Startup World Cup 2026.",
+  "description": "The Intelligent Operating System for Bangladesh's Apparel Industry. AI-native factory ERP, predictive production intelligence, verified capacity matching and trusted audit records.",
   "requestFramePermissions": ["camera"],
   "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }
