@@ -75,12 +75,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="শিল্পAI ERP Homepage"
           >
-            <div className={`relative flex items-center justify-center w-9 h-9 rounded-lg font-bold text-base transition-all ${
-              theme === 'purple'
-                ? 'bg-purple-600 text-white shadow-[0_0_20px_rgba(168,85,247,0.4)] group-hover:bg-purple-500'
-                : 'bg-emerald-500 text-black shadow-[0_0_20px_rgba(16,185,129,0.35)] group-hover:bg-emerald-400'
-            }`}>
-              <span className="font-bengali">শি</span>
+            <            <div className="relative flex items-center justify-center w-9 h-9 rounded-lg transition-all group-hover:scale-105">
+              <img src="/logo.png.png" alt="শিল্পAI ERP logo" className="w-full h-full object-contain" />
               <div className={`absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full animate-ping opacity-75 ${
                 theme === 'purple' ? 'bg-purple-400' : 'bg-emerald-400'
               }`} />
