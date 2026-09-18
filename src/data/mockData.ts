@@ -496,17 +496,17 @@ export const TEAM_MEMBERS = [
     bio: 'Deep domain expertise in apparel industrial engineering, garment line operations, and apparel export workflows across Bangladesh manufacturing hubs.',
   },
   {
-    name: 'Ashik Bhuiyan',
-    role: 'CO-FOUNDER',
-    domain: 'AI Systems · Market Intelligence · Platform Strategy',
-    bio: 'Architecting predictive operations models, capacity matching algorithms, and enterprise SaaS go-to-market execution for high-growth industrial AI.',
-  },
-  {
     name: 'Dewan Mamun Raza',
     role: 'FOUNDER',
     title: 'Assistant Professor, Dept. of CSE, Daffodil International University',
     domain: 'AI-ERP Vision · AI Strategy · Product Architecture',
     bio: 'Academic researcher and systems architect specializing in applied machine learning, industrial optimization, and verified distributed systems for manufacturing.',
+  },
+  {
+    name: 'Ashik Bhuiyan',
+    role: 'CO-FOUNDER',
+    domain: 'AI Systems · Market Intelligence · Platform Strategy',
+    bio: 'Architecting predictive operations models, capacity matching algorithms, and enterprise SaaS go-to-market execution for high-growth industrial AI.',
   },
 ];
 
