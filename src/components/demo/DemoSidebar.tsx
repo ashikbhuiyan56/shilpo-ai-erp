@@ -80,8 +80,8 @@ export const DemoSidebar: React.FC<DemoSidebarProps> = ({
         {/* Brand & Workspace in Sidebar */}
         <div className="px-2">
           <div className="flex items-center gap-2.5">
-            <div className="w-9 h-9 rounded-xl bg-gradient-to-br from-[#087F6A] to-[#0D9488] text-white flex items-center justify-center font-bold font-bengali text-base shadow-sm shadow-emerald-700/20">
-              শি
+                        <div className="w-9 h-9 rounded-xl overflow-hidden shadow-sm shadow-emerald-700/20">
+              <img src="/logo.png.png" alt="শিল্পAI ERP logo" className="w-full h-full object-contain" />
             </div>
             <div>
               <div className="text-sm font-bold text-[#172033] flex items-center gap-1">
