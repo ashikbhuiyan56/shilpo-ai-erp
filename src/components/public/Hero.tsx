@@ -108,7 +108,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo, onOpenPilot }) => {
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-purple-400"></span>
               </span>
               <span className="text-xs font-semibold font-mono tracking-wider text-purple-200 uppercase">
-                RMG PREMIER AI PARTNER · BANGLADESH
+                AI-NATIVE FACTORY OS · BUILT FOR BANGLADESH RMG
               </span>
             </div>
 
@@ -122,7 +122,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo, onOpenPilot }) => {
 
             {/* Subtext & Bangladesh RMG Context */}
             <p className="text-base sm:text-lg text-purple-100/90 leading-relaxed font-normal">
-              Join 800+ export garment factories across Gazipur, Narayanganj &amp; Chattogram leveraging ShilpoAI. Get a free live demo customized to your factory lines in 24 hours — zero commitment, pure factory clarity.
+              Built for Bangladesh's export garment hubs — Gazipur, Narayanganj &amp; Chattogram. See a live demo customized to your factory lines — zero commitment, pure factory clarity.
             </p>
 
             {/* 3 Pill Badges with Purple Checkmarks (Exactly like the reference image) */}
@@ -131,21 +131,21 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo, onOpenPilot }) => {
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-purple-600/60 text-purple-200">
                   <Check className="w-3 h-3" />
                 </span>
-                <span>Go-live in 10-14 days</span>
+                <span>Target go-live: 10-14 days</span>
               </div>
 
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-medium text-white backdrop-blur-md">
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-purple-600/60 text-purple-200">
                   <Check className="w-3 h-3" />
                 </span>
-                <span>ROI in 3-6 months</span>
+                <span>Pilot-ready MVP</span>
               </div>
 
               <div className="inline-flex items-center gap-2 px-3.5 py-2 rounded-full bg-white/10 border border-white/20 text-xs sm:text-sm font-medium text-white backdrop-blur-md">
                 <span className="flex items-center justify-center w-4 h-4 rounded-full bg-purple-600/60 text-purple-200">
                   <Check className="w-3 h-3" />
                 </span>
-                <span>99.4% Audit Success Rate</span>
+                <span>Built on 8-module RMG architecture</span>
               </div>
             </div>
 
