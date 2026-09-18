@@ -3,8 +3,8 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-    background-color: #F5F8FC;
-    color: #172033;
+    background-color: #19042B;
+    color: #FAF5FF;
     transition: background-color 0.25s ease, color 0.25s ease;
   }
 
@@ -18,29 +18,28 @@
 }
 
 /* =========================================================
-   OFFICIAL ENTERPRISE BACKGROUND THEMES
+   OFFICIAL ENTERPRISE BACKGROUND THEME (LOCKED TO PURPLE)
    ========================================================= */
 
-/* Default: Premium Light Experience */
 :root,
-.theme-official-light {
-  --official-canvas: #F5F8FC;
-  --official-surface: #FFFFFF;
-  --official-surface-alt: #EEF3F8;
-  --official-card: #FFFFFF;
-  --official-border: #E2E8F0;
-  --official-text: #172033;
-  --official-text-muted: #64748B;
+.theme-official-purple {
+  --official-canvas: #19042B;
+  --official-surface: rgba(46, 10, 80, 0.75);
+  --official-surface-alt: rgba(36, 8, 64, 0.6);
+  --official-card: rgba(46, 10, 80, 0.75);
+  --official-border: rgba(192, 132, 252, 0.22);
+  --official-text: #FAF5FF;
+  --official-text-muted: #D8B4FE;
   --brand-emerald: #087F6A;
   --brand-emerald-hover: #066653;
   --brand-teal: #0D9488;
-  background-color: #F5F8FC;
-  color: #172033;
+  background-color: #19042B;
+  color: #FAF5FF;
 }
 
 body {
-  background-color: #F5F8FC;
-  color: #172033;
+  background-color: #19042B;
+  color: #FAF5FF;
 }
 
 .theme-official-purple body {
@@ -417,4 +416,24 @@ body {
 
 .animate-scan {
   animation: scanline 4s linear infinite;
+}
+
+/* --- Dashboard text contrast boost --- */
+.demo-shell [class~="text-[#64748B]"],
+.demo-shell [class~="text-slate-400"],
+.demo-shell [class~="text-slate-500"],
+.demo-shell [class~="text-gray-400"],
+.demo-shell [class~="text-gray-500"],
+.demo-shell [class~="text-[#94A3B8]"] {
+  color: #1E293B !important;
+  font-weight: 500;
+}
+
+.demo-shell h1,
+.demo-shell h2,
+.demo-shell h3,
+.demo-shell [class~="font-bold"],
+.demo-shell [class~="font-extrabold"],
+.demo-shell [class~="font-black"] {
+  color: #0B1120;
 }

@@ -132,14 +132,14 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
         <div className="flex items-center gap-3">
           <button
             onClick={() => setIsPlaying(!isPlaying)}
-            className="p-2.5 rounded-xl bg-white/90 hover:bg-white text-[#334155] border border-white/40 shadow-xs transition-colors cursor-pointer"
+            className="p-2.5 rounded-xl bg-white/90 hover:bg-white text-[#1E293B] border border-white/40 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
             title={isPlaying ? 'Pause auto-slide' : 'Play auto-slide'}
           >
             {isPlaying ? <Pause className="w-4 h-4" /> : <Play className="w-4 h-4" />}
           </button>
           <button
             onClick={onClose}
-            className="p-2.5 rounded-xl bg-white/90 hover:bg-white text-[#334155] border border-white/40 shadow-xs transition-colors cursor-pointer"
+            className="p-2.5 rounded-xl bg-white/90 hover:bg-white text-[#1E293B] border border-white/40 shadow-sm hover:shadow-md transition-all duration-200 cursor-pointer"
             title="Exit Presentation Mode"
           >
             <X className="w-4 h-4" />
@@ -149,27 +149,27 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
 
       {/* Main Slide Card */}
       <div className="max-w-3xl w-full mx-auto text-center space-y-6 my-auto p-8 sm:p-10 rounded-3xl bg-white border border-[#E2E8F0] shadow-2xl">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[#065F46]">
+        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-50 border border-emerald-200 text-xs font-mono font-bold text-[#065F46] shadow-2xs">
           <Icon className="w-4 h-4 text-[#087F6A]" />
           <span>{current.category}</span>
         </div>
 
-        <h1 className="text-3xl sm:text-4xl font-black text-[#172033] tracking-tight leading-tight">
+        <h1 className="text-3xl sm:text-4xl font-black text-[#0B1120] tracking-tight leading-tight">
           {current.title}
         </h1>
 
-        <p className="text-base sm:text-lg text-[#64748B] font-medium max-w-xl mx-auto">
+        <p className="text-base sm:text-lg text-[#334155] font-medium max-w-xl mx-auto">
           {current.tagline}
         </p>
 
-        <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] max-w-xl mx-auto text-left space-y-3">
+        <div className="p-5 rounded-2xl bg-[#F8FAFC] border border-[#E2E8F0] max-w-xl mx-auto text-left space-y-3 shadow-2xs">
           <div className="flex items-center justify-between">
-            <span className="text-xs font-mono font-bold text-[#64748B] uppercase">Core Capability</span>
-            <span className="text-xs font-mono font-bold px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200">
+            <span className="text-xs font-mono font-bold text-[#475569] uppercase tracking-wider">Core Capability</span>
+            <span className="text-xs font-mono font-bold px-3 py-1 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200 shadow-2xs">
               {current.stat}
             </span>
           </div>
-          <p className="text-sm text-[#334155] leading-relaxed">
+          <p className="text-sm text-[#1E293B] leading-relaxed">
             {current.pitchPoint}
           </p>
         </div>
@@ -177,7 +177,7 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
         <div className="pt-2">
           <button
             onClick={handleGoToView}
-            className="px-6 py-3 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-sm flex items-center gap-2 mx-auto shadow-xs transition-all cursor-pointer"
+            className="px-7 py-3.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-sm flex items-center gap-2 mx-auto shadow-md hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <span>Interact with this Feature Live</span>
             <ArrowRight className="w-4 h-4" />
@@ -195,8 +195,8 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
                 setCurrentSlide(idx);
                 setIsPlaying(false);
               }}
-              className={`h-2 rounded-full transition-all cursor-pointer ${
-                currentSlide === idx ? 'w-8 bg-emerald-400' : 'w-2 bg-white/40 hover:bg-white/70'
+              className={`h-2.5 rounded-full transition-all cursor-pointer ${
+                currentSlide === idx ? 'w-8 bg-emerald-400' : 'w-2.5 bg-white/40 hover:bg-white/70'
               }`}
             />
           ))}
@@ -208,7 +208,7 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
               setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
               setIsPlaying(false);
             }}
-            className="p-2 rounded-lg bg-white/80 hover:bg-white text-[#334155] border border-white/40 transition-colors cursor-pointer"
+            className="p-2 rounded-lg bg-white/80 hover:bg-white text-[#1E293B] border border-white/40 shadow-sm transition-all cursor-pointer"
           >
             <ChevronLeft className="w-4 h-4" />
           </button>
@@ -220,7 +220,7 @@ export const PresentationModeOverlay: React.FC<PresentationModeOverlayProps> = (
               setCurrentSlide((prev) => (prev + 1) % slides.length);
               setIsPlaying(false);
             }}
-            className="p-2 rounded-lg bg-white/80 hover:bg-white text-[#334155] border border-white/40 transition-colors cursor-pointer"
+            className="p-2 rounded-lg bg-white/80 hover:bg-white text-[#1E293B] border border-white/40 shadow-sm transition-all cursor-pointer"
           >
             <ChevronRight className="w-4 h-4" />
           </button>

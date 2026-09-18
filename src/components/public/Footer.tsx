@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUpRight, ShieldCheck, Sparkles, Building2, MapPin, Mail, Globe } from 'lucide-react';
 import { Badge } from '../common/Badge';
+import { ShilpoLogo } from '../common/ShilpoLogo';
 
 interface FooterProps {
   onOpenDemo: () => void;
@@ -15,9 +16,7 @@ export const Footer: React.FC<FooterProps> = ({ onOpenDemo, onOpenPilot }) => {
           {/* Brand Col */}
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="flex items-center justify-center w-9 h-9 rounded-xl bg-gradient-to-br from-purple-600/30 via-purple-950 to-indigo-600/30 border border-purple-500/40">
-                <span className="font-bengali font-bold text-base text-purple-300">শি</span>
-              </div>
+              <ShilpoLogo className="w-9 h-9" />
               <span className="text-xl font-bold text-white flex items-center gap-1">
                 <span className="font-bengali text-purple-400">শিল্প</span>
                 <span className="text-white">AI</span>

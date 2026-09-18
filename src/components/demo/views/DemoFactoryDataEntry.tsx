@@ -194,44 +194,44 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-12">
       {/* Disclaimer & Header Banner */}
-      <div className="p-4 rounded-xl bg-amber-50 border border-amber-200 text-amber-900 text-xs flex items-start gap-3">
+      <div className="p-4 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-xs flex items-start gap-3 shadow-sm">
         <Info className="w-4 h-4 text-amber-600 shrink-0 mt-0.5" />
         <div className="space-y-0.5">
-          <div className="font-bold text-amber-900 font-mono text-[11px] uppercase tracking-wider">
+          <div className="font-bold text-amber-950 font-mono text-[11px] uppercase tracking-wider">
             PROTOTYPE / SIMULATED AI TESTBENCH
           </div>
-          <p className="text-amber-800 text-xs leading-relaxed">
+          <p className="text-amber-900 text-xs leading-relaxed font-medium">
             This interactive sandbox demonstrates ShilpoAI’s real-time risk engine using simulated factory parameters. Changing order numbers, production rates, or material bottlenecks will immediately recompute the predictive delay score and trigger subcontract capacity matching.
           </p>
         </div>
       </div>
 
       {/* Main Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm">
         <div>
           <div className="flex items-center gap-2.5">
-            <h1 className="text-xl font-bold text-[#172033] flex items-center gap-2">
+            <h1 className="text-xl font-extrabold text-[#0B1120] flex items-center gap-2 tracking-tight">
               <Sparkles className="w-5 h-5 text-[#087F6A]" />
               <span>Interactive Factory Data Entry Sandbox</span>
             </h1>
-            <div className="px-2.5 py-0.5 rounded-full border border-emerald-200 bg-emerald-50 text-[10px] font-semibold text-[#065F46] uppercase tracking-wider">
+            <div className="px-2.5 py-0.5 rounded-full border border-emerald-300 bg-emerald-50 text-[10px] font-bold text-[#065F46] uppercase tracking-wider shadow-sm">
               Working Sandbox
             </div>
           </div>
-          <p className="text-xs text-[#64748B] mt-1">
+          <p className="text-sm text-[#334155] font-medium mt-1">
             Input live shop-floor data to run predictive risk analysis, detect capacity gaps, and seamlessly route overflow orders to verified peer mills.
           </p>
         </div>
 
         {/* Quick Scenario Preset Buttons */}
         <div className="flex flex-wrap items-center gap-2">
-          <span className="text-[11px] font-mono text-[#64748B] mr-1">Load Scenarios:</span>
+          <span className="text-xs font-mono font-bold text-[#475569] mr-1">Load Scenarios:</span>
           {Object.entries(scenarios).map(([key, sc]) => (
             <button
               key={key}
               type="button"
               onClick={() => handleApplyScenario(key)}
-              className="px-2.5 py-1.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[11px] font-medium text-[#172033] transition-all cursor-pointer"
+              className="px-3 py-1.5 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-xs font-semibold text-[#0B1120] transition-all cursor-pointer shadow-sm hover:shadow hover:-translate-y-0.5"
               title={sc.desc}
             >
               {key === 'bottleneck' ? 'Deficit & Fabric Delay' : key === 'criticalDeficit' ? 'Severe Shortfall' : key === 'healthy' ? 'Healthy Flow' : 'Quality Spike'}
@@ -244,20 +244,20 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left Column: Form Inputs (7 Cols) */}
         <div className="lg:col-span-7 space-y-5">
-          <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+          <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div className="flex items-center gap-2">
                 <Sliders className="w-4 h-4 text-[#087F6A]" />
-                <h2 className="text-sm font-bold text-[#172033] uppercase tracking-wider font-mono">
+                <h2 className="text-sm font-extrabold text-[#0B1120] uppercase tracking-wider font-mono">
                   1. Factory Parameter Inputs
                 </h2>
               </div>
               <button
                 type="button"
                 onClick={() => setForm(scenarios.bottleneck.data)}
-                className="text-xs text-[#64748B] hover:text-[#172033] flex items-center gap-1 font-mono transition-colors cursor-pointer"
+                className="text-xs text-[#334155] hover:text-[#0B1120] flex items-center gap-1 font-mono font-bold transition-colors cursor-pointer"
               >
-                <RotateCcw className="w-3 h-3" /> Reset
+                <RotateCcw className="w-3.5 h-3.5" /> Reset
               </button>
             </div>
 
@@ -266,31 +266,31 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
               {/* Order & Buyer info */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div className="space-y-1">
-                  <label className="text-[#64748B] font-mono text-[11px]">ORDER NUMBER</label>
+                  <label className="text-[#334155] font-mono font-bold text-xs">ORDER NUMBER</label>
                   <input
                     type="text"
                     value={form.orderNumber}
                     onChange={(e) => setForm({ ...form, orderNumber: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A] shadow-sm"
                     placeholder="e.g. BD-3048"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[#64748B] font-mono text-[11px]">BUYER / BRAND</label>
+                  <label className="text-[#334155] font-mono font-bold text-xs">BUYER / BRAND</label>
                   <input
                     type="text"
                     value={form.buyerName}
                     onChange={(e) => setForm({ ...form, buyerName: e.target.value })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-semibold focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A] shadow-sm"
                     placeholder="e.g. Nordic Apparel"
                   />
                 </div>
                 <div className="space-y-1">
-                  <label className="text-[#64748B] font-mono text-[11px]">GARMENT CATEGORY</label>
+                  <label className="text-[#334155] font-mono font-bold text-xs">GARMENT CATEGORY</label>
                   <select
                     value={form.category}
                     onChange={(e) => setForm({ ...form, category: e.target.value as any })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A] cursor-pointer"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-semibold focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A] cursor-pointer shadow-sm"
                   >
                     <option value="Knitwear">Knitwear (T-Shirts, Polos)</option>
                     <option value="Woven">Woven (Shirts, Trousers)</option>
@@ -301,11 +301,11 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
               </div>
 
               {/* Order Quantity & Deadline */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] shadow-sm">
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#172033] font-mono text-[11px] font-semibold">ORDER QUANTITY</label>
-                    <span className="text-[#087F6A] font-mono font-bold">{form.orderQuantity.toLocaleString()} pcs</span>
+                    <label className="text-[#0B1120] font-mono text-xs font-bold">ORDER QUANTITY</label>
+                    <span className="text-[#087F6A] font-mono font-bold text-sm">{form.orderQuantity.toLocaleString()} pcs</span>
                   </div>
                   <input
                     type="number"
@@ -314,14 +314,14 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     step="1000"
                     value={form.orderQuantity}
                     onChange={(e) => setForm({ ...form, orderQuantity: Number(e.target.value) || 0 })}
-                    className="w-full px-3 py-2 rounded-lg bg-white border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-white border border-[#CBD5E1] text-[#0B1120] font-mono font-bold focus:outline-none focus:border-[#087F6A] shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#172033] font-mono text-[11px] font-semibold">DAYS UNTIL DEADLINE</label>
-                    <span className="text-[#087F6A] font-mono font-bold">{form.daysRemaining} Days</span>
+                    <label className="text-[#0B1120] font-mono text-xs font-bold">DAYS UNTIL DEADLINE</label>
+                    <span className="text-[#087F6A] font-mono font-bold text-sm">{form.daysRemaining} Days</span>
                   </div>
                   <input
                     type="number"
@@ -329,17 +329,17 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     max="60"
                     value={form.daysRemaining}
                     onChange={(e) => setForm({ ...form, daysRemaining: Number(e.target.value) || 1 })}
-                    className="w-full px-3 py-2 rounded-lg bg-white border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-white border border-[#CBD5E1] text-[#0B1120] font-mono font-bold focus:outline-none focus:border-[#087F6A] shadow-sm"
                   />
                 </div>
               </div>
 
               {/* Current Production & Daily Capacity */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0]">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] shadow-sm">
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#172033] font-mono text-[11px] font-semibold">CURRENT PRODUCTION COMPLETED</label>
-                    <span className="text-[#64748B] font-mono">{Math.round((form.currentProduction / Math.max(1, form.orderQuantity)) * 100)}%</span>
+                    <label className="text-[#0B1120] font-mono text-xs font-bold">CURRENT PRODUCTION COMPLETED</label>
+                    <span className="text-[#334155] font-mono font-bold">{Math.round((form.currentProduction / Math.max(1, form.orderQuantity)) * 100)}%</span>
                   </div>
                   <input
                     type="number"
@@ -348,14 +348,14 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     step="500"
                     value={form.currentProduction}
                     onChange={(e) => setForm({ ...form, currentProduction: Number(e.target.value) || 0 })}
-                    className="w-full px-3 py-2 rounded-lg bg-white border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-white border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:border-[#087F6A] shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-1">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#172033] font-mono text-[11px] font-semibold">DAILY PRODUCTION CAPACITY</label>
-                    <span className="text-[#64748B] font-mono">{form.dailyCapacity.toLocaleString()} pcs / day</span>
+                    <label className="text-[#0B1120] font-mono text-xs font-bold">DAILY PRODUCTION CAPACITY</label>
+                    <span className="text-[#334155] font-mono font-bold">{form.dailyCapacity.toLocaleString()} pcs / day</span>
                   </div>
                   <input
                     type="number"
@@ -364,7 +364,7 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     step="100"
                     value={form.dailyCapacity}
                     onChange={(e) => setForm({ ...form, dailyCapacity: Number(e.target.value) || 100 })}
-                    className="w-full px-3 py-2 rounded-lg bg-white border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-white border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:border-[#087F6A] shadow-sm"
                   />
                 </div>
               </div>
@@ -373,8 +373,8 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1.5">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#64748B] font-mono text-[11px]">INVENTORY & TRIMS AVAILABLE</label>
-                    <span className="text-[#087F6A] font-mono font-bold">{form.inventoryTrimsPercent}%</span>
+                    <label className="text-[#334155] font-mono font-bold text-xs">INVENTORY & TRIMS AVAILABLE</label>
+                    <span className="text-[#087F6A] font-mono font-extrabold text-sm">{form.inventoryTrimsPercent}%</span>
                   </div>
                   <input
                     type="range"
@@ -388,11 +388,11 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[#64748B] font-mono text-[11px]">FABRIC / RAW MATERIAL STATUS</label>
+                  <label className="text-[#334155] font-mono font-bold text-xs">FABRIC / RAW MATERIAL STATUS</label>
                   <select
                     value={form.fabricStatus}
                     onChange={(e) => setForm({ ...form, fabricStatus: e.target.value as any })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] focus:outline-none focus:border-[#087F6A] cursor-pointer"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-semibold focus:outline-none focus:border-[#087F6A] cursor-pointer shadow-sm"
                   >
                     <option value="In Warehouse">In Warehouse (Ready for Cutting)</option>
                     <option value="In Transit / Delayed">In Transit / Delayed (+3 Days)</option>
@@ -406,8 +406,8 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <div className="space-y-1.5">
                   <div className="flex justify-between items-center">
-                    <label className="text-[#64748B] font-mono text-[11px]">QC DEFECT RATE (%)</label>
-                    <span className={`font-mono font-bold ${form.defectRate > 4.5 ? 'text-rose-600' : form.defectRate > 2.5 ? 'text-amber-600' : 'text-[#087F6A]'}`}>
+                    <label className="text-[#334155] font-mono font-bold text-xs">QC DEFECT RATE (%)</label>
+                    <span className={`font-mono font-bold text-sm ${form.defectRate > 4.5 ? 'text-rose-700' : form.defectRate > 2.5 ? 'text-amber-700' : 'text-[#087F6A]'}`}>
                       {form.defectRate}%
                     </span>
                   </div>
@@ -418,16 +418,16 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     step="0.1"
                     value={form.defectRate}
                     onChange={(e) => setForm({ ...form, defectRate: Number(e.target.value) || 0.1 })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] font-mono focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:border-[#087F6A] shadow-sm"
                   />
                 </div>
 
                 <div className="space-y-1.5">
-                  <label className="text-[#64748B] font-mono text-[11px]">SHIPMENT & PORT STATUS</label>
+                  <label className="text-[#334155] font-mono font-bold text-xs">SHIPMENT & PORT STATUS</label>
                   <select
                     value={form.shipmentStatus}
                     onChange={(e) => setForm({ ...form, shipmentStatus: e.target.value as any })}
-                    className="w-full px-3 py-2 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] focus:outline-none focus:border-[#087F6A] cursor-pointer"
+                    className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-semibold focus:outline-none focus:border-[#087F6A] cursor-pointer shadow-sm"
                   >
                     <option value="On Schedule">On Schedule (Normal Port Feeder)</option>
                     <option value="Port Feeder at Risk">Port Feeder at Risk (Tight Cutoff)</option>
@@ -439,12 +439,12 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
             </div>
 
             {/* Run AI Analysis Action Button */}
-            <div className="pt-2 border-t border-[#F1F5F9]">
+            <div className="pt-2 border-t border-[#CBD5E1]">
               <button
                 type="button"
                 onClick={handleRunAiAnalysis}
                 disabled={isAnalyzing}
-                className="w-full py-3 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer disabled:opacity-50"
+                className="w-full py-3 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-sm flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer disabled:opacity-50 hover:shadow-md"
               >
                 {isAnalyzing ? (
                   <>
@@ -464,37 +464,37 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
 
         {/* Right Column: AI Risk Result & Recommendations (5 Cols) */}
         <div className="lg:col-span-5 space-y-5">
-          <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-5">
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+          <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-5">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div className="flex items-center gap-2">
                 <Sparkles className="w-4 h-4 text-[#087F6A]" />
-                <h2 className="text-sm font-bold text-[#172033] uppercase tracking-wider font-mono">
+                <h2 className="text-sm font-extrabold text-[#0B1120] uppercase tracking-wider font-mono">
                   2. AI Risk Evaluation Result
                 </h2>
               </div>
-              <span className="text-[10px] font-mono text-[#64748B] bg-[#F8FAFC] px-2 py-0.5 rounded border border-[#E2E8F0]">
+              <span className="text-xs font-mono font-bold text-[#334155] bg-[#F8FAFC] px-2.5 py-1 rounded-md border border-[#CBD5E1] shadow-sm">
                 {analysisResult.analyzedAt}
               </span>
             </div>
 
             {/* Primary KPI Card: Delay Risk % & Status */}
-            <div className={`p-5 rounded-xl border space-y-3 ${
+            <div className={`p-5 rounded-xl border space-y-3 shadow-sm ${
               analysisResult.delayRiskPercent >= 70
-                ? 'bg-rose-50 border-rose-200'
+                ? 'bg-rose-50 border-rose-300'
                 : analysisResult.delayRiskPercent >= 40
-                ? 'bg-amber-50 border-amber-200'
-                : 'bg-emerald-50 border-emerald-200'
+                ? 'bg-amber-50 border-amber-300'
+                : 'bg-emerald-50 border-emerald-300'
             }`}>
               <div className="flex items-center justify-between">
                 <div>
-                  <div className="text-[10px] font-mono uppercase tracking-wider text-[#64748B]">
+                  <div className="text-xs font-mono uppercase font-bold tracking-wider text-[#334155]">
                     CALCULATED DELAY RISK
                   </div>
-                  <div className={`text-3xl font-black font-mono mt-0.5 ${
+                  <div className={`text-4xl font-black font-mono mt-0.5 tracking-tight ${
                     analysisResult.delayRiskPercent >= 70
-                      ? 'text-rose-600'
+                      ? 'text-rose-700'
                       : analysisResult.delayRiskPercent >= 40
-                      ? 'text-amber-600'
+                      ? 'text-amber-700'
                       : 'text-[#087F6A]'
                   }`}>
                     {analysisResult.delayRiskPercent}%
@@ -502,29 +502,29 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                 </div>
 
                 <div className="text-right">
-                  <span className={`px-2.5 py-1 rounded-full text-xs font-bold font-mono uppercase border ${
+                  <span className={`px-3 py-1 rounded-full text-xs font-bold font-mono uppercase border shadow-sm ${
                     analysisResult.delayRiskPercent >= 70
-                      ? 'bg-rose-100 text-rose-800 border-rose-200'
+                      ? 'bg-rose-100 text-rose-900 border-rose-300'
                       : analysisResult.delayRiskPercent >= 40
-                      ? 'bg-amber-100 text-amber-800 border-amber-200'
-                      : 'bg-emerald-100 text-[#065F46] border-emerald-200'
+                      ? 'bg-amber-100 text-amber-900 border-amber-300'
+                      : 'bg-emerald-100 text-[#065F46] border-emerald-300'
                   }`}>
                     {analysisResult.productionRiskLevel} Risk
                   </span>
-                  <div className="text-[11px] text-[#64748B] font-mono mt-1">
-                    Quality Risk: <span className="text-[#172033] font-semibold">{analysisResult.qualityRiskLevel}</span>
+                  <div className="text-xs text-[#334155] font-mono font-medium mt-1.5">
+                    Quality Risk: <span className="text-[#0B1120] font-bold">{analysisResult.qualityRiskLevel}</span>
                   </div>
                 </div>
               </div>
 
               {/* Progress visual bar */}
-              <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
+              <div className="w-full bg-[#CBD5E1] h-2.5 rounded-full overflow-hidden">
                 <div
                   className={`h-full transition-all duration-500 ${
                     analysisResult.delayRiskPercent >= 70
-                      ? 'bg-rose-500'
+                      ? 'bg-rose-600'
                       : analysisResult.delayRiskPercent >= 40
-                      ? 'bg-amber-500'
+                      ? 'bg-amber-600'
                       : 'bg-[#087F6A]'
                   }`}
                   style={{ width: `${analysisResult.delayRiskPercent}%` }}
@@ -533,44 +533,44 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
             </div>
 
             {/* Capacity Gap Indicator */}
-            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
+            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 shadow-sm">
               <div className="flex items-center justify-between text-xs">
-                <span className="font-mono text-[#64748B]">PRODUCTION CAPACITY GAP</span>
-                <span className={`font-mono font-bold ${analysisResult.capacityGap > 0 ? 'text-amber-700' : 'text-[#065F46]'}`}>
+                <span className="font-mono font-bold text-[#334155]">PRODUCTION CAPACITY GAP</span>
+                <span className={`font-mono font-bold text-sm ${analysisResult.capacityGap > 0 ? 'text-amber-800' : 'text-[#065F46]'}`}>
                   {analysisResult.capacityGap > 0 
                     ? `-${analysisResult.capacityGap.toLocaleString()} pcs Deficit` 
                     : '✓ Zero Deficit (Capacity Balanced)'}
                 </span>
               </div>
-              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#E2E8F0] text-[11px] text-[#334155] font-mono">
+              <div className="grid grid-cols-2 gap-2 pt-2 border-t border-[#CBD5E1] text-xs text-[#334155] font-mono">
                 <div>
-                  <span className="text-[#64748B]">Projected Run:</span> {analysisResult.projectedOutput.toLocaleString()} pcs
+                  <span className="text-[#475569] font-medium">Projected Run:</span> <strong className="text-[#0B1120]">{analysisResult.projectedOutput.toLocaleString()} pcs</strong>
                 </div>
                 <div>
-                  <span className="text-[#64748B]">Committed Order:</span> {form.orderQuantity.toLocaleString()} pcs
+                  <span className="text-[#475569] font-medium">Committed Order:</span> <strong className="text-[#0B1120]">{form.orderQuantity.toLocaleString()} pcs</strong>
                 </div>
               </div>
             </div>
 
             {/* AI Explanation */}
             <div className="space-y-1.5">
-              <div className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider flex items-center gap-1.5">
+              <div className="text-xs font-mono font-bold text-[#334155] uppercase tracking-wider flex items-center gap-1.5">
                 <Sparkles className="w-3.5 h-3.5 text-[#087F6A]" />
                 <span>AI Risk Synthesis & Explanation</span>
               </div>
-              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#334155] leading-relaxed">
+              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#0B1120] leading-relaxed font-medium shadow-sm">
                 {analysisResult.aiExplanation}
               </div>
             </div>
 
             {/* Recommended Action Checklist */}
             <div className="space-y-2">
-              <div className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider">
+              <div className="text-xs font-mono font-bold text-[#334155] uppercase tracking-wider">
                 Recommended Actions:
               </div>
               <div className="space-y-1.5">
                 {analysisResult.recommendedActions.map((act, idx) => (
-                  <div key={idx} className="p-2.5 rounded-lg bg-emerald-50/70 border border-emerald-200 text-xs text-[#172033] flex items-start gap-2">
+                  <div key={idx} className="p-2.5 rounded-md bg-emerald-50/70 border border-emerald-300 text-xs text-[#0B1120] flex items-start gap-2 shadow-sm font-medium">
                     <CheckCircle2 className="w-4 h-4 text-[#087F6A] shrink-0 mt-0.5" />
                     <span>{act}</span>
                   </div>
@@ -580,29 +580,29 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
 
             {/* Dynamic Capacity Matching Transition Button */}
             {analysisResult.capacityGap > 0 ? (
-              <div className="pt-2 border-t border-[#F1F5F9] space-y-2">
-                <div className="text-xs text-amber-800 font-mono flex items-center gap-1.5">
+              <div className="pt-2 border-t border-[#CBD5E1] space-y-2">
+                <div className="text-xs text-amber-900 font-mono flex items-center gap-1.5 font-bold">
                   <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
                   <span>Deficit of {analysisResult.capacityGap.toLocaleString()} pcs requires peer delegation.</span>
                 </div>
                 <button
                   type="button"
                   onClick={handleFindCapacity}
-                  className="w-full py-3 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                  className="w-full py-3 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm transition-all cursor-pointer hover:shadow-md hover:-translate-y-0.5"
                 >
                   <Zap className="w-4 h-4 fill-white" />
                   <span>Find Verified Capacity ({analysisResult.capacityGap.toLocaleString()} pcs) →</span>
                 </button>
               </div>
             ) : (
-              <div className="pt-2 border-t border-[#F1F5F9]">
+              <div className="pt-2 border-t border-[#CBD5E1]">
                 <button
                   type="button"
                   onClick={() => onNavigate('forecast')}
-                  className="w-full py-3 rounded-xl bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[#172033] font-semibold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer"
+                  className="w-full py-3 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#0B1120] font-bold text-xs flex items-center justify-center gap-2 transition-all cursor-pointer shadow-sm hover:shadow"
                 >
                   <span>View 14-Day Delivery Forecast</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#64748B]" />
+                  <ArrowRight className="w-3.5 h-3.5 text-[#334155]" />
                 </button>
               </div>
             )}
@@ -611,31 +611,31 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
       </div>
 
       {/* Root Cause Key Factors Matrix */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-4">
-        <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+      <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-4">
+        <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
           <div className="flex items-center gap-2">
             <Layers className="w-4 h-4 text-[#087F6A]" />
-            <h3 className="text-sm font-bold text-[#172033] uppercase tracking-wider font-mono">
+            <h3 className="text-sm font-extrabold text-[#0B1120] uppercase tracking-wider font-mono">
               Live Neural Factor Weights (Root-Cause Correlation)
             </h3>
           </div>
-          <span className="text-xs text-[#64748B] font-mono">
+          <span className="text-xs text-[#334155] font-mono font-medium">
             Directly derived from active form variables
           </span>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs">
           {analysisResult.keyFactors.map((factor, idx) => (
-            <div key={idx} className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
+            <div key={idx} className="p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 shadow-sm">
               <div className="flex items-center justify-between">
-                <span className="text-[#64748B] font-mono text-[10px] uppercase">{factor.label}</span>
+                <span className="text-[#334155] font-mono text-xs uppercase font-bold">{factor.label}</span>
                 <span className={`w-2.5 h-2.5 rounded-full ${
                   factor.severity === 'red' ? 'bg-rose-500 ring-2 ring-rose-200' :
                   factor.severity === 'amber' ? 'bg-amber-500 ring-2 ring-amber-200' :
                   'bg-emerald-500 ring-2 ring-emerald-200'
                 }`} />
               </div>
-              <div className="font-bold text-[#172033] text-sm">
+              <div className="font-extrabold text-[#0B1120] text-sm">
                 {factor.impact}
               </div>
             </div>

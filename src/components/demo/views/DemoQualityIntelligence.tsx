@@ -407,20 +407,20 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
   return (
     <div className="space-y-6 max-w-7xl mx-auto pb-16">
       {/* Header Banner */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm">
         <div className="space-y-1">
-          <div className="flex items-center gap-2">
-            <div className="p-2 rounded-xl bg-emerald-50 text-[#087F6A] border border-emerald-200">
+          <div className="flex items-center gap-2.5">
+            <div className="p-2 rounded-lg bg-emerald-50 text-[#087F6A] border border-emerald-300 shadow-sm">
               <Scan className="w-5 h-5" />
             </div>
-            <h1 className="text-xl font-bold text-[#172033] tracking-tight">
+            <h1 className="text-xl font-extrabold text-[#0B1120] tracking-tight">
               AI Quality Intelligence & Edge Vision QC
             </h1>
             <Badge variant="blue" dot>
               EDGE VISION ON-PREM
             </Badge>
           </div>
-          <p className="text-xs text-[#64748B] max-w-2xl">
+          <p className="text-sm text-[#334155] font-medium max-w-2xl mt-1">
             Real-time end-of-line optical camera stream with bounding-box stitch defect classification, needle telemetry diagnostics, and ISO 2859-1 AQL compliance.
           </p>
         </div>
@@ -428,16 +428,16 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
         <div className="flex flex-wrap items-center gap-2.5">
           <button
             onClick={() => setSoundEnabled(!soundEnabled)}
-            className="p-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[#64748B] hover:text-[#172033] text-xs transition-colors cursor-pointer"
+            className="p-2.5 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#334155] hover:text-[#0B1120] text-xs transition-colors cursor-pointer shadow-sm hover:shadow hover:-translate-y-0.5"
             title={soundEnabled ? 'Mute Audio Signals' : 'Enable Audio Signals'}
           >
-            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#087F6A]" /> : <VolumeX className="w-4 h-4 text-[#94A3B8]" />}
+            {soundEnabled ? <Volume2 className="w-4 h-4 text-[#087F6A]" /> : <VolumeX className="w-4 h-4 text-[#475569]" />}
           </button>
 
           <button
             onClick={() => runCameraFrameScan()}
             disabled={isScanning}
-            className="px-4 py-2.5 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-xs cursor-pointer disabled:opacity-50"
+            className="px-4 py-2.5 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-2 transition-all shadow-sm hover:shadow-md hover:-translate-y-0.5 cursor-pointer disabled:opacity-50"
           >
             <Sparkles className={`w-4 h-4 ${isScanning ? 'animate-spin' : ''}`} />
             <span>{isScanning ? 'Inferring Edge Tensor...' : 'Simulate Camera Frame Scan'}</span>
@@ -445,7 +445,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
           <button
             onClick={() => onNavigate('data-entry')}
-            className="px-3.5 py-2.5 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[#172033] text-xs font-semibold flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="px-3.5 py-2.5 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#0B1120] text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer shadow-sm hover:shadow hover:-translate-y-0.5"
           >
             <Sliders className="w-3.5 h-3.5 text-[#087F6A]" />
             <span>Factory Data Entry</span>
@@ -454,9 +454,9 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
       </div>
 
       {/* Sync Defect Rate to Factory Data Entry Bar */}
-      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-200 flex flex-wrap items-center justify-between gap-4">
+      <div className="p-4 rounded-xl bg-emerald-50 border border-emerald-300 flex flex-wrap items-center justify-between gap-4 shadow-sm">
         <div className="flex items-center gap-3">
-          <div className="p-2.5 rounded-lg bg-emerald-100 text-[#087F6A] shrink-0">
+          <div className="p-2.5 rounded-lg bg-emerald-100 text-[#087F6A] shrink-0 border border-emerald-200">
             <Zap className="w-5 h-5" />
           </div>
           <div>
@@ -464,13 +464,13 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               <span className="text-xs font-mono font-bold text-[#065F46] uppercase tracking-wider">
                 LIVE QC DEFECT RATE: {calculatedDefectRate}%
               </span>
-              <span className={`text-[10px] px-2 py-0.5 rounded font-mono font-bold ${
-                calculatedDefectRate > 4.0 ? 'bg-rose-100 text-rose-800 border border-rose-200' : 'bg-emerald-100 text-[#065F46] border border-emerald-200'
+              <span className={`text-[10px] px-2.5 py-0.5 rounded-full font-mono font-bold uppercase shadow-sm ${
+                calculatedDefectRate > 4.0 ? 'bg-rose-100 text-rose-900 border border-rose-300' : 'bg-emerald-100 text-[#065F46] border border-emerald-300'
               }`}>
                 {calculatedDefectRate > 4.0 ? 'Elevated Rework Load' : 'AQL 1.5 Export Pass'}
               </span>
             </div>
-            <p className="text-xs text-[#334155] mt-0.5">
+            <p className="text-xs text-[#0B1120] font-medium mt-0.5">
               Syncing this defect rate directly updates the AI Risk Center's delivery delay score and sewing capacity calculations for Order #{activeOrderNumber}.
             </p>
           </div>
@@ -485,7 +485,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
           )}
           <button
             onClick={handleSyncToDataEntry}
-            className="px-4 py-2 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+            className="px-4 py-2 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-1.5 shadow-sm hover:shadow-md transition-all cursor-pointer"
           >
             <CheckCircle2 className="w-4 h-4" />
             <span>Apply to Factory Data Entry & Recalculate Risk</span>
@@ -495,55 +495,55 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
       {/* 4 Summary Stat Cards */}
       <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="text-[11px] font-mono text-[#64748B] uppercase">Current Defect Rate</div>
-          <div className={`text-2xl sm:text-3xl font-black font-mono ${
-            calculatedDefectRate > 4.0 ? 'text-rose-600' : calculatedDefectRate > 2.5 ? 'text-amber-600' : 'text-[#087F6A]'
+        <div className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-2">
+          <div className="text-xs font-mono font-bold text-[#334155] uppercase">Current Defect Rate</div>
+          <div className={`text-3xl sm:text-4xl font-black font-mono tracking-tight ${
+            calculatedDefectRate > 4.0 ? 'text-rose-700' : calculatedDefectRate > 2.5 ? 'text-amber-700' : 'text-[#087F6A]'
           }`}>
             {calculatedDefectRate}%
           </div>
-          <div className="text-[11px] text-[#64748B] flex items-center justify-between">
+          <div className="text-xs text-[#334155] font-medium flex items-center justify-between pt-1 border-t border-[#CBD5E1]">
             <span>AQL Standard Limit: 2.5%</span>
-            <span className={calculatedDefectRate > 2.5 ? 'text-rose-600 font-bold' : 'text-[#087F6A] font-bold'}>
+            <span className={calculatedDefectRate > 2.5 ? 'text-rose-700 font-extrabold' : 'text-[#087F6A] font-extrabold'}>
               {calculatedDefectRate > 2.5 ? 'FAIL' : 'PASS'}
             </span>
           </div>
         </div>
 
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="text-[11px] font-mono text-[#64748B] uppercase">Inspected Units Today</div>
-          <div className="text-2xl sm:text-3xl font-black text-[#172033] font-mono">{inspectedPiecesCount.toLocaleString()} pcs</div>
-          <div className="text-[11px] text-[#087F6A] flex items-center gap-1">
-            <CheckCircle2 className="w-3 h-3" />
+        <div className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-2">
+          <div className="text-xs font-mono font-bold text-[#334155] uppercase">Inspected Units Today</div>
+          <div className="text-3xl sm:text-4xl font-black text-[#0B1120] font-mono tracking-tight">{inspectedPiecesCount.toLocaleString()} pcs</div>
+          <div className="text-xs text-[#087F6A] font-bold flex items-center gap-1 pt-1 border-t border-[#CBD5E1]">
+            <CheckCircle2 className="w-3.5 h-3.5" />
             <span>100% 4K Optical Station 04</span>
           </div>
         </div>
 
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="text-[11px] font-mono text-[#64748B] uppercase">Critical Anomalies</div>
-          <div className="text-2xl sm:text-3xl font-black text-rose-600 font-mono">{criticalCount} Flagged</div>
-          <div className="text-[11px] text-[#64748B]">Immediate rework required</div>
+        <div className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-2">
+          <div className="text-xs font-mono font-bold text-[#334155] uppercase">Critical Anomalies</div>
+          <div className="text-3xl sm:text-4xl font-black text-rose-700 font-mono tracking-tight">{criticalCount} Flagged</div>
+          <div className="text-xs text-[#334155] font-medium pt-1 border-t border-[#CBD5E1]">Immediate rework required</div>
         </div>
 
-        <div className="p-4 sm:p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-1">
-          <div className="text-[11px] font-mono text-[#64748B] uppercase">Edge Model Latency</div>
-          <div className="text-2xl sm:text-3xl font-black text-[#087F6A] font-mono">18.4 ms</div>
-          <div className="text-[11px] text-[#64748B]">MobileNetV3 on NVIDIA Jetson</div>
+        <div className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-2">
+          <div className="text-xs font-mono font-bold text-[#334155] uppercase">Edge Model Latency</div>
+          <div className="text-3xl sm:text-4xl font-black text-[#087F6A] font-mono tracking-tight">18.4 ms</div>
+          <div className="text-xs text-[#334155] font-medium pt-1 border-t border-[#CBD5E1]">MobileNetV3 on NVIDIA Jetson</div>
         </div>
       </div>
 
       {/* Main Optical Canvas + Defect Inspector */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Left: Garment Optical Video / Sensor View */}
-        <div className="lg:col-span-7 p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-4 flex flex-col justify-between">
+        <div className="lg:col-span-7 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-4 flex flex-col justify-between">
           <div>
             {/* Source Mode Selector (Samples / Live Web Camera / Custom Upload) */}
-            <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-[#F1F5F9]">
-              <div className="flex items-center gap-1 p-1 bg-[#F8FAFC] rounded-xl border border-[#E2E8F0]">
+            <div className="flex flex-wrap items-center justify-between gap-3 mb-4 pb-3 border-b border-[#CBD5E1]">
+              <div className="flex items-center gap-1 p-1 bg-[#F8FAFC] rounded-lg border border-[#CBD5E1] shadow-sm">
                 <button
                   onClick={() => setSourceMode('samples')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
-                    sourceMode === 'samples' ? 'bg-white text-[#087F6A] font-bold shadow-2xs border border-[#E2E8F0]' : 'text-[#64748B] hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    sourceMode === 'samples' ? 'bg-white text-[#087F6A] shadow-sm border border-[#CBD5E1]' : 'text-[#334155] hover:text-[#0B1120]'
                   }`}
                 >
                   <ImageIcon className="w-3.5 h-3.5" />
@@ -552,8 +552,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
                 <button
                   onClick={() => setSourceMode('camera')}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
-                    sourceMode === 'camera' ? 'bg-white text-[#087F6A] font-bold shadow-2xs border border-[#E2E8F0]' : 'text-[#64748B] hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    sourceMode === 'camera' ? 'bg-white text-[#087F6A] shadow-sm border border-[#CBD5E1]' : 'text-[#334155] hover:text-[#0B1120]'
                   }`}
                 >
                   <Camera className="w-3.5 h-3.5" />
@@ -562,8 +562,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
                 <button
                   onClick={() => fileInputRef.current?.click()}
-                  className={`px-3 py-1.5 rounded-lg text-xs font-medium flex items-center gap-1.5 transition-all cursor-pointer ${
-                    sourceMode === 'upload' ? 'bg-white text-[#087F6A] font-bold shadow-2xs border border-[#E2E8F0]' : 'text-[#64748B] hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md text-xs font-bold flex items-center gap-1.5 transition-all cursor-pointer ${
+                    sourceMode === 'upload' ? 'bg-white text-[#087F6A] shadow-sm border border-[#CBD5E1]' : 'text-[#334155] hover:text-[#0B1120]'
                   }`}
                 >
                   <Upload className="w-3.5 h-3.5" />
@@ -588,8 +588,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                         setSelectedSample(s);
                         runCameraFrameScan(s);
                       }}
-                      className={`px-2.5 py-1 rounded-lg text-[11px] font-medium transition-colors cursor-pointer ${
-                        selectedSample === s ? 'bg-emerald-50 text-[#087F6A] font-bold border border-emerald-200' : 'text-[#64748B] hover:text-[#172033]'
+                      className={`px-2.5 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-pointer shadow-sm ${
+                        selectedSample === s ? 'bg-emerald-50 text-[#087F6A] border border-emerald-300' : 'bg-[#F8FAFC] text-[#334155] hover:text-[#0B1120] border border-[#CBD5E1]'
                       }`}
                     >
                       {s.toUpperCase()}
@@ -600,7 +600,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
             </div>
 
             {/* Visual Canvas Container */}
-            <div className="relative w-full h-96 sm:h-[420px] rounded-2xl bg-[#0F172A] border border-[#E2E8F0] flex items-center justify-center overflow-hidden select-none">
+            <div className="relative w-full h-96 sm:h-[420px] rounded-xl bg-[#0F172A] border border-[#CBD5E1] flex items-center justify-center overflow-hidden select-none shadow-md">
               {/* Grid Lines */}
               <div className="absolute inset-0 bg-[linear-gradient(to_right,#334155_1px,transparent_1px),linear-gradient(to_bottom,#334155_1px,transparent_1px)] bg-[size:24px_24px] opacity-25 pointer-events-none" />
 
@@ -619,7 +619,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                       autoPlay
                       playsInline
                       muted
-                      className="w-full h-full object-cover rounded-2xl"
+                      className="w-full h-full object-cover rounded-xl"
                     />
                   )}
 
@@ -646,8 +646,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                       </div>
 
                       {/* Garment Silhouette on Optical Stage */}
-                      <div className="relative w-64 h-72 border-2 border-slate-700/80 rounded-3xl flex flex-col items-center justify-between p-4 bg-slate-900/80 shadow-2xl backdrop-blur-sm z-10">
-                        <div className="w-28 h-12 border-2 border-slate-600 rounded-b-2xl bg-slate-800 flex flex-col items-center justify-center text-[9px] font-mono text-slate-300 shadow-inner">
+                      <div className="relative w-64 h-72 border-2 border-slate-700/80 rounded-2xl flex flex-col items-center justify-between p-4 bg-slate-900/80 shadow-2xl backdrop-blur-sm z-10">
+                        <div className="w-28 h-12 border-2 border-slate-600 rounded-b-xl bg-slate-800 flex flex-col items-center justify-center text-[9px] font-mono text-slate-300 shadow-inner">
                           <span className="font-bold">Collar Rib Assembly</span>
                           <span className="text-[7px] text-slate-400">180 GSM Jersey</span>
                         </div>
@@ -662,15 +662,15 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                       </div>
 
                       {/* Simulation Notice Ribbon */}
-                      <div className="absolute top-12 inset-x-4 z-30 flex items-center justify-between p-2 rounded-xl bg-slate-900/90 border border-emerald-500/30 backdrop-blur-md text-[11px]">
-                        <div className="flex items-center gap-2 text-slate-300">
+                      <div className="absolute top-12 inset-x-4 z-30 flex items-center justify-between p-2 rounded-xl bg-slate-900/90 border border-emerald-500/30 backdrop-blur-md text-xs">
+                        <div className="flex items-center gap-2 text-slate-300 font-medium">
                           <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                           <span>Optical Sensor Stream Active (Industrial Camera Mode)</span>
                         </div>
                         <div className="flex items-center gap-1.5">
                           <button
                             onClick={() => startCamera(cameraFacingMode)}
-                            className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-white font-mono text-[10px] flex items-center gap-1 border border-slate-700 cursor-pointer"
+                            className="px-2 py-1 rounded-md bg-slate-800 hover:bg-slate-700 text-white font-mono text-xs flex items-center gap-1 border border-slate-700 cursor-pointer shadow-sm"
                             title="Retry hardware camera"
                           >
                             <RefreshCw className="w-3 h-3 text-emerald-400" />
@@ -678,7 +678,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                           </button>
                           <button
                             onClick={() => window.open(window.location.href, '_blank')}
-                            className="px-2 py-1 rounded bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-[10px] flex items-center gap-1 cursor-pointer"
+                            className="px-2 py-1 rounded-md bg-emerald-500 hover:bg-emerald-400 text-black font-bold text-xs flex items-center gap-1 cursor-pointer shadow-sm"
                             title="Open in new tab to grant hardware permissions"
                           >
                             <ExternalLink className="w-3 h-3" />
@@ -694,15 +694,15 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                 <img
                   src={uploadedImageUrl}
                   alt="Uploaded Garment"
-                  className="w-full h-full object-contain rounded-2xl"
+                  className="w-full h-full object-contain rounded-xl"
                 />
               ) : (
                 /* GARMENT SILHOUETTE CANVAS */
-                <div className="relative w-72 h-80 border-2 border-dashed border-slate-700/80 rounded-3xl flex flex-col items-center justify-between p-5 bg-slate-900/60 shadow-2xl">
+                <div className="relative w-72 h-80 border-2 border-dashed border-slate-700/80 rounded-2xl flex flex-col items-center justify-between p-5 bg-slate-900/60 shadow-2xl">
                   {/* Collar Band */}
-                  <div className="w-32 h-14 border-2 border-slate-600 rounded-b-3xl bg-slate-800/80 flex flex-col items-center justify-center text-[10px] font-mono text-slate-300 shadow-inner">
+                  <div className="w-32 h-14 border-2 border-slate-600 rounded-b-2xl bg-slate-800/80 flex flex-col items-center justify-center text-xs font-mono text-slate-300 shadow-inner">
                     <span className="font-bold">Collar Rib Assembly</span>
-                    <span className="text-[8px] text-slate-400">180 GSM Jersey</span>
+                    <span className="text-[9px] text-slate-400">180 GSM Jersey</span>
                   </div>
 
                   {/* Chest Placket & Buttons */}
@@ -713,7 +713,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                   </div>
 
                   {/* Hem */}
-                  <div className="w-64 h-6 border-t-2 border-slate-700 bg-slate-800/40 text-center text-[9px] font-mono text-slate-400 flex items-center justify-center">
+                  <div className="w-64 h-6 border-t-2 border-slate-700 bg-slate-800/40 text-center text-[10px] font-mono text-slate-400 flex items-center justify-center">
                     Double-Needle Bottom Hem (AQL 1.5 Target)
                   </div>
                 </div>
@@ -749,17 +749,17 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                     }`}
                   >
                     <div className="flex items-center justify-between pointer-events-none">
-                      <span className={`text-[9px] font-mono font-bold px-1 rounded truncate max-w-[80%] ${
+                      <span className={`text-[10px] font-mono font-bold px-1.5 py-0.5 rounded truncate max-w-[80%] ${
                         isCritical ? 'bg-rose-600 text-white' : isMajor ? 'bg-amber-500 text-slate-950' : 'bg-cyan-500 text-slate-950'
                       }`}>
                         {defect.type}
                       </span>
-                      <span className="text-[9px] font-mono font-bold text-white bg-slate-950/80 px-1 rounded">
+                      <span className="text-[10px] font-mono font-bold text-white bg-slate-950/80 px-1.5 py-0.5 rounded">
                         {defect.confidence}%
                       </span>
                     </div>
 
-                    <div className="flex items-center justify-between text-[8px] font-mono text-slate-300 bg-slate-950/70 px-1 rounded pointer-events-none">
+                    <div className="flex items-center justify-between text-[9px] font-mono font-semibold text-slate-300 bg-slate-950/70 px-1.5 py-0.5 rounded pointer-events-none">
                       <span>{defect.id}</span>
                       <span>{defect.status}</span>
                     </div>
@@ -768,12 +768,12 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               })}
 
               {/* Edge Vision Telemetry Badge Overlay */}
-              <div className="absolute top-3 left-3 flex items-center gap-2 text-[10px] font-mono text-white bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-md z-10">
+              <div className="absolute top-3 left-3 flex items-center gap-2 text-xs font-mono font-bold text-white bg-slate-900/85 px-3 py-1.5 rounded-md border border-slate-700 backdrop-blur-md z-10 shadow-sm">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" />
                 <span>RTSP 1080p · 30 FPS · STATION #04 (LINE 02)</span>
               </div>
 
-              <div className="absolute bottom-3 right-3 text-[10px] font-mono text-white bg-slate-900/80 px-3 py-1.5 rounded-lg border border-slate-700 backdrop-blur-md z-10 flex items-center gap-2">
+              <div className="absolute bottom-3 right-3 text-xs font-mono font-bold text-white bg-slate-900/85 px-3 py-1.5 rounded-md border border-slate-700 backdrop-blur-md z-10 flex items-center gap-2 shadow-sm">
                 <Activity className="w-3.5 h-3.5 text-emerald-400" />
                 <span>INFERENCE: 18.4ms · MobileNetV3-RMG-v2</span>
               </div>
@@ -781,8 +781,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
             {/* Inference Status Log */}
             {isScanning && (
-              <div className="mt-3 p-3 rounded-xl bg-emerald-50 border border-emerald-200 text-xs text-[#065F46] flex items-center justify-between">
-                <div className="flex items-center gap-2">
+              <div className="mt-3 p-3.5 rounded-xl bg-emerald-50 border border-emerald-300 text-xs text-[#065F46] flex items-center justify-between shadow-sm">
+                <div className="flex items-center gap-2 font-medium">
                   <RefreshCw className="w-4 h-4 animate-spin text-[#087F6A]" />
                   <span>{scanPhaseText}</span>
                 </div>
@@ -792,8 +792,8 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
           </div>
 
           {/* Camera Controls & Action Toolbar */}
-          <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-wrap items-center justify-between gap-2 text-xs">
-            <div className="flex items-center gap-2 text-[#64748B]">
+          <div className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] flex flex-wrap items-center justify-between gap-2 text-xs shadow-sm">
+            <div className="flex items-center gap-2 text-[#334155] font-medium">
               <ShieldCheck className="w-4 h-4 text-[#087F6A] shrink-0" />
               <span className="hidden sm:inline">Optical Station 04 active on Line 02.</span>
               <span className="sm:hidden">Line 02 Optical Active.</span>
@@ -802,7 +802,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               {sourceMode === 'camera' && (
                 <button
                   onClick={flipCamera}
-                  className="px-3 py-1.5 rounded-lg bg-white hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[#172033] font-semibold flex items-center gap-1 transition-colors cursor-pointer text-xs"
+                  className="px-3 py-1.5 rounded-md bg-white hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#0B1120] font-bold flex items-center gap-1 transition-all cursor-pointer text-xs shadow-sm hover:shadow"
                   title="Switch camera (Front / Back)"
                 >
                   <SwitchCamera className="w-3.5 h-3.5 text-[#087F6A]" />
@@ -811,7 +811,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               )}
               <button
                 onClick={() => runCameraFrameScan()}
-                className="px-3 py-1.5 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white font-bold flex items-center gap-1 transition-all cursor-pointer text-xs shadow-xs"
+                className="px-3 py-1.5 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold flex items-center gap-1 transition-all cursor-pointer text-xs shadow-sm hover:shadow-md hover:-translate-y-0.5"
               >
                 <RefreshCw className={`w-3.5 h-3.5 ${isScanning ? 'animate-spin' : ''}`} />
                 <span>Capture & AI Scan</span>
@@ -821,62 +821,62 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
         </div>
 
         {/* Right: Selected Defect Inspector & Machine Correction Diagnostics */}
-        <div className="lg:col-span-5 p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-5 flex flex-col justify-between">
+        <div className="lg:col-span-5 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-5 flex flex-col justify-between">
           <div className="space-y-4">
             {/* Inspector Header */}
-            <div className="flex items-start justify-between pb-3 border-b border-[#F1F5F9] gap-2">
+            <div className="flex items-start justify-between pb-3 border-b border-[#CBD5E1] gap-2">
               <div>
-                <span className="text-[10px] font-mono text-[#087F6A] font-bold uppercase tracking-wider">
+                <span className="text-xs font-mono text-[#087F6A] font-extrabold uppercase tracking-wider">
                   OPTICAL DIAGNOSTIC INSPECTOR
                 </span>
-                <h3 className="text-lg font-bold text-[#172033] leading-snug mt-0.5">
+                <h3 className="text-lg font-extrabold text-[#0B1120] leading-snug mt-0.5">
                   {activeDefect.type}
                 </h3>
-                <span className="text-xs font-mono text-[#64748B]">ID: {activeDefect.id}</span>
+                <span className="text-xs font-mono font-semibold text-[#334155]">ID: {activeDefect.id}</span>
               </div>
 
               <div className="text-right">
-                <span className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold inline-block border ${
+                <span className={`px-2.5 py-1 rounded-full text-xs font-mono font-bold inline-block border shadow-sm ${
                   activeDefect.severity === 'Critical'
-                    ? 'bg-rose-100 text-rose-800 border-rose-200'
+                    ? 'bg-rose-100 text-rose-900 border-rose-300'
                     : activeDefect.severity === 'Major'
-                    ? 'bg-amber-100 text-amber-800 border-amber-200'
-                    : 'bg-sky-100 text-sky-800 border-sky-200'
+                    ? 'bg-amber-100 text-amber-900 border-amber-300'
+                    : 'bg-sky-100 text-sky-900 border-sky-300'
                 }`}>
                   {activeDefect.severity.toUpperCase()} · {activeDefect.confidence}%
                 </span>
-                <div className="text-[10px] font-mono text-[#64748B] mt-1">{activeDefect.detectedAt}</div>
+                <div className="text-xs font-mono font-medium text-[#475569] mt-1">{activeDefect.detectedAt}</div>
               </div>
             </div>
 
             {/* Defect Telemetry Grid */}
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between py-1.5 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Associated Order</span>
-                <span className="text-[#172033] font-mono font-semibold">#{activeOrderNumber} ({activeBuyer})</span>
+              <div className="flex justify-between py-1.5 border-b border-[#CBD5E1] text-[#334155]">
+                <span className="font-medium">Associated Order</span>
+                <span className="text-[#0B1120] font-mono font-bold">#{activeOrderNumber} ({activeBuyer})</span>
               </div>
 
-              <div className="flex justify-between py-1.5 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Sewing Workstation</span>
-                <span className="text-[#087F6A] font-mono font-semibold">{activeDefect.lineId}</span>
+              <div className="flex justify-between py-1.5 border-b border-[#CBD5E1] text-[#334155]">
+                <span className="font-medium">Sewing Workstation</span>
+                <span className="text-[#087F6A] font-mono font-bold">{activeDefect.lineId}</span>
               </div>
 
-              <div className="flex justify-between py-1.5 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Machine Telemetry ID</span>
-                <span className="text-[#172033] font-mono">{activeDefect.machineId}</span>
+              <div className="flex justify-between py-1.5 border-b border-[#CBD5E1] text-[#334155]">
+                <span className="font-medium">Machine Telemetry ID</span>
+                <span className="text-[#0B1120] font-mono font-bold">{activeDefect.machineId}</span>
               </div>
 
-              <div className="flex justify-between py-1.5 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Garment Area</span>
-                <span className="text-[#172033] font-semibold">{activeDefect.garmentArea}</span>
+              <div className="flex justify-between py-1.5 border-b border-[#CBD5E1] text-[#334155]">
+                <span className="font-medium">Garment Area</span>
+                <span className="text-[#0B1120] font-bold">{activeDefect.garmentArea}</span>
               </div>
 
-              <div className="flex justify-between py-1.5 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Verification State</span>
-                <span className={`font-mono font-bold ${
+              <div className="flex justify-between py-1.5 border-b border-[#CBD5E1] text-[#334155]">
+                <span className="font-medium">Verification State</span>
+                <span className={`font-mono font-extrabold ${
                   activeDefect.status === 'Verified' ? 'text-[#087F6A]' :
                   activeDefect.status === 'Rework Dispatched' ? 'text-sky-700' :
-                  activeDefect.status === 'False Positive' ? 'text-[#64748B]' : 'text-amber-700'
+                  activeDefect.status === 'False Positive' ? 'text-[#475569]' : 'text-amber-800'
                 }`}>
                   {activeDefect.status}
                 </span>
@@ -884,32 +884,32 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
             </div>
 
             {/* Root Cause Hypothesis Box */}
-            <div className="p-3.5 rounded-xl bg-amber-50/80 border border-amber-200 space-y-1.5">
-              <div className="text-xs font-bold text-amber-800 flex items-center gap-1.5">
-                <AlertTriangle className="w-3.5 h-3.5 text-amber-600" />
+            <div className="p-4 rounded-xl bg-amber-50/80 border border-amber-300 space-y-1.5 shadow-sm">
+              <div className="text-xs font-extrabold text-amber-950 flex items-center gap-1.5">
+                <AlertTriangle className="w-4 h-4 text-amber-600" />
                 <span>AI Root Cause & Tension Hypothesis</span>
               </div>
-              <p className="text-xs text-[#334155] leading-relaxed">
+              <p className="text-xs text-[#0B1120] leading-relaxed font-medium">
                 “{activeDefect.rootCause}”
               </p>
             </div>
 
             {/* Corrective Action Box */}
-            <div className="p-3.5 rounded-xl bg-emerald-50/80 border border-emerald-200 space-y-1.5">
-              <div className="text-xs font-bold text-[#065F46] flex items-center gap-1.5">
-                <Sparkles className="w-3.5 h-3.5 text-[#087F6A]" />
+            <div className="p-4 rounded-xl bg-emerald-50/80 border border-emerald-300 space-y-1.5 shadow-sm">
+              <div className="text-xs font-extrabold text-[#065F46] flex items-center gap-1.5">
+                <Sparkles className="w-4 h-4 text-[#087F6A]" />
                 <span>Recommended Mechanical Calibration</span>
               </div>
-              <p className="text-xs text-[#334155] leading-relaxed">
+              <p className="text-xs text-[#0B1120] leading-relaxed font-medium">
                 {activeDefect.correctiveAction}
               </p>
             </div>
           </div>
 
           {/* Action Buttons */}
-          <div className="space-y-2 pt-4 border-t border-[#F1F5F9]">
+          <div className="space-y-2 pt-4 border-t border-[#CBD5E1]">
             {mechanicDispatchedId === activeDefect.id ? (
-              <div className="p-3 rounded-xl bg-sky-50 border border-sky-200 text-center text-xs text-sky-800 font-bold flex items-center justify-center gap-2 animate-pulse">
+              <div className="p-3 rounded-md bg-sky-50 border border-sky-300 text-center text-xs text-sky-950 font-bold flex items-center justify-center gap-2 animate-pulse shadow-sm">
                 <Wrench className="w-4 h-4 text-sky-600" />
                 <span>Mechanic Alert Dispatched to {activeDefect.machineId}!</span>
               </div>
@@ -917,7 +917,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               <div className="grid grid-cols-2 gap-2">
                 <button
                   onClick={() => handleUpdateStatus(activeDefect.id, 'Verified')}
-                  className="py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                  className="py-2.5 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <Check className="w-4 h-4" />
                   <span>Confirm Defect</span>
@@ -925,7 +925,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
 
                 <button
                   onClick={() => handleDispatchMechanic(activeDefect)}
-                  className="py-2.5 rounded-xl bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-xs cursor-pointer"
+                  className="py-2.5 rounded-md bg-sky-700 hover:bg-sky-600 text-white font-bold text-xs flex items-center justify-center gap-1.5 transition-all shadow-sm hover:shadow-md cursor-pointer"
                 >
                   <Wrench className="w-4 h-4" />
                   <span>Dispatch Mechanic</span>
@@ -933,20 +933,20 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
               </div>
             )}
 
-            <div className="flex items-center justify-between pt-1 text-[11px] text-[#64748B]">
+            <div className="flex items-center justify-between pt-1 text-xs text-[#334155] font-medium">
               <button
                 onClick={() => handleUpdateStatus(activeDefect.id, 'False Positive')}
-                className="text-[#64748B] hover:text-[#172033] underline underline-offset-2 cursor-pointer"
+                className="text-[#334155] hover:text-[#0B1120] underline underline-offset-2 cursor-pointer font-semibold"
               >
                 Flag as False Positive
               </button>
 
               <button
                 onClick={() => onNavigate('risk-center')}
-                className="text-[#087F6A] hover:text-[#066653] font-semibold flex items-center gap-1 cursor-pointer"
+                className="text-[#087F6A] hover:text-[#066653] font-bold flex items-center gap-1 cursor-pointer"
               >
                 <span>View Risk Center</span>
-                <ArrowRight className="w-3 h-3" />
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </div>
@@ -954,26 +954,26 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
       </div>
 
       {/* Defect Detections Log Stream Table */}
-      <div className="p-5 sm:p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-4">
+      <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3">
           <div>
-            <h3 className="text-sm font-bold text-[#172033] flex items-center gap-2">
+            <h3 className="text-sm font-extrabold text-[#0B1120] flex items-center gap-2 uppercase tracking-wider font-mono">
               <Activity className="w-4 h-4 text-[#087F6A]" />
               <span>Edge Vision Detection Log Stream</span>
             </h3>
-            <p className="text-xs text-[#64748B] mt-0.5">
+            <p className="text-xs text-[#334155] font-medium mt-1">
               Live anomaly events recorded by optical station cameras across Sewing Lines 01 to 08.
             </p>
           </div>
 
           <div className="flex items-center gap-1.5 text-xs">
-            <span className="text-[#64748B] mr-1">Filter:</span>
+            <span className="text-[#334155] font-bold mr-1">Filter:</span>
             {(['all', 'Critical', 'Major', 'Minor'] as const).map((sev) => (
               <button
                 key={sev}
                 onClick={() => setFilterSeverity(sev)}
-                className={`px-2.5 py-1 rounded-lg text-[11px] font-mono transition-colors cursor-pointer ${
-                  filterSeverity === sev ? 'bg-[#087F6A] text-white font-bold' : 'bg-[#F8FAFC] text-[#64748B] hover:text-[#172033] border border-[#E2E8F0]'
+                className={`px-3 py-1 rounded-md text-xs font-mono font-bold transition-all cursor-pointer shadow-sm ${
+                  filterSeverity === sev ? 'bg-[#087F6A] text-white' : 'bg-[#F8FAFC] text-[#334155] hover:text-[#0B1120] border border-[#CBD5E1]'
                 }`}
               >
                 {sev.toUpperCase()}
@@ -985,18 +985,18 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
         <div className="overflow-x-auto">
           <table className="w-full text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-[#E2E8F0] text-[#64748B] font-mono">
-                <th className="pb-2.5">Defect ID</th>
-                <th className="pb-2.5">Anomaly Classification</th>
-                <th className="pb-2.5">Severity</th>
-                <th className="pb-2.5">Workstation</th>
-                <th className="pb-2.5">Garment Area</th>
-                <th className="pb-2.5">AI Confidence</th>
-                <th className="pb-2.5">Status</th>
-                <th className="pb-2.5 text-right">Inspect</th>
+              <tr className="border-b border-[#CBD5E1] text-[#334155] font-mono font-bold text-xs uppercase">
+                <th className="pb-3">Defect ID</th>
+                <th className="pb-3">Anomaly Classification</th>
+                <th className="pb-3">Severity</th>
+                <th className="pb-3">Workstation</th>
+                <th className="pb-3">Garment Area</th>
+                <th className="pb-3">AI Confidence</th>
+                <th className="pb-3">Status</th>
+                <th className="pb-3 text-right">Inspect</th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-[#F1F5F9]">
+            <tbody className="divide-y divide-[#CBD5E1]">
               {filteredDefects.map((def) => {
                 const isSelected = def.id === activeDefectId;
                 return (
@@ -1004,46 +1004,46 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
                     key={def.id}
                     onClick={() => setActiveDefectId(def.id)}
                     className={`cursor-pointer transition-colors ${
-                      isSelected ? 'bg-emerald-50/70 font-medium' : 'hover:bg-[#F8FAFC]'
+                      isSelected ? 'bg-emerald-50/70 font-bold' : 'hover:bg-[#F8FAFC]'
                     }`}
                   >
-                    <td className="py-3 font-mono font-bold text-[#172033] flex items-center gap-1.5">
+                    <td className="py-3.5 font-mono font-bold text-[#0B1120] flex items-center gap-1.5">
                       {isSelected && <span className="w-1.5 h-1.5 rounded-full bg-[#087F6A]" />}
                       {def.id}
                     </td>
-                    <td className="py-3 text-[#172033]">{def.type}</td>
-                    <td className="py-3">
+                    <td className="py-3.5 text-[#0B1120] font-semibold">{def.type}</td>
+                    <td className="py-3.5">
                       <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold ${
+                        className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border shadow-sm ${
                           def.severity === 'Critical'
-                            ? 'bg-rose-100 text-rose-800 border border-rose-200'
+                            ? 'bg-rose-100 text-rose-900 border-rose-300'
                             : def.severity === 'Major'
-                            ? 'bg-amber-100 text-amber-800 border border-amber-200'
-                            : 'bg-sky-100 text-sky-800 border border-sky-200'
+                            ? 'bg-amber-100 text-amber-900 border-amber-300'
+                            : 'bg-sky-100 text-sky-900 border-sky-300'
                         }`}
                       >
                         {def.severity.toUpperCase()}
                       </span>
                     </td>
-                    <td className="py-3 font-mono text-[#64748B]">{def.lineId.split(' ')[0]}</td>
-                    <td className="py-3 text-[#334155]">{def.garmentArea}</td>
-                    <td className="py-3 font-mono text-[#087F6A] font-bold">{def.confidence}%</td>
-                    <td className="py-3">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-mono ${
-                        def.status === 'Verified' ? 'bg-emerald-100 text-[#065F46]' :
-                        def.status === 'Rework Dispatched' ? 'bg-sky-100 text-sky-800' :
-                        def.status === 'False Positive' ? 'bg-slate-100 text-[#64748B]' : 'bg-amber-100 text-amber-800'
+                    <td className="py-3.5 font-mono text-[#334155] font-semibold">{def.lineId.split(' ')[0]}</td>
+                    <td className="py-3.5 text-[#0B1120] font-medium">{def.garmentArea}</td>
+                    <td className="py-3.5 font-mono text-[#087F6A] font-extrabold">{def.confidence}%</td>
+                    <td className="py-3.5">
+                      <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-mono font-bold border shadow-sm ${
+                        def.status === 'Verified' ? 'bg-emerald-100 text-[#065F46] border-emerald-300' :
+                        def.status === 'Rework Dispatched' ? 'bg-sky-100 text-sky-900 border-sky-300' :
+                        def.status === 'False Positive' ? 'bg-slate-100 text-[#475569] border-[#CBD5E1]' : 'bg-amber-100 text-amber-900 border-amber-300'
                       }`}>
                         {def.status}
                       </span>
                     </td>
-                    <td className="py-3 text-right">
+                    <td className="py-3.5 text-right">
                       <button
                         onClick={(e) => {
                           e.stopPropagation();
                           setActiveDefectId(def.id);
                         }}
-                        className="text-[#087F6A] hover:text-[#066653] text-xs font-semibold flex items-center justify-end gap-1 ml-auto cursor-pointer"
+                        className="text-[#087F6A] hover:text-[#066653] text-xs font-bold flex items-center justify-end gap-1 ml-auto cursor-pointer"
                       >
                         <span>Inspect</span>
                         <ArrowRight className="w-3 h-3" />

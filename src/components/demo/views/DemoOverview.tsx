@@ -115,55 +115,55 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
       {/* =========================================================================
           1. HEADER SECTION (Good morning, Factory Manager)
           ========================================================================= */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="p-6 rounded-2xl bg-white border border-[#CBD5E1] shadow-sm">
         <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4">
           <div>
             <div className="flex items-center gap-2.5 flex-wrap">
-              <h1 className="text-2xl font-bold text-[#172033] tracking-tight">
+              <h1 className="text-2xl font-extrabold text-[#0B1120] tracking-tight">
                 Good morning, Factory Manager
               </h1>
-              <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200 text-xs font-semibold flex items-center gap-1.5">
+              <span className="px-3 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-300 text-xs font-bold flex items-center gap-1.5 shadow-sm">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>DEMO DATA</span>
               </span>
             </div>
-            <p className="text-sm text-[#64748B] mt-1">
-              Here's what's happening across your production network at <strong className="text-[#172033]">{selectedFactory}</strong> today.
+            <p className="text-sm text-[#334155] font-medium mt-1">
+              Here's what's happening across your production network at <strong className="text-[#0B1120] font-bold">{selectedFactory}</strong> today.
             </p>
           </div>
 
           {/* Action Toolbar */}
           <div className="flex items-center gap-2 flex-wrap">
             {/* Date Range Selector */}
-            <div className="inline-flex rounded-lg border border-[#E2E8F0] bg-[#F8FAFC] p-0.5 text-xs font-semibold text-[#64748B]">
+            <div className="inline-flex rounded-md border border-[#CBD5E1] bg-[#F8FAFC] p-0.5 text-xs font-bold text-[#475569] shadow-sm">
               <button
                 onClick={() => setDateRange('today')}
-                className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
-                  dateRange === 'today' ? 'bg-white text-[#172033] shadow-xs font-bold' : 'hover:text-[#172033]'
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                  dateRange === 'today' ? 'bg-white text-[#0B1120] shadow-sm font-bold border border-[#CBD5E1]' : 'hover:text-[#0B1120]'
                 }`}
               >
                 Today
               </button>
               <button
                 onClick={() => setDateRange('7d')}
-                className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
-                  dateRange === '7d' ? 'bg-white text-[#172033] shadow-xs font-bold' : 'hover:text-[#172033]'
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                  dateRange === '7d' ? 'bg-white text-[#0B1120] shadow-sm font-bold border border-[#CBD5E1]' : 'hover:text-[#0B1120]'
                 }`}
               >
                 7 Days
               </button>
               <button
                 onClick={() => setDateRange('30d')}
-                className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
-                  dateRange === '30d' ? 'bg-white text-[#172033] shadow-xs font-bold' : 'hover:text-[#172033]'
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                  dateRange === '30d' ? 'bg-white text-[#0B1120] shadow-sm font-bold border border-[#CBD5E1]' : 'hover:text-[#0B1120]'
                 }`}
               >
                 Month
               </button>
               <button
                 onClick={() => setDateRange('quarter')}
-                className={`px-3 py-1.5 rounded-md transition-colors cursor-pointer ${
-                  dateRange === 'quarter' ? 'bg-white text-[#172033] shadow-xs font-bold' : 'hover:text-[#172033]'
+                className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                  dateRange === 'quarter' ? 'bg-white text-[#0B1120] shadow-sm font-bold border border-[#CBD5E1]' : 'hover:text-[#0B1120]'
                 }`}
               >
                 Q3 2026
@@ -173,27 +173,27 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
             {/* Compare Button */}
             <button
               onClick={() => onNavigate('forecast')}
-              className="px-3 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-xs font-semibold text-[#172033] flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="px-3 py-2 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-xs font-bold text-[#0B1120] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               title="Compare with Historical Factory Pacing"
             >
-              <GitCompare className="w-3.5 h-3.5 text-[#64748B]" />
+              <GitCompare className="w-3.5 h-3.5 text-[#475569]" />
               <span className="hidden sm:inline">Compare</span>
             </button>
 
             {/* Export Report */}
             <button
               onClick={() => alert('Exporting Production Shift Report (PDF/Excel) with verified chain-of-custody data...')}
-              className="px-3 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-xs font-semibold text-[#172033] flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="px-3 py-2 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-xs font-bold text-[#0B1120] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               title="Export Report"
             >
-              <Download className="w-3.5 h-3.5 text-[#64748B]" />
+              <Download className="w-3.5 h-3.5 text-[#475569]" />
               <span className="hidden sm:inline">Export</span>
             </button>
 
             {/* Refresh Button */}
             <button
               onClick={handleRefresh}
-              className="px-3 py-2 rounded-lg bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#E2E8F0] text-xs font-semibold text-[#172033] flex items-center gap-1.5 transition-colors cursor-pointer"
+              className="px-3 py-2 rounded-md bg-[#F8FAFC] hover:bg-[#EEF3F8] border border-[#CBD5E1] text-xs font-bold text-[#0B1120] flex items-center gap-1.5 transition-all cursor-pointer shadow-sm"
               title="Refresh Shop Floor Telemetry"
             >
               <RefreshCw className={`w-3.5 h-3.5 text-[#087F6A] ${isRefreshing ? 'animate-spin' : ''}`} />
@@ -203,7 +203,7 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
             {/* Factory Data Entry Sandbox Shortcut */}
             <button
               onClick={() => onNavigate('data-entry')}
-              className="px-3.5 py-2 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+              className="px-3.5 py-2 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
             >
               <Sliders className="w-3.5 h-3.5" />
               <span>Data Entry Sandbox</span>
@@ -212,182 +212,182 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
         </div>
 
         {/* Sub-bar: Last updated & Live status */}
-        <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between text-xs text-[#64748B]">
-          <div className="flex items-center gap-2 font-mono text-[11px]">
+        <div className="mt-4 pt-3 border-t border-[#CBD5E1] flex flex-wrap items-center justify-between text-xs text-[#334155]">
+          <div className="flex items-center gap-2 font-mono text-xs">
             <Clock className="w-3.5 h-3.5 text-[#087F6A]" />
-            <span>Last Telemetry Sync: <strong className="text-[#172033] font-semibold">{lastUpdated}</strong></span>
+            <span>Last Telemetry Sync: <strong className="text-[#0B1120] font-bold">{lastUpdated}</strong></span>
             <span className="text-[#CBD5E1]">|</span>
-            <span>Active Shifts: <strong>Shift 01 & 02</strong></span>
+            <span>Active Shifts: <strong className="text-[#0B1120] font-bold">Shift 01 & 02</strong></span>
           </div>
-          <div className="text-[11px] font-mono text-[#087F6A] font-semibold">
+          <div className="text-xs font-mono text-[#065F46] font-extrabold">
             All 18 Shop-Floor IoT Readers Active
           </div>
         </div>
       </div>
 
       {/* =========================================================================
-          2. SIX MAIN KPI CARDS (Light Mode, Pristine Spacing & Sparklines)
+          2. SIX MAIN KPI CARDS (Real Depth, Scaled Metrics, Rounded-xl)
           ========================================================================= */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        {/* KPI 1: Active Orders (Emerald #087F6A) */}
+        {/* KPI 1: Active Orders */}
         <div 
           onClick={() => onNavigate('orders')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+          className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-emerald-50 text-[#087F6A] flex items-center justify-center border border-emerald-100">
-              <ShoppingBag className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0B1120] flex items-center justify-center border border-slate-300 shadow-sm">
+              <ShoppingBag className="w-4 h-4 text-[#087F6A]" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-300 shadow-sm">
               +2 vs Prev
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">Active Orders</div>
-            <div className="text-2xl font-bold text-[#172033] tracking-tight mt-0.5">5 POs</div>
-            <div className="text-[11px] text-[#64748B] mt-0.5">180,000 units total</div>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Active Orders</div>
+            <div className="text-3xl font-extrabold text-[#0B1120] tracking-tight mt-1">5 POs</div>
+            <div className="text-xs font-medium text-[#475569] mt-0.5">180,000 units total</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineOrders}>
-                <Line type="monotone" dataKey="v" stroke="#087F6A" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#087F6A" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* KPI 2: Production Efficiency (Blue #2563EB) */}
+        {/* KPI 2: Production Efficiency */}
         <div 
           onClick={() => onNavigate('production')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+          className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-blue-50 text-[#2563EB] flex items-center justify-center border border-blue-100">
-              <Activity className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0B1120] flex items-center justify-center border border-slate-300 shadow-sm">
+              <Activity className="w-4 h-4 text-[#2563EB]" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 border border-blue-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-50 text-blue-800 border border-blue-300 shadow-sm">
               +3.8%
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">Production Efficiency</div>
-            <div className="text-2xl font-bold text-[#172033] tracking-tight mt-0.5">92.4%</div>
-            <div className="text-[11px] text-[#64748B] mt-0.5">SMV Benchmark: 85%</div>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Efficiency Rate</div>
+            <div className="text-3xl font-extrabold text-[#0B1120] tracking-tight mt-1">92.4%</div>
+            <div className="text-xs font-medium text-[#475569] mt-0.5">SMV Benchmark: 85%</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineEfficiency}>
-                <Line type="monotone" dataKey="v" stroke="#2563EB" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#2563EB" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* KPI 3: On-Time Delivery Rate (Violet #7C3AED) */}
+        {/* KPI 3: On-Time Delivery Rate */}
         <div 
           onClick={() => onNavigate('logistics')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+          className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-purple-50 text-[#7C3AED] flex items-center justify-center border border-purple-100">
-              <CheckCircle2 className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0B1120] flex items-center justify-center border border-slate-300 shadow-sm">
+              <CheckCircle2 className="w-4 h-4 text-[#087F6A]" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-purple-50 text-purple-700 border border-purple-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-emerald-50 text-[#065F46] border border-emerald-300 shadow-sm">
               +1.2%
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">On-Time Delivery</div>
-            <div className="text-2xl font-bold text-[#172033] tracking-tight mt-0.5">96.8%</div>
-            <div className="text-[11px] text-[#64748B] mt-0.5">OTIF Export Rating</div>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#64748B]">On-Time Delivery</div>
+            <div className="text-3xl font-extrabold text-[#0B1120] tracking-tight mt-1">96.8%</div>
+            <div className="text-xs font-medium text-[#475569] mt-0.5">OTIF Export Rating</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineDelivery}>
-                <Line type="monotone" dataKey="v" stroke="#7C3AED" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#087F6A" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* KPI 4: Total Production Output (Teal #0D9488) */}
+        {/* KPI 4: Total Production Output */}
         <div 
           onClick={() => onNavigate('production')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+          className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-teal-50 text-[#0D9488] flex items-center justify-center border border-teal-100">
-              <Boxes className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0B1120] flex items-center justify-center border border-slate-300 shadow-sm">
+              <Boxes className="w-4 h-4 text-[#0D9488]" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-700 border border-teal-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-teal-50 text-teal-800 border border-teal-300 shadow-sm">
               +4.2%
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">Today Output</div>
-            <div className="text-2xl font-bold text-[#172033] tracking-tight mt-0.5">
-              {Math.round(12480 * productionMultiplier).toLocaleString()} <span className="text-xs font-normal text-[#64748B]">pcs</span>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Today's Output</div>
+            <div className="text-3xl font-extrabold text-[#0B1120] tracking-tight mt-1">
+              {Math.round(12480 * productionMultiplier).toLocaleString()}
             </div>
-            <div className="text-[11px] text-[#64748B] mt-0.5">Daily target: 12,000 pcs</div>
+            <div className="text-xs font-medium text-[#475569] mt-0.5">Target: 12,000 pcs</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineOutput}>
-                <Line type="monotone" dataKey="v" stroke="#0D9488" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#0D9488" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* KPI 5: Inventory Value (Amber #D97706) */}
+        {/* KPI 5: Inventory Value */}
         <div 
           onClick={() => onNavigate('inventory')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-[#CBD5E1] hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between"
+          className="p-5 rounded-xl bg-white border border-[#CBD5E1] shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-amber-50 text-[#D97706] flex items-center justify-center border border-amber-100">
-              <TrendingUp className="w-4 h-4" />
+            <div className="w-9 h-9 rounded-full bg-slate-100 text-[#0B1120] flex items-center justify-center border border-slate-300 shadow-sm">
+              <TrendingUp className="w-4 h-4 text-[#475569]" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-amber-50 text-amber-700 border border-amber-200">
+            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-slate-100 text-[#1E293B] border border-slate-300 shadow-sm">
               Optimal
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">Inventory Value</div>
-            <div className="text-2xl font-bold text-[#172033] tracking-tight mt-0.5">$842,000</div>
-            <div className="text-[11px] text-[#64748B] mt-0.5">70% trims allocated</div>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-[#64748B]">Inventory Value</div>
+            <div className="text-3xl font-extrabold text-[#0B1120] tracking-tight mt-1">$842k</div>
+            <div className="text-xs font-medium text-[#475569] mt-0.5">70% trims allocated</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineInventory}>
-                <Line type="monotone" dataKey="v" stroke="#D97706" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#475569" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
         </div>
 
-        {/* KPI 6: Open Risk Alerts (Rose #E11D48) */}
+        {/* KPI 6: Open Risk Alerts (Elevated with confident Red) */}
         <div 
           onClick={() => onNavigate('risk-center')}
-          className="p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs hover:border-rose-300 hover:shadow-sm transition-all cursor-pointer flex flex-col justify-between group"
+          className="p-5 rounded-xl bg-white border-2 border-rose-400/90 shadow-md hover:shadow-xl hover:-translate-y-0.5 transition-all duration-200 ease-out cursor-pointer flex flex-col justify-between group"
         >
           <div className="flex items-center justify-between">
-            <div className="w-8 h-8 rounded-full bg-rose-50 text-[#E11D48] flex items-center justify-center border border-rose-100">
+            <div className="w-9 h-9 rounded-full bg-rose-100 text-rose-700 flex items-center justify-center border border-rose-300 shadow-sm">
               <AlertTriangle className="w-4 h-4" />
             </div>
-            <span className="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 border border-rose-200">
-              High Priority
+            <span className="text-[10px] font-extrabold px-2 py-0.5 rounded-full bg-rose-100 text-rose-800 border border-rose-300 shadow-sm">
+              CRITICAL
             </span>
           </div>
-          <div className="mt-3">
-            <div className="text-xs font-semibold text-[#64748B]">Open Risk Alerts</div>
-            <div className="text-2xl font-bold text-[#E11D48] tracking-tight mt-0.5">1 Alert</div>
-            <div className="text-[11px] text-[#64748B] mt-0.5 truncate">Order #BD-2048 (78% Delay)</div>
+          <div className="mt-4">
+            <div className="text-xs font-bold uppercase tracking-wider text-rose-900">Open Risk Alerts</div>
+            <div className="text-3xl font-extrabold text-rose-700 tracking-tight mt-1">1 Alert</div>
+            <div className="text-xs font-bold text-rose-700 mt-0.5 truncate">#BD-2048 (78% Delay)</div>
           </div>
-          <div className="h-7 mt-3 flex items-end">
+          <div className="h-8 mt-3 flex items-end">
             <ResponsiveContainer width="100%" height="100%">
               <LineChart data={sparklineRisks}>
-                <Line type="monotone" dataKey="v" stroke="#E11D48" strokeWidth={2} dot={false} />
+                <Line type="monotone" dataKey="v" stroke="#E11D48" strokeWidth={2.5} dot={false} />
               </LineChart>
             </ResponsiveContainer>
           </div>
@@ -399,38 +399,38 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
           ========================================================================= */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Production Performance Card (8 Cols) */}
-        <div className="lg:col-span-8 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-8 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm flex flex-col justify-between">
           <div>
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#F1F5F9]">
+            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#CBD5E1]">
               <div>
-                <h3 className="text-base font-bold text-[#172033]">Production Pacing & Hourly Trajectory</h3>
-                <p className="text-xs text-[#64748B] mt-0.5">
+                <h3 className="text-base font-extrabold text-[#0B1120] tracking-tight">Production Pacing & Hourly Trajectory</h3>
+                <p className="text-sm text-[#334155] font-medium mt-0.5">
                   Actual shop-floor piece output vs target line allocation across all sewing lines.
                 </p>
               </div>
 
               {/* Filter Tabs */}
-              <div className="flex items-center gap-1 bg-[#F8FAFC] p-1 rounded-lg border border-[#E2E8F0] text-xs font-semibold text-[#64748B]">
+              <div className="flex items-center gap-1 bg-[#F8FAFC] p-1 rounded-md border border-[#CBD5E1] text-xs font-bold text-[#475569] shadow-sm">
                 <button
                   onClick={() => setChartPeriod('7d')}
-                  className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                    chartPeriod === '7d' ? 'bg-white text-[#172033] shadow-xs' : 'hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                    chartPeriod === '7d' ? 'bg-white text-[#0B1120] shadow-sm border border-[#CBD5E1] font-bold' : 'hover:text-[#0B1120]'
                   }`}
                 >
                   Hourly
                 </button>
                 <button
                   onClick={() => setChartPeriod('30d')}
-                  className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                    chartPeriod === '30d' ? 'bg-white text-[#172033] shadow-xs' : 'hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                    chartPeriod === '30d' ? 'bg-white text-[#0B1120] shadow-sm border border-[#CBD5E1] font-bold' : 'hover:text-[#0B1120]'
                   }`}
                 >
                   Daily (7D)
                 </button>
                 <button
                   onClick={() => setChartPeriod('3m')}
-                  className={`px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                    chartPeriod === '3m' ? 'bg-white text-[#172033] shadow-xs' : 'hover:text-[#172033]'
+                  className={`px-3 py-1.5 rounded-md transition-all cursor-pointer ${
+                    chartPeriod === '3m' ? 'bg-white text-[#0B1120] shadow-sm border border-[#CBD5E1] font-bold' : 'hover:text-[#0B1120]'
                   }`}
                 >
                   Monthly (3M)
@@ -444,32 +444,33 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
                 <AreaChart data={productionTrendData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                   <defs>
                     <linearGradient id="actualGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#087F6A" stopOpacity={0.2} />
+                      <stop offset="5%" stopColor="#087F6A" stopOpacity={0.25} />
                       <stop offset="95%" stopColor="#087F6A" stopOpacity={0.0} />
                     </linearGradient>
                     <linearGradient id="plannedGrad" x1="0" y1="0" x2="0" y2="1">
-                      <stop offset="5%" stopColor="#2563EB" stopOpacity={0.15} />
+                      <stop offset="5%" stopColor="#2563EB" stopOpacity={0.18} />
                       <stop offset="95%" stopColor="#2563EB" stopOpacity={0.0} />
                     </linearGradient>
                   </defs>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" vertical={false} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
                   <XAxis 
                     dataKey="label" 
-                    tick={{ fill: '#64748B', fontSize: 11 }} 
-                    stroke="#E2E8F0" 
+                    tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} 
+                    stroke="#CBD5E1" 
                   />
                   <YAxis 
-                    tick={{ fill: '#64748B', fontSize: 11 }} 
-                    stroke="#E2E8F0"
+                    tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} 
+                    stroke="#CBD5E1"
                   />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: '#FFFFFF', 
                       borderRadius: '12px', 
-                      border: '1px solid #E2E8F0',
-                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.08)',
+                      border: '1px solid #CBD5E1',
+                      boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.04)',
                       fontSize: '12px',
-                      color: '#172033'
+                      fontWeight: 600,
+                      color: '#0B1120'
                     }} 
                   />
                   <Area 
@@ -495,34 +496,34 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
           </div>
 
           {/* Performance Summary Footnote */}
-          <div className="mt-4 pt-3 border-t border-[#F1F5F9] flex flex-wrap items-center justify-between gap-3 text-xs">
+          <div className="mt-4 pt-3 border-t border-[#CBD5E1] flex flex-wrap items-center justify-between gap-3 text-xs">
             <div className="flex items-center gap-4">
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#087F6A]" />
-                <span className="font-semibold text-[#172033]">Actual Output: 12,480 pcs</span>
+                <span className="w-3 h-3 rounded-full bg-[#087F6A] shadow-sm" />
+                <span className="font-bold text-[#0B1120]">Actual Output: 12,480 pcs</span>
               </div>
               <div className="flex items-center gap-1.5">
-                <span className="w-3 h-3 rounded-full bg-[#2563EB]" />
-                <span className="text-[#64748B]">Target Planned: 12,000 pcs</span>
+                <span className="w-3 h-3 rounded-full bg-[#2563EB] shadow-sm" />
+                <span className="text-[#334155] font-semibold">Target Planned: 12,000 pcs</span>
               </div>
             </div>
-            <span className="px-2 py-0.5 rounded bg-emerald-50 text-[#065F46] font-bold">
+            <span className="px-3 py-1 rounded-full bg-emerald-50 text-[#065F46] font-bold border border-emerald-300 shadow-sm">
               Target Achievement: 104.0%
             </span>
           </div>
         </div>
 
         {/* Order Status Donut Card (4 Cols) */}
-        <div className="lg:col-span-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col justify-between">
+        <div className="lg:col-span-4 p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div>
-                <h3 className="text-base font-bold text-[#172033]">Active Order Status</h3>
-                <p className="text-xs text-[#64748B]">Breakdown across 5 active buyer orders</p>
+                <h3 className="text-base font-extrabold text-[#0B1120] tracking-tight">Active Order Status</h3>
+                <p className="text-sm text-[#334155] font-medium">Breakdown across 5 active buyer orders</p>
               </div>
               <button 
                 onClick={() => onNavigate('orders')}
-                className="text-xs font-semibold text-[#087F6A] hover:underline"
+                className="text-xs font-bold text-[#087F6A] hover:underline"
               >
                 View All
               </button>
@@ -547,17 +548,20 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: '#FFFFFF', 
-                      borderRadius: '8px', 
-                      border: '1px solid #E2E8F0',
-                      fontSize: '11px' 
+                      borderRadius: '10px', 
+                      border: '1px solid #CBD5E1',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.08)',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      color: '#0B1120'
                     }} 
                   />
                 </PieChart>
               </ResponsiveContainer>
               {/* Donut Center text */}
               <div className="absolute text-center pointer-events-none">
-                <div className="text-2xl font-black text-[#172033]">5</div>
-                <div className="text-[10px] text-[#64748B] font-medium uppercase tracking-wider">Orders</div>
+                <div className="text-3xl font-extrabold text-[#0B1120]">5</div>
+                <div className="text-[10px] text-[#475569] font-bold uppercase tracking-wider">Orders</div>
               </div>
             </div>
 
@@ -566,17 +570,17 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
               {orderStatusPie.map((item) => (
                 <div key={item.name} className="flex items-center justify-between text-xs">
                   <div className="flex items-center gap-2">
-                    <span className="w-2.5 h-2.5 rounded-full" style={{ backgroundColor: item.color }} />
-                    <span className="text-[#64748B]">{item.name}</span>
+                    <span className="w-2.5 h-2.5 rounded-full shadow-sm" style={{ backgroundColor: item.color }} />
+                    <span className="text-[#334155] font-medium">{item.name}</span>
                   </div>
-                  <span className="font-bold text-[#172033]">{item.value} PO</span>
+                  <span className="font-extrabold text-[#0B1120]">{item.value} PO</span>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-4 pt-3 border-t border-[#F1F5F9] text-xs text-[#64748B]">
-            <span className="font-semibold text-rose-600">1 Order at delay risk:</span> #BD-2048 (78% risk score)
+          <div className="mt-4 pt-3 border-t border-[#CBD5E1] text-xs text-[#334155]">
+            <span className="font-bold text-rose-700">1 Order at delay risk:</span> <strong className="text-[#0B1120]">#BD-2048</strong> (78% risk score)
           </div>
         </div>
       </div>
@@ -586,16 +590,16 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
           ========================================================================= */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Card 1: Factory Line Efficiency Bar Chart */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col justify-between">
+        <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div>
-                <h3 className="text-sm font-bold text-[#172033]">Factory Sewing Efficiency</h3>
-                <p className="text-xs text-[#64748B]">SMV rating per line vs 85% benchmark</p>
+                <h3 className="text-base font-extrabold text-[#0B1120] tracking-tight">Factory Sewing Efficiency</h3>
+                <p className="text-xs text-[#334155] font-medium">SMV rating per line vs 85% benchmark</p>
               </div>
               <button 
                 onClick={() => onNavigate('production')}
-                className="text-xs font-semibold text-[#087F6A] hover:underline"
+                className="text-xs font-bold text-[#087F6A] hover:underline"
               >
                 Lines
               </button>
@@ -604,15 +608,18 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
             <div className="h-44 w-full mt-3">
               <ResponsiveContainer width="100%" height="100%">
                 <BarChart data={lineEfficiencyData} margin={{ top: 10, right: 10, left: -25, bottom: 0 }}>
-                  <CartesianGrid strokeDasharray="3 3" stroke="#F1F5F9" vertical={false} />
-                  <XAxis dataKey="name" tick={{ fill: '#64748B', fontSize: 11 }} stroke="#E2E8F0" />
-                  <YAxis tick={{ fill: '#64748B', fontSize: 11 }} stroke="#E2E8F0" domain={[0, 100]} />
+                  <CartesianGrid strokeDasharray="3 3" stroke="#E2E8F0" vertical={false} />
+                  <XAxis dataKey="name" tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} stroke="#CBD5E1" />
+                  <YAxis tick={{ fill: '#475569', fontSize: 11, fontWeight: 500 }} stroke="#CBD5E1" domain={[0, 100]} />
                   <Tooltip 
                     contentStyle={{ 
                       backgroundColor: '#FFFFFF', 
-                      borderRadius: '8px', 
-                      border: '1px solid #E2E8F0',
-                      fontSize: '11px' 
+                      borderRadius: '10px', 
+                      border: '1px solid #CBD5E1',
+                      boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.08)',
+                      fontSize: '11px',
+                      fontWeight: 600,
+                      color: '#0B1120'
                     }} 
                   />
                   <Bar dataKey="actual" radius={[4, 4, 0, 0]}>
@@ -625,11 +632,11 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
             </div>
           </div>
 
-          <div className="mt-3 pt-3 border-t border-[#F1F5F9] text-xs flex items-center justify-between">
-            <span className="text-[#64748B]">Line 02 operating at 76% (bottleneck)</span>
+          <div className="mt-3 pt-3 border-t border-[#CBD5E1] text-xs flex items-center justify-between">
+            <span className="text-[#334155] font-medium">Line 02 operating at <strong className="text-amber-700 font-bold">76%</strong> (bottleneck)</span>
             <button 
               onClick={() => onNavigate('capacity')}
-              className="text-[#087F6A] font-bold hover:underline text-[11px]"
+              className="text-[#087F6A] font-bold hover:underline text-xs"
             >
               Buffer Match →
             </button>
@@ -637,40 +644,42 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
         </div>
 
         {/* Card 2: Inventory Low Stock Alerts */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col justify-between">
+        <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div>
-                <h3 className="text-sm font-bold text-[#172033]">Raw Material Shortages</h3>
-                <p className="text-xs text-[#64748B]">Fabric & trims requiring warehouse restock</p>
+                <h3 className="text-base font-extrabold text-[#0B1120] tracking-tight">Raw Material Shortages</h3>
+                <p className="text-xs text-[#334155] font-medium">Fabric & trims requiring warehouse restock</p>
               </div>
-              <span className="px-2 py-0.5 rounded-full bg-rose-50 text-rose-700 font-bold text-[10px] border border-rose-200">
+              <span className="px-2.5 py-0.5 rounded-full bg-rose-50 text-rose-800 font-bold text-xs border border-rose-300 shadow-sm">
                 2 Items Critical
               </span>
             </div>
 
             <div className="space-y-3 mt-3">
               {inventoryAlerts.map((mat, idx) => (
-                <div key={idx} className="p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs space-y-1">
+                <div key={idx} className="p-3 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-xs space-y-1 shadow-sm">
                   <div className="flex items-center justify-between">
-                    <span className="font-semibold text-[#172033]">{mat.item}</span>
-                    <span className={`text-[9px] font-bold px-1.5 py-0.2 rounded ${
-                      mat.severity === 'Critical' ? 'bg-rose-100 text-rose-800' : 'bg-amber-100 text-amber-800'
+                    <span className="font-bold text-[#0B1120] text-sm">{mat.item}</span>
+                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-md border shadow-sm ${
+                      mat.severity === 'Critical' 
+                        ? 'bg-rose-50 text-rose-800 border-rose-300' 
+                        : 'bg-amber-50 text-amber-800 border-amber-300'
                     }`}>
                       {mat.severity}
                     </span>
                   </div>
-                  <div className="flex justify-between text-[11px] text-[#64748B]">
-                    <span>Allocated: {mat.line}</span>
-                    <span className="font-mono text-[#172033]">{mat.available} / {mat.required}</span>
+                  <div className="flex justify-between text-xs text-[#475569] font-medium">
+                    <span>Allocated: <strong className="text-[#0B1120]">{mat.line}</strong></span>
+                    <span className="font-mono font-bold text-[#0B1120]">{mat.available} / {mat.required}</span>
                   </div>
                 </div>
               ))}
             </div>
           </div>
 
-          <div className="mt-3 pt-3 border-t border-[#F1F5F9] flex justify-between items-center text-xs">
-            <span className="text-[#64748B]">Warehouse: Gazipur Main Hub</span>
+          <div className="mt-3 pt-3 border-t border-[#CBD5E1] flex justify-between items-center text-xs">
+            <span className="text-[#475569] font-medium">Warehouse: <strong className="text-[#0B1120]">Gazipur Main Hub</strong></span>
             <button
               onClick={() => onNavigate('inventory')}
               className="text-[#087F6A] font-bold hover:underline"
@@ -681,51 +690,51 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
         </div>
 
         {/* Card 3: Shipment Progress & Port Pacing */}
-        <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs flex flex-col justify-between">
+        <div className="p-6 rounded-xl bg-white border border-[#CBD5E1] shadow-sm flex flex-col justify-between">
           <div>
-            <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
+            <div className="flex items-center justify-between pb-3 border-b border-[#CBD5E1]">
               <div>
-                <h3 className="text-sm font-bold text-[#172033]">Export Logistics & Port Pacing</h3>
-                <p className="text-xs text-[#64748B]">Chattogram port feeder vessel cutoffs</p>
+                <h3 className="text-base font-extrabold text-[#0B1120] tracking-tight">Export Logistics & Port Pacing</h3>
+                <p className="text-xs text-[#334155] font-medium">Chattogram port feeder vessel cutoffs</p>
               </div>
-              <span className="px-2 py-0.5 rounded-full bg-emerald-50 text-[#065F46] font-bold text-[10px] border border-emerald-200">
+              <span className="px-2.5 py-0.5 rounded-full bg-emerald-50 text-[#065F46] font-bold text-xs border border-emerald-300 shadow-sm">
                 98.2% OTIF
               </span>
             </div>
 
             <div className="space-y-3 mt-3">
-              <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 text-xs">
-                <div className="flex items-center justify-between font-semibold text-[#172033]">
-                  <span>Order #BD-2070 · Denim Pants</span>
-                  <span className="text-[#087F6A]">Port Ready</span>
+              <div className="p-3 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 text-xs shadow-sm">
+                <div className="flex items-center justify-between font-bold text-[#0B1120]">
+                  <span className="text-xs">Order #BD-2070 · Denim Pants</span>
+                  <span className="text-[#087F6A] font-extrabold">Port Ready</span>
                 </div>
                 <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
                   <div className="bg-[#087F6A] h-full rounded-full w-[95%]" />
                 </div>
-                <div className="flex justify-between text-[11px] text-[#64748B]">
-                  <span>Vessel Cutoff: In 3 Days</span>
+                <div className="flex justify-between text-xs text-[#475569] font-medium">
+                  <span>Vessel Cutoff: <strong className="text-[#0B1120]">In 3 Days</strong></span>
                   <span>19,000 / 20,000 pcs inspected</span>
                 </div>
               </div>
 
-              <div className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 text-xs">
-                <div className="flex items-center justify-between font-semibold text-[#172033]">
-                  <span>Order #BD-2048 · Knit Polo</span>
-                  <span className="text-rose-600 font-bold">2.4 Days Behind</span>
+              <div className="p-3 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] space-y-2 text-xs shadow-sm">
+                <div className="flex items-center justify-between font-bold text-[#0B1120]">
+                  <span className="text-xs">Order #BD-2048 · Knit Polo</span>
+                  <span className="text-rose-700 font-extrabold">2.4 Days Behind</span>
                 </div>
                 <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
                   <div className="bg-rose-500 h-full rounded-full w-[41%]" />
                 </div>
-                <div className="flex justify-between text-[11px] text-[#64748B]">
-                  <span>Feeder: MSC Maersk Lines</span>
+                <div className="flex justify-between text-xs text-[#475569] font-medium">
+                  <span>Feeder: <strong className="text-[#0B1120]">MSC Maersk Lines</strong></span>
                   <span>18,500 / 45,000 pcs produced</span>
                 </div>
               </div>
             </div>
           </div>
 
-          <div className="mt-3 pt-3 border-t border-[#F1F5F9] flex justify-between items-center text-xs">
-            <span className="text-[#64748B]">Chittagong Port Terminal</span>
+          <div className="mt-3 pt-3 border-t border-[#CBD5E1] flex justify-between items-center text-xs">
+            <span className="text-[#475569] font-medium">Terminal: <strong className="text-[#0B1120]">Chittagong Port</strong></span>
             <button
               onClick={() => onNavigate('logistics')}
               className="text-[#087F6A] font-bold hover:underline"
@@ -739,48 +748,48 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
       {/* =========================================================================
           5. INTERACTIVE SHOP-FLOOR SIMULATION COCKPIT
           ========================================================================= */}
-      <div className="rounded-2xl bg-white border border-[#E2E8F0] shadow-xs overflow-hidden">
-        <div className="p-4 sm:p-5 border-b border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3 bg-[#F8FAFC]">
+      <div className="rounded-2xl bg-white border border-[#CBD5E1] shadow-sm overflow-hidden">
+        <div className="p-4 sm:p-5 border-b border-[#CBD5E1] flex flex-wrap items-center justify-between gap-3 bg-[#F8FAFC]">
           <div className="flex items-center gap-3">
             <div className="flex items-center gap-2">
               <span className="w-2.5 h-2.5 rounded-full bg-[#087F6A] animate-ping" />
-              <span className="text-xs font-mono font-bold text-[#172033] uppercase tracking-wider">
+              <span className="text-xs font-mono font-bold text-[#0B1120] uppercase tracking-wider">
                 Live RMG Operational Simulation
               </span>
             </div>
-            <div className="hidden sm:block text-xs text-[#64748B] font-mono">
+            <div className="hidden sm:block text-xs text-[#475569] font-mono font-medium">
               | AI Telemetry Node #BD-RMG-02
             </div>
           </div>
 
           {/* Interactive Cockpit Switcher Tabs */}
-          <div className="flex items-center gap-1.5 p-1 rounded-lg bg-white border border-[#E2E8F0] text-xs">
+          <div className="flex items-center gap-1.5 p-1 rounded-md bg-white border border-[#CBD5E1] text-xs shadow-sm">
             <button
               onClick={() => setActiveCockpitTab('risk')}
-              className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 activeCockpitTab === 'risk'
-                  ? 'bg-emerald-50 text-[#065F46] font-bold border border-emerald-200'
-                  : 'text-[#64748B] hover:text-[#172033]'
+                  ? 'bg-emerald-50 text-[#065F46] font-extrabold border border-emerald-300 shadow-sm'
+                  : 'text-[#475569] hover:text-[#0B1120]'
               }`}
             >
               Predictive Risk
             </button>
             <button
               onClick={() => setActiveCockpitTab('lines')}
-              className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 activeCockpitTab === 'lines'
-                  ? 'bg-emerald-50 text-[#065F46] font-bold border border-emerald-200'
-                  : 'text-[#64748B] hover:text-[#172033]'
+                  ? 'bg-emerald-50 text-[#065F46] font-extrabold border border-emerald-300 shadow-sm'
+                  : 'text-[#475569] hover:text-[#0B1120]'
               }`}
             >
               Active Sewing Lines
             </button>
             <button
               onClick={() => setActiveCockpitTab('capacity')}
-              className={`px-3 py-1.5 rounded-md text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3 py-1.5 rounded-md text-xs font-bold transition-all cursor-pointer ${
                 activeCockpitTab === 'capacity'
-                  ? 'bg-emerald-50 text-[#065F46] font-bold border border-emerald-200'
-                  : 'text-[#64748B] hover:text-[#172033]'
+                  ? 'bg-emerald-50 text-[#065F46] font-extrabold border border-emerald-300 shadow-sm'
+                  : 'text-[#475569] hover:text-[#0B1120]'
               }`}
             >
               Capacity Match
@@ -791,58 +800,58 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
         {/* Cockpit Content Area */}
         <div className="p-5 sm:p-6">
           {activeCockpitTab === 'risk' && (
-            <div className="p-5 rounded-xl bg-rose-50/50 border border-rose-200 space-y-4">
-              <div className="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-rose-200/80">
+            <div className="p-5 rounded-xl bg-rose-50/70 border border-rose-300 space-y-4 shadow-sm">
+              <div className="flex flex-wrap items-start justify-between gap-3 pb-3 border-b border-rose-200">
                 <div className="flex items-start gap-3">
-                  <div className="p-2.5 rounded-xl bg-rose-100 text-rose-700 border border-rose-200">
-                    <AlertTriangle className="w-5 h-5" />
+                  <div className="p-2.5 rounded-xl bg-rose-100 text-rose-800 border border-rose-300 shadow-sm">
+                    <AlertTriangle className="w-5 h-5 text-rose-600" />
                   </div>
                   <div>
-                    <div className="text-xs font-mono font-bold text-rose-800 flex items-center gap-2">
+                    <div className="text-xs font-mono font-extrabold text-rose-900 flex items-center gap-2">
                       <span>PREDICTIVE DELAY ALERT</span>
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-rose-200 text-rose-900 font-bold">HIGH PRIORITY</span>
+                      <span className="text-[10px] px-2 py-0.5 rounded-full bg-rose-200 text-rose-950 font-black border border-rose-300 shadow-sm">HIGH PRIORITY</span>
                     </div>
-                    <div className="text-base font-bold text-[#172033] mt-0.5">Order #BD-2048 · Organic Cotton Polo (45,000 pcs)</div>
-                    <div className="text-xs text-[#64748B]">Buyer: Nordic Apparel Co. · Target Delivery: In 14 Days</div>
+                    <div className="text-base font-extrabold text-[#0B1120] mt-0.5">Order #BD-2048 · Organic Cotton Polo (45,000 pcs)</div>
+                    <div className="text-sm text-[#334155] font-medium">Buyer: Nordic Apparel Co. · Target Delivery: In 14 Days</div>
                   </div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-[#64748B] font-mono">Calculated Delay Risk</div>
-                  <div className="text-3xl font-black text-rose-600 font-mono">78%</div>
+                  <div className="text-xs text-[#475569] font-mono font-semibold">Calculated Delay Risk</div>
+                  <div className="text-3xl md:text-4xl font-black text-rose-700 font-mono">78%</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs">
-                <div className="bg-white p-3 rounded-xl border border-[#E2E8F0]">
-                  <div className="text-[#64748B] font-mono text-[11px]">Root Cause Detected:</div>
-                  <div className="font-semibold text-[#172033] mt-1">Fabric Dye-Lot delay (+3 days) + Line 02 SMV bottleneck (76.4%).</div>
+                <div className="bg-white p-3.5 rounded-xl border border-[#CBD5E1] shadow-sm">
+                  <div className="text-[#475569] font-mono font-semibold text-xs">Root Cause Detected:</div>
+                  <div className="font-bold text-[#0B1120] mt-1 text-sm leading-snug">Fabric Dye-Lot delay (+3 days) + Line 02 SMV bottleneck (76.4%).</div>
                 </div>
-                <div className="bg-white p-3 rounded-xl border border-[#E2E8F0]">
-                  <div className="text-[#64748B] font-mono text-[11px]">Shipment Impact:</div>
-                  <div className="font-semibold text-rose-700 mt-1">2.4 Days Behind Chattogram Port Feeder Cutoff.</div>
+                <div className="bg-white p-3.5 rounded-xl border border-rose-300 shadow-sm">
+                  <div className="text-[#475569] font-mono font-semibold text-xs">Shipment Impact:</div>
+                  <div className="font-extrabold text-rose-800 mt-1 text-sm leading-snug">2.4 Days Behind Chattogram Port Feeder Cutoff.</div>
                 </div>
-                <div className="bg-white p-3 rounded-xl border border-[#E2E8F0]">
-                  <div className="text-[#64748B] font-mono text-[11px]">AI Recommendation:</div>
-                  <div className="font-semibold text-[#087F6A] mt-1">Allocate 18,000 units to Verified Partner #BD-017.</div>
+                <div className="bg-white p-3.5 rounded-xl border border-emerald-300 shadow-sm">
+                  <div className="text-[#475569] font-mono font-semibold text-xs">AI Recommendation:</div>
+                  <div className="font-bold text-[#087F6A] mt-1 text-sm leading-snug">Allocate 18,000 units to Verified Partner #BD-017.</div>
                 </div>
               </div>
 
-              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 border-t border-rose-200/80">
-                <div className="text-xs text-[#172033] font-mono flex items-center gap-1.5">
+              <div className="pt-3 flex flex-wrap items-center justify-between gap-3 border-t border-rose-200">
+                <div className="text-xs text-[#0B1120] font-mono flex items-center gap-1.5">
                   <Zap className="w-4 h-4 text-[#087F6A]" />
-                  <span>Action recovers <strong className="text-[#087F6A]">2.4 days</strong> and eliminates air-freight penalties</span>
+                  <span>Action recovers <strong className="text-[#087F6A] font-bold">2.4 days</strong> and eliminates air-freight penalties</span>
                 </div>
                 <div className="flex items-center gap-2">
                   <button
                     onClick={() => onNavigate('capacity')}
-                    className="px-4 py-2 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+                    className="px-4 py-2 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                   >
                     <span>Activate Verified Capacity</span>
                     <ArrowRight className="w-3.5 h-3.5" />
                   </button>
                   <button
                     onClick={() => onNavigate('risk-center')}
-                    className="px-3.5 py-2 rounded-lg bg-white hover:bg-[#F8FAFC] border border-[#E2E8F0] text-[#172033] text-xs font-semibold cursor-pointer"
+                    className="px-3.5 py-2 rounded-md bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] text-xs font-bold cursor-pointer shadow-sm"
                   >
                     Full Risk Matrix
                   </button>
@@ -853,7 +862,7 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
 
           {activeCockpitTab === 'lines' && (
             <div className="space-y-3">
-              <div className="text-xs font-mono text-[#64748B] flex justify-between items-center px-1">
+              <div className="text-xs font-mono font-bold text-[#475569] flex justify-between items-center px-1">
                 <span>ACTIVE SEWING LINES ({selectedFactory})</span>
                 <span>EFFICIENCY (SMV) & HOURLY PACING</span>
               </div>
@@ -863,23 +872,23 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
                 { name: 'Line 03 (Woven Twill)', order: 'BD-2051', eff: 97, target: '175/hr', status: 'Running', color: 'emerald' },
                 { name: 'Line 04 (Denim 5-Pocket)', order: 'BD-2070', eff: 88, target: '140/hr', status: 'Optimal', color: 'teal' },
               ].map((line, idx) => (
-                <div key={idx} className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] flex flex-wrap items-center justify-between gap-3 text-xs">
+                <div key={idx} className="p-3.5 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] flex flex-wrap items-center justify-between gap-3 text-xs shadow-sm hover:shadow-md transition-all">
                   <div>
-                    <div className="font-bold text-[#172033]">{line.name}</div>
-                    <div className="text-[#64748B] text-[11px]">Allocated Order #{line.order} · Pacing: {line.target}</div>
+                    <div className="font-bold text-[#0B1120] text-sm">{line.name}</div>
+                    <div className="text-[#475569] text-xs font-medium">Allocated Order #{line.order} · Pacing: {line.target}</div>
                   </div>
                   <div className="flex items-center gap-4">
                     <div className="text-right">
-                      <div className="text-xs font-bold text-[#172033]">{line.eff}% Efficiency</div>
-                      <div className={`text-[10px] font-bold ${
-                        line.status === 'Bottleneck' ? 'text-amber-700' : 'text-[#087F6A]'
+                      <div className="text-sm font-extrabold text-[#0B1120]">{line.eff}% Efficiency</div>
+                      <div className={`text-[11px] font-bold ${
+                        line.status === 'Bottleneck' ? 'text-amber-800' : 'text-[#087F6A]'
                       }`}>
                         {line.status}
                       </div>
                     </div>
                     <button
                       onClick={() => onNavigate('production')}
-                      className="px-2.5 py-1 rounded bg-white hover:bg-[#EEF3F8] border border-[#E2E8F0] text-[11px] font-semibold text-[#172033]"
+                      className="px-3 py-1.5 rounded-md bg-white hover:bg-[#EEF3F8] border border-[#CBD5E1] text-xs font-bold text-[#0B1120] shadow-sm"
                     >
                       Line Telemetry
                     </button>
@@ -890,21 +899,21 @@ export const DemoOverview: React.FC<DemoOverviewProps> = ({
           )}
 
           {activeCockpitTab === 'capacity' && (
-            <div className="p-5 rounded-xl bg-emerald-50/50 border border-emerald-200 space-y-3">
+            <div className="p-5 rounded-xl bg-emerald-50/70 border border-emerald-300 space-y-3 shadow-sm">
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-2">
-                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-500" />
-                  <span className="font-bold text-[#172033] text-sm">Verified Peer Capacity Matches</span>
+                  <span className="w-2.5 h-2.5 rounded-full bg-emerald-600 animate-pulse" />
+                  <span className="font-extrabold text-[#0B1120] text-base">Verified Peer Capacity Matches</span>
                 </div>
-                <span className="text-xs font-mono font-bold text-[#065F46]">4 Partners Online in Gazipur Hub</span>
+                <span className="text-xs font-mono font-bold text-[#065F46] bg-emerald-100 px-2.5 py-1 rounded-full border border-emerald-300 shadow-sm">4 Partners Online in Gazipur Hub</span>
               </div>
-              <p className="text-xs text-[#64748B]">
+              <p className="text-sm text-[#334155] font-medium">
                 Immediate certified RMG subcontract capacity available for Order #BD-2048 surplus production (18,000 pcs).
               </p>
               <div className="pt-2 flex items-center gap-3">
                 <button
                   onClick={() => onNavigate('capacity')}
-                  className="px-4 py-2 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+                  className="px-4 py-2 rounded-md bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-1.5 shadow-sm transition-all cursor-pointer"
                 >
                   <span>Open Capacity Matching Network</span>
                   <ArrowRight className="w-3.5 h-3.5" />

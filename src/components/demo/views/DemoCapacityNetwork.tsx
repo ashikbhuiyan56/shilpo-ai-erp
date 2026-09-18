@@ -328,7 +328,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
       {/* Triggered from Factory Data Entry Banner */}
       {subcontractRequest && (
-        <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 shadow-xs flex flex-wrap items-center justify-between gap-4">
+        <div className="p-5 rounded-2xl bg-emerald-50 border border-emerald-200 shadow-md flex flex-wrap items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <div className="p-2.5 rounded-xl bg-emerald-100 text-[#065F46] border border-emerald-300 shrink-0">
               <Zap className="w-5 h-5 fill-[#087F6A]" />
@@ -338,14 +338,14 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                 <span className="text-xs font-mono font-bold text-[#065F46] uppercase tracking-wider">
                   AI DATA ENTRY CAPACITY TRIGGER
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded bg-emerald-100 text-[#065F46] font-mono font-bold border border-emerald-200">
+                <span className="text-xs px-2.5 py-0.5 rounded-md bg-emerald-100 text-[#065F46] font-mono font-bold border border-emerald-300">
                   {subcontractRequest.category} · {subcontractRequest.deficitUnits.toLocaleString()} PCS DEFICIT
                 </span>
               </div>
-              <div className="text-sm font-bold text-[#172033] mt-0.5">
+              <div className="text-sm font-bold text-[#0B1120] mt-1">
                 Routing Overflow for Order #{subcontractRequest.orderNumber} ({subcontractRequest.buyer}) · Target Deadline: {subcontractRequest.targetDays} Days
               </div>
-              <div className="text-xs text-[#64748B] mt-0.5">
+              <div className="text-xs text-[#334155] mt-1">
                 Full Flow: Order requirement → Matching Engine → Verified Peer #BD-017 (94% Compatibility) → Request Match → Mutual Consent → Lock Escrow.
               </div>
             </div>
@@ -354,7 +354,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
           <div className="flex items-center gap-2">
             <button
               onClick={() => onNavigate('data-entry')}
-              className="px-3.5 py-2 rounded-xl bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-[#334155] text-xs font-semibold shadow-2xs transition-all cursor-pointer"
+              className="px-4 py-2 rounded-xl bg-white hover:bg-[#F8FAFC] hover:shadow-md border border-[#CBD5E1] text-[#1E293B] text-xs font-semibold shadow-sm transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
             >
               ← Edit Data Inputs
             </button>
@@ -363,18 +363,18 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
       )}
 
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-[#172033] flex items-center gap-2">
-              <Network className="w-5 h-5 text-[#087F6A]" />
+          <div className="flex items-center gap-2.5">
+            <h1 className="text-2xl font-extrabold text-[#0B1120] flex items-center gap-2.5">
+              <Network className="w-6 h-6 text-[#087F6A]" />
               <span>Verified Capacity Network</span>
             </h1>
-            <div className="px-2.5 py-0.5 rounded-full border border-emerald-200 bg-emerald-50 text-[10px] font-bold text-[#065F46] uppercase tracking-wider">
+            <div className="px-3 py-1 rounded-full border border-emerald-200 bg-emerald-50 text-xs font-bold text-[#065F46] uppercase tracking-wider">
               4 ACTIVE INDUSTRIAL HUBS
             </div>
           </div>
-          <p className="text-xs text-[#64748B] mt-1">
+          <p className="text-sm text-[#334155] mt-1.5">
             Zero-knowledge peer capacity matching, instant subcontracting allocation, and smart milestone escrow for export garment factories.
           </p>
         </div>
@@ -382,32 +382,32 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         <div className="flex items-center gap-2.5">
           <button
             onClick={() => setIsBroadcastModalOpen(true)}
-            className="px-3.5 py-2 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-1.5 shadow-xs transition-all cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold flex items-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
-            <Plus className="w-3.5 h-3.5 stroke-[3]" />
+            <Plus className="w-4 h-4 stroke-[3]" />
             <span>List / Broadcast Capacity</span>
           </button>
 
           <button
             onClick={() => onNavigate('trust')}
-            className="px-3.5 py-2 rounded-xl bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-xs font-semibold text-[#334155] flex items-center gap-1.5 transition-colors cursor-pointer"
+            className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-xs font-semibold text-[#1E293B] flex items-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
           >
-            <ShieldCheck className="w-3.5 h-3.5 text-[#087F6A]" />
+            <ShieldCheck className="w-4 h-4 text-[#087F6A]" />
             <span>Compliance Proofs</span>
           </button>
         </div>
       </div>
 
       {/* Interactive Order Delegation Configurator Bar */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-4">
-        <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#F1F5F9]">
+      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] space-y-4">
+        <div className="flex flex-wrap items-center justify-between gap-3 pb-3.5 border-b border-[#F1F5F9]">
           <div className="flex items-center gap-2">
             <Sliders className="w-4 h-4 text-[#087F6A]" />
-            <span className="text-xs font-mono font-bold text-[#172033] uppercase tracking-wider">
+            <span className="text-xs font-mono font-bold text-[#0B1120] uppercase tracking-wider">
               Step 1: Configure Order Subcontracting & Deficit Allocation
             </span>
           </div>
-          <span className="text-[11px] text-[#64748B] font-mono">
+          <span className="text-xs text-[#334155] font-mono">
             Directly binds capacity into factory production schedule
           </span>
         </div>
@@ -415,7 +415,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4 text-xs">
           {/* 1. Select Order */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-mono text-[#64748B] font-semibold">SELECT ORDER TO ALLOCATE</label>
+            <label className="text-xs font-mono text-[#334155] font-bold">SELECT ORDER TO ALLOCATE</label>
             <select
               value={selectedOrderId}
               onChange={(e) => {
@@ -427,10 +427,10 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                   else setAllocatedUnits(Math.round(found.quantity * 0.4));
                 }
               }}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] font-mono text-xs focus:outline-none focus:border-[#087F6A] cursor-pointer"
+              className="w-full px-3 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs cursor-pointer"
             >
               {SAMPLE_ORDERS.map((ord) => (
-                <option key={ord.id} value={ord.id} className="bg-white text-[#172033]">
+                <option key={ord.id} value={ord.id} className="bg-white text-[#0B1120]">
                   {ord.orderNumber} · {ord.buyer} ({ord.category} - {ord.quantity.toLocaleString()} pcs)
                 </option>
               ))}
@@ -440,7 +440,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
           {/* 2. Units to Outsource */}
           <div className="space-y-1.5">
             <div className="flex items-center justify-between">
-              <label className="text-[11px] font-mono text-[#64748B] font-semibold">UNITS TO OUTSOURCE</label>
+              <label className="text-xs font-mono text-[#334155] font-bold">UNITS TO OUTSOURCE</label>
               <span className="text-[#087F6A] font-mono font-bold">{allocatedUnits.toLocaleString()} pcs</span>
             </div>
             <div className="flex items-center gap-2">
@@ -451,7 +451,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                 step="1000"
                 value={allocatedUnits}
                 onChange={(e) => setAllocatedUnits(Number(e.target.value) || 1000)}
-                className="w-full px-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] font-mono text-xs focus:outline-none focus:border-[#087F6A]"
+                className="w-full px-3 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
               />
             </div>
             {/* Quick presets */}
@@ -461,8 +461,8 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                   key={preset}
                   type="button"
                   onClick={() => setAllocatedUnits(preset)}
-                  className={`px-1.5 py-0.5 rounded text-[10px] font-mono transition-colors cursor-pointer ${
-                    allocatedUnits === preset ? 'bg-emerald-50 text-[#065F46] border border-emerald-300 font-bold' : 'bg-[#F1F5F9] text-[#64748B] hover:text-[#172033]'
+                  className={`px-2 py-1 rounded-md text-xs font-mono font-semibold transition-all cursor-pointer ${
+                    allocatedUnits === preset ? 'bg-emerald-50 text-[#065F46] border border-emerald-300 font-bold shadow-2xs' : 'bg-[#F1F5F9] text-[#334155] hover:text-[#0B1120] hover:bg-[#E2E8F0]'
                   }`}
                 >
                   {preset / 1000}k
@@ -473,11 +473,11 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
           {/* 3. Target Delivery Window */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-mono text-[#64748B] font-semibold">TARGET DELIVERY WINDOW</label>
+            <label className="text-xs font-mono text-[#334155] font-bold">TARGET DELIVERY WINDOW</label>
             <select
               value={targetDays}
               onChange={(e) => setTargetDays(Number(e.target.value))}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] font-mono text-xs focus:outline-none focus:border-[#087F6A] cursor-pointer"
+              className="w-full px-3 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs cursor-pointer"
             >
               <option value={7}>Express (7 Days)</option>
               <option value={12}>Standard (12 Days)</option>
@@ -488,9 +488,9 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
           {/* 4. Target Escrow Rate */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-mono text-[#64748B] font-semibold">TARGET RATE / PIECE (USD)</label>
+            <label className="text-xs font-mono text-[#334155] font-bold">TARGET RATE / PIECE (USD)</label>
             <div className="relative">
-              <span className="absolute left-3 top-2 text-[#64748B] font-mono">$</span>
+              <span className="absolute left-3 top-2.5 text-[#475569] font-mono font-bold">$</span>
               <input
                 type="number"
                 step="0.05"
@@ -498,21 +498,21 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                 max="20.00"
                 value={targetRate}
                 onChange={(e) => setTargetRate(Number(e.target.value) || 2.0)}
-                className="w-full pl-6 pr-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] font-mono text-xs focus:outline-none focus:border-[#087F6A]"
+                className="w-full pl-7 pr-3 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono text-xs font-semibold focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
               />
             </div>
-            <div className="text-[10px] text-[#64748B] font-mono">
+            <div className="text-xs text-[#334155] font-mono font-medium">
               Total Escrow: ${(allocatedUnits * targetRate).toLocaleString()}
             </div>
           </div>
 
           {/* 5. Quality Standard (AQL) */}
           <div className="space-y-1.5">
-            <label className="text-[11px] font-mono text-[#64748B] font-semibold">QUALITY AUDIT STANDARD</label>
+            <label className="text-xs font-mono text-[#334155] font-bold">QUALITY AUDIT STANDARD</label>
             <select
               value={aqlLevel}
               onChange={(e) => setAqlLevel(e.target.value)}
-              className="w-full px-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] font-mono text-xs focus:outline-none focus:border-[#087F6A] cursor-pointer"
+              className="w-full px-3 py-2.5 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono text-xs font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs cursor-pointer"
             >
               <option value="AQL 1.0">AQL 1.0 (Luxury / Zero-Defect)</option>
               <option value="AQL 1.5">AQL 1.5 (Standard Export)</option>
@@ -523,20 +523,20 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
       </div>
 
       {/* Hub Filter & Search Filter Bar */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-4 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
         {/* Hub Tabs */}
         <div className="flex flex-wrap items-center gap-1.5">
-          <span className="text-[11px] font-mono text-[#64748B] mr-2 flex items-center gap-1 font-semibold">
-            <MapPin className="w-3.5 h-3.5 text-[#087F6A]" /> HUB:
+          <span className="text-xs font-mono text-[#334155] mr-2 flex items-center gap-1 font-bold">
+            <MapPin className="w-4 h-4 text-[#087F6A]" /> HUB:
           </span>
           {(['all', 'Gazipur', 'Savar', 'Narayanganj', 'Chittagong'] as const).map((hub) => (
             <button
               key={hub}
               onClick={() => setSelectedHub(hub)}
-              className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all cursor-pointer ${
+              className={`px-3.5 py-1.5 rounded-xl text-xs font-semibold transition-all cursor-pointer ${
                 selectedHub === hub
-                  ? 'bg-[#087F6A] text-white shadow-xs'
-                  : 'bg-[#F1F5F9] text-[#334155] hover:bg-[#E2E8F0]'
+                  ? 'bg-[#087F6A] text-white shadow-sm'
+                  : 'bg-[#F1F5F9] text-[#1E293B] hover:bg-[#E2E8F0]'
               }`}
             >
               {hub === 'all' ? 'All Hubs' : hub}
@@ -550,7 +550,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as any)}
-            className="px-3 py-1.5 rounded-lg bg-white border border-[#CBD5E1] text-xs text-[#172033] focus:outline-none focus:border-[#087F6A] cursor-pointer"
+            className="px-3.5 py-2 rounded-xl bg-white border border-[#CBD5E1] text-xs font-medium text-[#0B1120] focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs cursor-pointer"
           >
             <option value="all">All Categories</option>
             <option value="Knitwear">Knitwear</option>
@@ -560,14 +560,14 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
           </select>
 
           {/* Search Input */}
-          <div className="relative flex-1 sm:w-56">
-            <Search className="w-3.5 h-3.5 text-[#94A3B8] absolute left-3 top-2.5" />
+          <div className="relative flex-1 sm:w-60">
+            <Search className="w-4 h-4 text-[#64748B] absolute left-3 top-2.5" />
             <input
               type="text"
               placeholder="Search partner or cert..."
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full pl-8 pr-3 py-1.5 rounded-lg bg-white border border-[#CBD5E1] text-xs text-[#172033] placeholder-[#94A3B8] focus:outline-none focus:border-[#087F6A]"
+              className="w-full pl-9 pr-3 py-2 rounded-xl bg-white border border-[#CBD5E1] text-xs font-medium text-[#0B1120] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
             />
           </div>
         </div>
@@ -575,30 +575,30 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
       {/* Network Overview Stats */}
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
-          <div className="text-[10px] font-mono text-[#64748B] uppercase tracking-wider">AVAILABLE NETWORK CAPACITY</div>
-          <div className="text-2xl font-bold text-[#087F6A] font-mono mt-1">
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
+          <div className="text-xs font-semibold text-[#334155] uppercase tracking-wider">AVAILABLE NETWORK CAPACITY</div>
+          <div className="text-3xl font-extrabold text-[#087F6A] font-mono mt-1.5">
             {partners.reduce((sum, p) => sum + p.availableUnits, 0).toLocaleString()} pcs
           </div>
-          <div className="text-[11px] text-[#64748B] mt-0.5">Across {partners.length} Verified Facilities</div>
+          <div className="text-xs font-medium text-[#475569] mt-1">Across {partners.length} Verified Facilities</div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
-          <div className="text-[10px] font-mono text-[#64748B] uppercase tracking-wider">MATCH LATENCY</div>
-          <div className="text-2xl font-bold text-[#172033] font-mono mt-1">&lt; 4 Hours</div>
-          <div className="text-[11px] text-[#087F6A] font-semibold mt-0.5">vs 4–7 days opaque brokerage</div>
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
+          <div className="text-xs font-semibold text-[#334155] uppercase tracking-wider">MATCH LATENCY</div>
+          <div className="text-3xl font-extrabold text-[#0B1120] font-mono mt-1.5">&lt; 4 Hours</div>
+          <div className="text-xs font-semibold text-[#087F6A] mt-1">vs 4–7 days opaque brokerage</div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
-          <div className="text-[10px] font-mono text-[#64748B] uppercase tracking-wider">COMPLIANCE ASSURANCE</div>
-          <div className="text-2xl font-bold text-[#172033] font-mono mt-1">100% Verified</div>
-          <div className="text-[11px] text-[#64748B] mt-0.5">Sedex / WRAP / Accord Audited</div>
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
+          <div className="text-xs font-semibold text-[#334155] uppercase tracking-wider">COMPLIANCE ASSURANCE</div>
+          <div className="text-3xl font-extrabold text-[#0B1120] font-mono mt-1.5">100% Verified</div>
+          <div className="text-xs font-medium text-[#475569] mt-1">Sedex / WRAP / Accord Audited</div>
         </div>
 
-        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
-          <div className="text-[10px] font-mono text-[#64748B] uppercase tracking-wider">PRIVACY PROTOCOL</div>
-          <div className="text-2xl font-bold text-[#087F6A] font-mono mt-1">Zero-Knowledge</div>
-          <div className="text-[11px] text-[#64748B] mt-0.5">Shielded until mutual consent</div>
+        <div className="p-5 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] hover:shadow-md transition-all duration-200 hover:-translate-y-0.5">
+          <div className="text-xs font-semibold text-[#334155] uppercase tracking-wider">PRIVACY PROTOCOL</div>
+          <div className="text-3xl font-extrabold text-[#087F6A] font-mono mt-1.5">Zero-Knowledge</div>
+          <div className="text-xs font-medium text-[#475569] mt-1">Shielded until mutual consent</div>
         </div>
       </div>
 
@@ -607,16 +607,16 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         {/* Left: Available Peer Capacity Cards */}
         <div className="lg:col-span-6 space-y-3">
           <div className="flex items-center justify-between px-1">
-            <div className="text-xs font-mono font-bold text-[#64748B] uppercase tracking-wider">
+            <div className="text-xs font-mono font-bold text-[#334155] uppercase tracking-wider">
               VERIFIED PEER CANDIDATES ({filteredPartners.length})
             </div>
-            <span className="text-[11px] text-[#087F6A] font-mono font-semibold">
+            <span className="text-xs text-[#087F6A] font-mono font-bold">
               Targeting: {currentOrder.category} ({allocatedUnits.toLocaleString()} pcs)
             </span>
           </div>
 
           {filteredPartners.length === 0 ? (
-            <div className="p-8 rounded-2xl bg-white border border-[#E2E8F0] text-center text-[#64748B] text-xs">
+            <div className="p-8 rounded-2xl bg-white border border-[#E2E8F0] shadow-sm text-center text-[#334155] text-sm">
               No peer factories match the current hub or search filter. Try selecting "All Hubs" or broadcast a new RFP.
             </div>
           ) : (
@@ -629,36 +629,36 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                 <div
                   key={p.id}
                   onClick={() => setSelectedPartnerId(p.id)}
-                  className={`p-5 rounded-2xl border cursor-pointer transition-all shadow-xs ${
+                  className={`p-5 rounded-2xl border cursor-pointer transition-all duration-200 hover:-translate-y-0.5 ${
                     isSelected
-                      ? 'bg-emerald-50/40 border-[#087F6A] ring-1 ring-[#087F6A]'
-                      : 'bg-white border-[#E2E8F0] hover:border-[#CBD5E1]'
+                      ? 'bg-emerald-50/40 border-[#087F6A] ring-2 ring-[#087F6A]/20 shadow-md'
+                      : 'bg-white border-[#E2E8F0] shadow-sm hover:shadow-lg hover:border-[#CBD5E1]'
                   }`}
                 >
                   <div className="flex items-start justify-between gap-2 mb-3">
-                    <div className="flex items-center gap-2.5">
-                      <div className="p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#087F6A]">
-                        <Building2 className="w-4 h-4" />
+                    <div className="flex items-center gap-3">
+                      <div className="p-2.5 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-[#087F6A] shadow-2xs">
+                        <Building2 className="w-5 h-5" />
                       </div>
                       <div>
-                        <div className="text-sm font-bold text-[#172033] flex items-center gap-2">
+                        <div className="text-sm font-bold text-[#0B1120] flex items-center gap-2">
                           <span>{state !== 'idle' && state !== 'requesting' && p.realName ? p.realName : p.alias}</span>
                           {state === 'contract_signed' ? (
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-[#065F46] border border-emerald-300 flex items-center gap-1 font-bold">
-                              <Check className="w-2.5 h-2.5" /> CONTRACT BOUND
+                            <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-emerald-100 text-[#065F46] border border-emerald-300 flex items-center gap-1 font-bold">
+                              <Check className="w-3 h-3" /> CONTRACT BOUND
                             </span>
                           ) : state === 'unlocked' || state === 'mutual_consent' ? (
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-emerald-100 text-[#065F46] border border-emerald-300 flex items-center gap-1 font-bold">
-                              <Unlock className="w-2.5 h-2.5" /> UNLOCKED
+                            <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-emerald-100 text-[#065F46] border border-emerald-300 flex items-center gap-1 font-bold">
+                              <Unlock className="w-3 h-3" /> UNLOCKED
                             </span>
                           ) : (
-                            <span className="text-[10px] font-mono px-2 py-0.5 rounded-full bg-[#F1F5F9] text-[#64748B] flex items-center gap-1 border border-[#E2E8F0]">
-                              <Lock className="w-2.5 h-2.5" /> SHIELDED ID
+                            <span className="text-xs font-mono px-2.5 py-0.5 rounded-md bg-[#F1F5F9] text-[#334155] flex items-center gap-1 border border-[#CBD5E1] font-semibold">
+                              <Lock className="w-3 h-3 text-[#475569]" /> SHIELDED ID
                             </span>
                           )}
                         </div>
-                        <div className="text-xs text-[#64748B] font-mono flex items-center gap-1.5 mt-0.5">
-                          <MapPin className="w-3 h-3 text-[#94A3B8]" />
+                        <div className="text-xs text-[#334155] font-mono flex items-center gap-1.5 mt-0.5">
+                          <MapPin className="w-3.5 h-3.5 text-[#087F6A]" />
                           <span>{p.location}</span>
                         </div>
                       </div>
@@ -668,16 +668,16 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                       <span className="text-xs font-mono font-bold text-[#065F46] bg-emerald-50 px-2.5 py-1 rounded-full border border-emerald-200">
                         {dynamicScore}% Compatibility
                       </span>
-                      <div className="text-[10px] text-[#64748B] font-mono mt-1">{p.availableFrom}</div>
+                      <div className="text-xs text-[#475569] font-mono mt-1 font-medium">{p.availableFrom}</div>
                     </div>
                   </div>
 
                   {/* Certifications preview */}
-                  <div className="flex flex-wrap gap-1.5 mb-3">
+                  <div className="flex flex-wrap gap-1.5 mb-3.5">
                     {p.certifications.map((cert) => (
                       <span
                         key={cert}
-                        className="px-2 py-0.5 rounded bg-[#F8FAFC] border border-[#E2E8F0] text-[10px] text-[#475569] font-mono font-medium"
+                        className="px-2.5 py-0.5 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#1E293B] font-mono font-semibold"
                       >
                         {cert}
                       </span>
@@ -686,16 +686,16 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
                   <div className="grid grid-cols-3 gap-2 pt-3 border-t border-[#F1F5F9] text-xs">
                     <div>
-                      <div className="text-[10px] text-[#64748B] font-mono">AVAILABLE CAP.</div>
-                      <div className="font-bold text-[#172033] font-mono">{p.availableUnits.toLocaleString()} pcs</div>
+                      <div className="text-xs font-semibold text-[#334155] font-mono uppercase">AVAILABLE CAP.</div>
+                      <div className="text-sm font-bold text-[#0B1120] font-mono mt-0.5">{p.availableUnits.toLocaleString()} pcs</div>
                     </div>
                     <div>
-                      <div className="text-[10px] text-[#64748B] font-mono">SPECIALTY</div>
-                      <div className="font-medium text-[#172033]">{p.specialization}</div>
+                      <div className="text-xs font-semibold text-[#334155] font-mono uppercase">SPECIALTY</div>
+                      <div className="text-sm font-semibold text-[#0B1120] mt-0.5">{p.specialization}</div>
                     </div>
                     <div>
-                      <div className="text-[10px] text-[#64748B] font-mono">SMV RATING</div>
-                      <div className="font-bold text-[#087F6A] font-mono">{p.smvRating} / 5.0 ★</div>
+                      <div className="text-xs font-semibold text-[#334155] font-mono uppercase">SMV RATING</div>
+                      <div className="text-sm font-bold text-[#087F6A] font-mono mt-0.5">{p.smvRating} / 5.0 ★</div>
                     </div>
                   </div>
                 </div>
@@ -705,14 +705,14 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         </div>
 
         {/* Right: Handshake & Matching Execution Console */}
-        <div className="lg:col-span-6 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-6 flex flex-col justify-between">
+        <div className="lg:col-span-6 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] space-y-6 flex flex-col justify-between">
           <div className="space-y-4">
             <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
               <div>
                 <span className="text-xs font-mono text-[#087F6A] font-bold uppercase tracking-wider">
                   CONFIDENTIAL PEER MATCH CONSOLE
                 </span>
-                <h3 className="text-lg font-bold text-[#172033] mt-0.5">
+                <h3 className="text-xl font-bold text-[#0B1120] mt-1">
                   Target Candidate: {partnerStatus !== 'idle' && partnerStatus !== 'requesting' && activePartner.realName ? activePartner.realName : activePartner.alias}
                 </h3>
               </div>
@@ -721,54 +721,54 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                   <button
                     onClick={() => handleResetMatch(activePartner.id)}
                     title="Reset match state"
-                    className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#64748B] hover:text-[#172033] border border-[#E2E8F0] text-xs transition-colors cursor-pointer"
+                    className="p-2 rounded-xl bg-[#F8FAFC] hover:bg-[#F1F5F9] text-[#334155] hover:text-[#0B1120] border border-[#CBD5E1] text-xs transition-colors cursor-pointer shadow-2xs"
                   >
-                    <RefreshCw className="w-3.5 h-3.5" />
+                    <RefreshCw className="w-4 h-4" />
                   </button>
                 )}
-                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[#087F6A]">
+                <div className="p-2.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[#087F6A] shadow-2xs">
                   {partnerStatus === 'unlocked' || partnerStatus === 'contract_signed' ? <Unlock className="w-5 h-5" /> : <Lock className="w-5 h-5" />}
                 </div>
               </div>
             </div>
 
             {/* Privacy Shielding Statement */}
-            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#334155] flex items-start gap-2.5">
+            <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-xs text-[#1E293B] flex items-start gap-2.5 shadow-2xs">
               <ShieldCheck className="w-4 h-4 text-[#087F6A] shrink-0 mt-0.5" />
               <div>
-                <strong className="text-[#172033]">Zero-Knowledge Guarantee:</strong> Commercial rates, proprietary tech packs, and customer identity remain cryptographically blinded until both authorized factory representatives accept mutual terms.
+                <strong className="text-[#0B1120]">Zero-Knowledge Guarantee:</strong> Commercial rates, proprietary tech packs, and customer identity remain cryptographically blinded until both authorized factory representatives accept mutual terms.
               </div>
             </div>
 
             {/* Match Criteria Breakdown for Current Order */}
             <div className="space-y-2 text-xs">
-              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Selected Order Subcontract</span>
-                <span className="text-[#172033] font-mono font-bold">
+              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#334155]">
+                <span className="font-medium">Selected Order Subcontract</span>
+                <span className="text-[#0B1120] font-mono font-bold text-sm">
                   {currentOrder.orderNumber} · {currentOrder.buyer} ({currentOrder.category})
                 </span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Requested Allocation</span>
-                <span className="text-[#087F6A] font-mono font-bold">
+              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#334155]">
+                <span className="font-medium">Requested Allocation</span>
+                <span className="text-[#087F6A] font-mono font-bold text-sm">
                   {allocatedUnits.toLocaleString()} units @ ${targetRate.toFixed(2)}/pc
                 </span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Total Smart Escrow Bond</span>
-                <span className="text-[#172033] font-mono font-bold">
+              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#334155]">
+                <span className="font-medium">Total Smart Escrow Bond</span>
+                <span className="text-[#0B1120] font-mono font-bold text-sm">
                   ${(allocatedUnits * targetRate).toLocaleString()} USD
                 </span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Delivery Window & Quality</span>
-                <span className="text-[#172033] font-mono">
+              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#334155]">
+                <span className="font-medium">Delivery Window & Quality</span>
+                <span className="text-[#0B1120] font-mono font-semibold text-xs">
                   {targetDays} Days · {aqlLevel} Standard
                 </span>
               </div>
-              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#64748B]">
-                <span>Production Fit Score</span>
-                <span className="text-[#087F6A] font-mono font-bold">
+              <div className="flex justify-between py-2 border-b border-[#F1F5F9] text-[#334155]">
+                <span className="font-medium">Production Fit Score</span>
+                <span className="text-[#087F6A] font-mono font-bold text-sm">
                   {calculateDynamicScore(activePartner)}% (Machine & Skill Fit)
                 </span>
               </div>
@@ -776,10 +776,10 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
             {/* Multi-Stage Handshake Progress Visualization */}
             {partnerStatus !== 'idle' && (
-              <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-3 animate-fadeIn">
-                <div className="text-xs font-bold text-[#172033] flex items-center justify-between">
+              <div className="p-4 rounded-xl bg-emerald-50/70 border border-emerald-200 space-y-3 shadow-sm animate-fadeIn">
+                <div className="text-xs font-bold text-[#0B1120] flex items-center justify-between">
                   <span>Capacity Handshake Status</span>
-                  <span className="text-[#065F46] font-mono text-[10px] font-bold">
+                  <span className="text-[#065F46] font-mono text-xs font-bold">
                     {partnerStatus === 'requesting'
                       ? 'Step 1/4: Encrypted Spec Transmitted...'
                       : partnerStatus === 'mutual_consent'
@@ -789,7 +789,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                       : 'Step 4/4: Smart Escrow Bound & Signed'}
                   </span>
                 </div>
-                <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
+                <div className="w-full bg-[#E2E8F0] h-2.5 rounded-full overflow-hidden">
                   <div 
                     className="bg-[#087F6A] h-full transition-all duration-700" 
                     style={{
@@ -807,7 +807,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                 {(partnerStatus === 'unlocked' || partnerStatus === 'contract_signed') && (
                   <div className="text-xs text-[#065F46] font-mono space-y-1">
                     <div className="font-bold">✓ Identity Verified: {activePartner.realName || activePartner.alias}</div>
-                    <div className="text-[11px] text-[#64748B]">
+                    <div className="text-xs text-[#334155]">
                       Location: {activePartner.location} · Managing Director: M. S. Rahman · Audit Certs: {activePartner.certifications.join(', ')}
                     </div>
                   </div>
@@ -820,7 +820,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
           <div className="pt-4 border-t border-[#F1F5F9] space-y-3">
             {partnerStatus === 'contract_signed' ? (
               <div className="space-y-2">
-                <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center text-xs text-[#065F46] font-bold flex items-center justify-center gap-2">
+                <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-center text-xs text-[#065F46] font-bold flex items-center justify-center gap-2 shadow-2xs">
                   <CheckCircle2 className="w-4 h-4 text-[#087F6A]" />
                   <span>Subcontract Legally Bound & Escrow Locked (Delay Reduced to 0.0 Days)</span>
                 </div>
@@ -831,28 +831,28 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                       setSelectedContract(found);
                       setIsContractModalOpen(true);
                     }}
-                    className="py-2.5 rounded-xl bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-[#334155] text-xs font-semibold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-2xs"
+                    className="py-2.5 rounded-xl bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-[#1E293B] text-xs font-semibold transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
                   >
-                    <FileText className="w-3.5 h-3.5 text-[#087F6A]" />
+                    <FileText className="w-4 h-4 text-[#087F6A]" />
                     <span>View Digital Contract</span>
                   </button>
                   <button
                     onClick={() => onNavigate('forecast')}
-                    className="py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold transition-all flex items-center justify-center gap-1.5 cursor-pointer shadow-xs"
+                    className="py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white text-xs font-bold transition-all duration-200 hover:-translate-y-0.5 flex items-center justify-center gap-2 cursor-pointer shadow-sm hover:shadow-md"
                   >
                     <span>Verify 14-Day Delivery</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <ArrowRight className="w-4 h-4" />
                   </button>
                 </div>
               </div>
             ) : partnerStatus === 'unlocked' ? (
               <div className="space-y-2">
-                <div className="text-xs text-[#64748B]">
+                <div className="text-xs text-[#334155] font-medium">
                   Ready to lock capacity and execute smart escrow deposit:
                 </div>
                 <button
                   onClick={handleSignAndLockEscrow}
-                  className="w-full py-3.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer"
+                  className="w-full py-3.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                 >
                   <Shield className="w-4 h-4 fill-white" />
                   <span>Sign Subcontract & Lock Escrow (${(allocatedUnits * targetRate).toLocaleString()} USD)</span>
@@ -862,7 +862,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
               <button
                 onClick={() => handleInitiateMatch(activePartner.id)}
                 disabled={partnerStatus === 'requesting' || partnerStatus === 'mutual_consent'}
-                className="w-full py-3.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-xs transition-all cursor-pointer disabled:opacity-50"
+                className="w-full py-3.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs sm:text-sm flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer disabled:opacity-50"
               >
                 <Zap className="w-4 h-4 fill-white" />
                 <span>
@@ -879,13 +879,13 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
       </div>
 
       {/* Active Subcontract Tracking Console */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs space-y-4">
+      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] space-y-4">
         <div className="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#F1F5F9]">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
             <Truck className="w-5 h-5 text-[#087F6A]" />
-            <h3 className="text-sm font-bold text-[#172033]">Active Subcontracted Production Orders ({activeSubcontracts.length})</h3>
+            <h3 className="text-base font-bold text-[#0B1120]">Active Subcontracted Production Orders ({activeSubcontracts.length})</h3>
           </div>
-          <span className="text-xs font-mono text-[#64748B]">
+          <span className="text-xs font-mono text-[#334155]">
             Real-time Milestone Monitoring & Smart Escrow Payouts
           </span>
         </div>
@@ -893,46 +893,46 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         <div className="overflow-x-auto">
           <table className="w-full min-w-[860px] text-left text-xs border-collapse">
             <thead>
-              <tr className="border-b border-[#E2E8F0] text-[#64748B] font-mono bg-[#F8FAFC]">
-                <th className="py-2.5 px-3 whitespace-nowrap">Subcontract ID</th>
-                <th className="py-2.5 px-3">Order / Buyer</th>
-                <th className="py-2.5 px-3">Allocated Partner</th>
-                <th className="py-2.5 px-3 whitespace-nowrap">Units & Escrow</th>
-                <th className="py-2.5 px-3 whitespace-nowrap">Target Date</th>
-                <th className="py-2.5 px-3 whitespace-nowrap">Live Status</th>
-                <th className="py-2.5 px-3 whitespace-nowrap">Progress</th>
-                <th className="py-2.5 px-3 text-right whitespace-nowrap">Actions</th>
+              <tr className="border-b border-[#CBD5E1] text-[#334155] font-mono bg-[#F8FAFC]">
+                <th className="py-3 px-3.5 font-bold whitespace-nowrap">Subcontract ID</th>
+                <th className="py-3 px-3.5 font-bold">Order / Buyer</th>
+                <th className="py-3 px-3.5 font-bold">Allocated Partner</th>
+                <th className="py-3 px-3.5 font-bold whitespace-nowrap">Units & Escrow</th>
+                <th className="py-3 px-3.5 font-bold whitespace-nowrap">Target Date</th>
+                <th className="py-3 px-3.5 font-bold whitespace-nowrap">Live Status</th>
+                <th className="py-3 px-3.5 font-bold whitespace-nowrap">Progress</th>
+                <th className="py-3 px-3.5 text-right font-bold whitespace-nowrap">Actions</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-[#F1F5F9]">
               {activeSubcontracts.map((sub) => (
                 <tr key={sub.id} className="hover:bg-[#F8FAFC] transition-colors">
-                  <td className="py-3.5 px-3 font-mono text-[#087F6A] font-bold whitespace-nowrap">{sub.id}</td>
-                  <td className="py-3.5 px-3">
-                    <div className="font-bold text-[#172033] font-mono">{sub.orderNumber}</div>
-                    <div className="text-[11px] text-[#64748B]">{sub.buyer}</div>
+                  <td className="py-3.5 px-3.5 font-mono text-[#087F6A] font-bold whitespace-nowrap">{sub.id}</td>
+                  <td className="py-3.5 px-3.5">
+                    <div className="font-bold text-[#0B1120] font-mono text-xs">{sub.orderNumber}</div>
+                    <div className="text-xs text-[#334155] font-medium">{sub.buyer}</div>
                   </td>
-                  <td className="py-3.5 px-3">
-                    <div className="font-medium text-[#172033]">{sub.partnerName}</div>
-                    <div className="text-[10px] font-mono text-[#64748B]">{sub.partnerLocation}</div>
+                  <td className="py-3.5 px-3.5">
+                    <div className="font-semibold text-[#0B1120]">{sub.partnerName}</div>
+                    <div className="text-xs font-mono text-[#475569]">{sub.partnerLocation}</div>
                   </td>
-                  <td className="py-3.5 px-3 font-mono whitespace-nowrap">
-                    <div className="text-[#172033] font-bold">{sub.units.toLocaleString()} pcs</div>
-                    <div className="text-[10px] text-[#087F6A] font-semibold">${sub.totalEscrowAmount.toLocaleString()} USD</div>
+                  <td className="py-3.5 px-3.5 font-mono whitespace-nowrap">
+                    <div className="text-[#0B1120] font-bold text-xs">{sub.units.toLocaleString()} pcs</div>
+                    <div className="text-xs text-[#087F6A] font-bold">${sub.totalEscrowAmount.toLocaleString()} USD</div>
                   </td>
-                  <td className="py-3.5 px-3 font-mono text-[#475569] whitespace-nowrap">{sub.deliveryDate}</td>
-                  <td className="py-3.5 px-3 whitespace-nowrap">
-                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[10px] font-mono font-bold bg-emerald-50 text-[#065F46] border border-emerald-200 whitespace-nowrap shadow-xs shrink-0">
+                  <td className="py-3.5 px-3.5 font-mono text-[#1E293B] font-medium whitespace-nowrap">{sub.deliveryDate}</td>
+                  <td className="py-3.5 px-3.5 whitespace-nowrap">
+                    <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-mono font-bold bg-emerald-50 text-[#065F46] border border-emerald-200 whitespace-nowrap shadow-2xs shrink-0">
                       <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse shrink-0" />
                       <span>{sub.status}</span>
                     </span>
                   </td>
-                  <td className="py-3.5 px-3 w-32 whitespace-nowrap">
+                  <td className="py-3.5 px-3.5 w-32 whitespace-nowrap">
                     <div className="space-y-1">
-                      <div className="flex justify-between text-[10px] font-mono text-[#64748B]">
+                      <div className="flex justify-between text-xs font-mono font-semibold text-[#334155]">
                         <span>{sub.progress}%</span>
                       </div>
-                      <div className="w-full bg-[#E2E8F0] h-1.5 rounded-full overflow-hidden">
+                      <div className="w-full bg-[#E2E8F0] h-2 rounded-full overflow-hidden">
                         <div 
                           className="bg-[#087F6A] h-full transition-all duration-500" 
                           style={{ width: `${sub.progress}%` }}
@@ -940,11 +940,11 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                       </div>
                     </div>
                   </td>
-                  <td className="py-3.5 px-3 text-right whitespace-nowrap">
+                  <td className="py-3.5 px-3.5 text-right whitespace-nowrap">
                     <div className="flex items-center justify-end gap-2">
                       <button
                         onClick={() => handleAdvanceMilestone(sub.id)}
-                        className="px-2 py-1 rounded bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] text-[10px] font-mono text-[#065F46] font-bold transition-colors cursor-pointer"
+                        className="px-2.5 py-1 rounded-lg bg-[#F1F5F9] hover:bg-[#E2E8F0] border border-[#CBD5E1] text-xs font-mono text-[#065F46] font-bold transition-all hover:shadow-2xs cursor-pointer"
                         title="Simulate next QC milestone"
                       >
                         + Milestone
@@ -954,7 +954,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                           setSelectedContract(sub);
                           setIsContractModalOpen(true);
                         }}
-                        className="px-2.5 py-1 rounded bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-xs text-[#334155] font-semibold transition-colors cursor-pointer"
+                        className="px-3 py-1 rounded-lg bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-xs text-[#1E293B] font-semibold shadow-2xs hover:shadow-xs transition-all cursor-pointer"
                       >
                         Contract
                       </button>
@@ -972,18 +972,18 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs animate-fadeIn">
           <div className="w-full max-w-lg rounded-2xl bg-white border border-[#E2E8F0] p-6 space-y-5 shadow-2xl">
             <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-emerald-50 text-[#087F6A] border border-emerald-200">
                   <Network className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#172033]">Broadcast Factory Capacity / Request</h3>
-                  <p className="text-xs text-[#64748B]">Share spare sewing lines or request peer production</p>
+                  <h3 className="text-base font-bold text-[#0B1120]">Broadcast Factory Capacity / Request</h3>
+                  <p className="text-xs text-[#334155]">Share spare sewing lines or request peer production</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsBroadcastModalOpen(false)}
-                className="p-1 rounded-lg text-[#64748B] hover:text-[#172033] cursor-pointer"
+                className="p-1 rounded-lg text-[#64748B] hover:text-[#0B1120] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
@@ -991,33 +991,33 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
             <form onSubmit={handleCreateBroadcast} className="space-y-4 text-xs">
               <div>
-                <label className="text-[11px] font-mono text-[#64748B] font-semibold">FACTORY NAME / DISCLOSED ENTITY</label>
+                <label className="text-xs font-mono text-[#334155] font-bold">FACTORY NAME / DISCLOSED ENTITY</label>
                 <input
                   type="text"
                   required
                   value={rfpForm.alias}
                   onChange={(e) => setRfpForm({ ...rfpForm, alias: e.target.value })}
-                  className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A]"
+                  className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
                 />
               </div>
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-mono text-[#64748B] font-semibold">REGION / HUB</label>
+                  <label className="text-xs font-mono text-[#334155] font-bold">REGION / HUB</label>
                   <input
                     type="text"
                     required
                     value={rfpForm.location}
                     onChange={(e) => setRfpForm({ ...rfpForm, location: e.target.value })}
-                    className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] font-mono text-[#64748B] font-semibold">PRODUCT SPECIALIZATION</label>
+                  <label className="text-xs font-mono text-[#334155] font-bold">PRODUCT SPECIALIZATION</label>
                   <select
                     value={rfpForm.specialization}
                     onChange={(e) => setRfpForm({ ...rfpForm, specialization: e.target.value })}
-                    className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs cursor-pointer"
                   >
                     <option value="Knitwear">Knitwear</option>
                     <option value="Woven">Woven</option>
@@ -1029,7 +1029,7 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
 
               <div className="grid grid-cols-2 gap-3">
                 <div>
-                  <label className="text-[11px] font-mono text-[#64748B] font-semibold">AVAILABLE UNITS (PCS)</label>
+                  <label className="text-xs font-mono text-[#334155] font-bold">AVAILABLE UNITS (PCS)</label>
                   <input
                     type="number"
                     min="1000"
@@ -1037,43 +1037,43 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
                     required
                     value={rfpForm.availableUnits}
                     onChange={(e) => setRfpForm({ ...rfpForm, availableUnits: Number(e.target.value) })}
-                    className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A] font-mono"
+                    className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
                   />
                 </div>
                 <div>
-                  <label className="text-[11px] font-mono text-[#64748B] font-semibold">AVAILABLE FROM</label>
+                  <label className="text-xs font-mono text-[#334155] font-bold">AVAILABLE FROM</label>
                   <input
                     type="text"
                     value={rfpForm.availableFrom}
                     onChange={(e) => setRfpForm({ ...rfpForm, availableFrom: e.target.value })}
-                    className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A]"
+                    className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-medium focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
                   />
                 </div>
               </div>
 
               <div>
-                <label className="text-[11px] font-mono text-[#64748B] font-semibold">CERTIFICATIONS (COMMA SEPARATED)</label>
+                <label className="text-xs font-mono text-[#334155] font-bold">CERTIFICATIONS (COMMA SEPARATED)</label>
                 <input
                   type="text"
                   value={rfpForm.certifications}
                   onChange={(e) => setRfpForm({ ...rfpForm, certifications: e.target.value })}
-                  className="w-full px-3 py-2 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#172033] focus:outline-none focus:border-[#087F6A] font-mono"
+                  className="w-full px-3 py-2.5 mt-1 rounded-xl bg-white border border-[#CBD5E1] text-[#0B1120] font-mono focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs"
                 />
               </div>
 
-              <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-end gap-2">
+              <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-end gap-2.5">
                 <button
                   type="button"
                   onClick={() => setIsBroadcastModalOpen(false)}
-                  className="px-4 py-2 rounded-xl bg-[#F1F5F9] text-[#334155] hover:bg-[#E2E8F0] font-semibold cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#F1F5F9] text-[#1E293B] hover:bg-[#E2E8F0] font-semibold cursor-pointer transition-colors"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-2 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold flex items-center gap-1.5 shadow-xs cursor-pointer"
+                  className="px-4 py-2 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold flex items-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
                 >
-                  <Send className="w-3.5 h-3.5" />
+                  <Send className="w-4 h-4" />
                   <span>Broadcast to Network</span>
                 </button>
               </div>
@@ -1087,86 +1087,86 @@ export const DemoCapacityNetwork: React.FC<DemoCapacityNetworkProps> = ({
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/40 backdrop-blur-xs animate-fadeIn">
           <div className="w-full max-w-2xl rounded-2xl bg-white border border-[#E2E8F0] p-6 space-y-5 shadow-2xl max-h-[90vh] overflow-y-auto">
             <div className="flex items-center justify-between pb-3 border-b border-[#F1F5F9]">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2.5">
                 <div className="p-2 rounded-xl bg-emerald-50 text-[#087F6A] border border-emerald-200">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="text-base font-bold text-[#172033]">Digital Garment Subcontract & Escrow Bond</h3>
-                  <p className="text-xs font-mono text-[#087F6A]">ID: {selectedContract.id} · Smart Contract Protocol</p>
+                  <h3 className="text-base font-bold text-[#0B1120]">Digital Garment Subcontract & Escrow Bond</h3>
+                  <p className="text-xs font-mono text-[#087F6A] font-semibold">ID: {selectedContract.id} · Smart Contract Protocol</p>
                 </div>
               </div>
               <button
                 onClick={() => setIsContractModalOpen(false)}
-                className="p-1 rounded-lg text-[#64748B] hover:text-[#172033] cursor-pointer"
+                className="p-1 rounded-lg text-[#64748B] hover:text-[#0B1120] cursor-pointer"
               >
                 <X className="w-5 h-5" />
               </button>
             </div>
 
             <div className="space-y-4 text-xs">
-              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2">
-                <div className="text-[10px] font-mono text-[#64748B] uppercase font-bold">BINDING CONTRACT TERMS</div>
+              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2 shadow-2xs">
+                <div className="text-xs font-mono text-[#334155] uppercase font-bold">BINDING CONTRACT TERMS</div>
                 <div className="grid grid-cols-2 gap-3 pt-1">
                   <div>
-                    <span className="text-[#64748B]">Primary Order:</span>
-                    <div className="font-bold text-[#172033] font-mono">{selectedContract.orderNumber} ({selectedContract.buyer})</div>
+                    <span className="text-[#475569] font-medium">Primary Order:</span>
+                    <div className="font-bold text-[#0B1120] font-mono text-xs">{selectedContract.orderNumber} ({selectedContract.buyer})</div>
                   </div>
                   <div>
-                    <span className="text-[#64748B]">Executing Peer Facility:</span>
+                    <span className="text-[#475569] font-medium">Executing Peer Facility:</span>
                     <div className="font-bold text-[#065F46]">{selectedContract.partnerName}</div>
                   </div>
                   <div>
-                    <span className="text-[#64748B]">Allocated Volume:</span>
-                    <div className="font-bold text-[#172033] font-mono">{selectedContract.units.toLocaleString()} pcs</div>
+                    <span className="text-[#475569] font-medium">Allocated Volume:</span>
+                    <div className="font-bold text-[#0B1120] font-mono text-xs">{selectedContract.units.toLocaleString()} pcs</div>
                   </div>
                   <div>
-                    <span className="text-[#64748B]">Agreed Unit Price:</span>
-                    <div className="font-bold text-[#087F6A] font-mono">${selectedContract.ratePerPiece.toFixed(2)} / pc</div>
+                    <span className="text-[#475569] font-medium">Agreed Unit Price:</span>
+                    <div className="font-bold text-[#087F6A] font-mono text-xs">${selectedContract.ratePerPiece.toFixed(2)} / pc</div>
                   </div>
                   <div>
-                    <span className="text-[#64748B]">Total Smart Escrow:</span>
-                    <div className="font-bold text-[#172033] font-mono text-sm">${selectedContract.totalEscrowAmount.toLocaleString()} USD</div>
+                    <span className="text-[#475569] font-medium">Total Smart Escrow:</span>
+                    <div className="font-bold text-[#0B1120] font-mono text-sm">${selectedContract.totalEscrowAmount.toLocaleString()} USD</div>
                   </div>
                   <div>
-                    <span className="text-[#64748B]">AQL Quality Requirement:</span>
-                    <div className="font-bold text-[#172033] font-mono">{selectedContract.aqlStandard} Standard</div>
+                    <span className="text-[#475569] font-medium">AQL Quality Requirement:</span>
+                    <div className="font-bold text-[#0B1120] font-mono text-xs">{selectedContract.aqlStandard} Standard</div>
                   </div>
                 </div>
               </div>
 
               {/* Milestone Escrow Schedule */}
-              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2.5">
-                <div className="text-[10px] font-mono text-[#64748B] uppercase font-bold">AUTOMATED ESCROW PAYOUT SCHEDULE</div>
+              <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] space-y-2.5 shadow-2xs">
+                <div className="text-xs font-mono text-[#334155] uppercase font-bold">AUTOMATED ESCROW PAYOUT SCHEDULE</div>
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between text-[11px] p-2.5 rounded-lg bg-white border border-[#E2E8F0]">
-                    <span className="text-[#334155]">1. Raw Material Inward Verification (30%)</span>
+                  <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-white border border-[#CBD5E1]">
+                    <span className="text-[#1E293B] font-medium">1. Raw Material Inward Verification (30%)</span>
                     <span className="font-mono text-[#087F6A] font-bold">${(selectedContract.totalEscrowAmount * 0.3).toLocaleString()} USD</span>
                   </div>
-                  <div className="flex items-center justify-between text-[11px] p-2.5 rounded-lg bg-white border border-[#E2E8F0]">
-                    <span className="text-[#334155]">2. Inline QC Pass & AQL 1.5 Milestone (40%)</span>
+                  <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-white border border-[#CBD5E1]">
+                    <span className="text-[#1E293B] font-medium">2. Inline QC Pass & AQL 1.5 Milestone (40%)</span>
                     <span className="font-mono text-[#087F6A] font-bold">${(selectedContract.totalEscrowAmount * 0.4).toLocaleString()} USD</span>
                   </div>
-                  <div className="flex items-center justify-between text-[11px] p-2.5 rounded-lg bg-white border border-[#E2E8F0]">
-                    <span className="text-[#334155]">3. Final Packaging & Export Gate Dispatch (30%)</span>
+                  <div className="flex items-center justify-between text-xs p-2.5 rounded-lg bg-white border border-[#CBD5E1]">
+                    <span className="text-[#1E293B] font-medium">3. Final Packaging & Export Gate Dispatch (30%)</span>
                     <span className="font-mono text-[#087F6A] font-bold">${(selectedContract.totalEscrowAmount * 0.3).toLocaleString()} USD</span>
                   </div>
                 </div>
               </div>
 
               {/* Cryptographic Signature */}
-              <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 font-mono text-[10px] space-y-1">
+              <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 font-mono text-xs space-y-1">
                 <div className="text-[#065F46] font-bold">CRYPTOGRAPHIC DIGITAL SIGNATURE:</div>
-                <div className="text-[#334155] break-all">{selectedContract.txHash}</div>
-                <div className="text-[#64748B] pt-1">Signed Timestamp: {selectedContract.signedAt}</div>
+                <div className="text-[#1E293B] break-all">{selectedContract.txHash}</div>
+                <div className="text-[#475569] pt-1">Signed Timestamp: {selectedContract.signedAt}</div>
               </div>
             </div>
 
             <div className="pt-3 border-t border-[#F1F5F9] flex items-center justify-between">
-              <span className="text-[11px] font-mono text-[#64748B]">BGMEA Verified Smart Agreement</span>
+              <span className="text-xs font-mono text-[#334155] font-medium">BGMEA Verified Smart Agreement</span>
               <button
                 onClick={() => setIsContractModalOpen(false)}
-                className="px-4 py-2 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs cursor-pointer"
+                className="px-4 py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
                 Close Agreement View
               </button>

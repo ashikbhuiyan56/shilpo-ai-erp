@@ -116,7 +116,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDemo, onOpenPilot }) => {
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-[1.12]">
               Deploy ShilpoAI ERP in 2 Weeks -{' '}
               <span className={theme === 'purple' ? 'text-purple-200' : 'bg-gradient-to-r from-white via-slate-100 to-slate-400 bg-clip-text text-transparent'}>
-                Bangladesh’s Most Trusted RMG OS
+                Bangladesh's Most Trusted RMG OS
               </span>
             </h1>
 

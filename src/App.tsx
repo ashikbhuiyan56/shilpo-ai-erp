@@ -99,7 +99,7 @@ function MainApp() {
     : 'bg-[#F5F8FC] text-[#172033]';
 
   return (
-    <div className={`min-h-screen selection:bg-emerald-500/20 selection:text-emerald-900 ${websiteBg}`}>
+    <div className={`min-h-screen selection:bg-purple-500/20 selection:text-purple-300 ${websiteBg}`}>
       {currentView === 'website' ? (
         /* ================= PUBLIC SAAS WEBSITE ================= */
         <div className="relative overflow-x-hidden">
@@ -151,7 +151,7 @@ function MainApp() {
         </div>
       ) : (
         /* ================= INTERACTIVE PRODUCT DEMO (COMMAND CENTER) ================= */
-        <div className="h-screen flex flex-col overflow-hidden bg-[#F5F8FC] text-[#172033]">
+        <div className="demo-shell h-screen flex flex-col overflow-hidden bg-[#F5F8FC] text-[#172033]">
           <DemoHeader
             activeTab={demoTab}
             onTabChange={setDemoTab}

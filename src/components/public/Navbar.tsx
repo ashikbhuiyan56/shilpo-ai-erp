@@ -14,6 +14,7 @@ import {
 } from 'lucide-react';
 import { Badge } from '../common/Badge';
 import { useOfficeTheme } from '../../context/ThemeContext';
+import { ShilpoLogo } from '../common/ShilpoLogo';
 
 interface NavbarProps {
   onOpenDemo: (initialTab?: string) => void;
@@ -75,15 +76,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="flex items-center gap-3 group focus:outline-none"
             aria-label="শিল্পAI ERP Homepage"
           >
-                        <div className="relative flex items-center justify-center w-9 h-9 rounded-lg transition-all group-hover:scale-105">
-              <img src="/logo.png.png" alt="শিল্পAI ERP logo" className="w-full h-full object-contain" />
-              <div className={`absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full animate-ping opacity-75 ${
-                theme === 'purple' ? 'bg-purple-400' : 'bg-emerald-400'
-              }`} />
-              <div className={`absolute -top-1 -right-1 w-2.5 h-2.5 rounded-full ${
-                theme === 'purple' ? 'bg-purple-300' : 'bg-emerald-300'
-              }`} />
-            </div>
+            <ShilpoLogo className="w-9 h-9 transform group-hover:scale-105 transition-transform duration-200" />
             <div className="flex flex-col">
               <span className="text-xl font-bold tracking-tight text-white flex items-center gap-1">
                 <span className="font-bengali">শিল্প</span>
@@ -97,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden lg:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-xl">
+          <nav className="hidden xl:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-xl">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -110,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Desktop Actions on the Right (Only visible on lg screens and up) */}
-          <div className="hidden lg:flex items-center gap-3">
+          <div className="hidden xl:flex items-center gap-3">
             <button
               onClick={() => onOpenDemo()}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
@@ -137,10 +130,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Actions Button Group (Visible ONLY below lg) */}
-          <div className="flex items-center gap-2 lg:hidden">
+          <div className="flex items-center gap-2 xl:hidden">
             <button
               onClick={() => onOpenDemo()}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-emerald-500 text-black shadow-[0_0_15px_rgba(16,185,129,0.3)] cursor-pointer"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:bg-purple-500 cursor-pointer"
             >
               Demo
             </button>
@@ -157,13 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className={`lg:hidden border-b px-4 pt-3 pb-6 mt-3 space-y-3 backdrop-blur-2xl ${
-          theme === 'purple'
-            ? 'bg-[#1b032d]/98 border-purple-500/30 text-white'
-            : theme === 'light'
-            ? 'bg-white/98 border-slate-200 text-slate-900'
-            : 'bg-slate-900/98 border-white/10 text-white'
-        }`}>
+        <div className="xl:hidden border-b px-4 pt-3 pb-6 mt-3 space-y-3 backdrop-blur-2xl bg-[#1b032d]/98 border-purple-500/30 text-white">
           <div className="grid grid-cols-2 gap-2 pt-1">
             {navLinks.map((link) => (
               <a
@@ -182,9 +169,9 @@ export const Navbar: React.FC<NavbarProps> = ({
                 setMobileMenuOpen(false);
                 onOpenDemo();
               }}
-              className="w-full py-2.5 rounded-lg text-sm font-bold bg-emerald-500 text-black hover:bg-emerald-400 shadow-[0_0_20px_rgba(16,185,129,0.4)] flex items-center justify-center gap-2"
+              className="w-full py-2.5 rounded-lg text-sm font-bold bg-purple-600 text-white hover:bg-purple-500 shadow-[0_0_20px_rgba(168,85,247,0.4)] flex items-center justify-center gap-2"
             >
-              <Play className="w-4 h-4 fill-black" /> View Interactive Demo
+              <Play className="w-4 h-4 fill-white" /> View Interactive Demo
             </button>
             <button
               onClick={() => {

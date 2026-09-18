@@ -1,0 +1,55 @@
+<svg viewBox="0 0 100 115" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shilpo-top-highlight" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DDD6FE" />
+      <stop offset="50%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#A855F7" />
+    </linearGradient>
+    <linearGradient id="shilpo-upper-outer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#C084FC" />
+      <stop offset="40%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#7E22CE" />
+    </linearGradient>
+    <linearGradient id="shilpo-upper-inner" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#7E22CE" />
+      <stop offset="100%" stop-color="#581C87" />
+    </linearGradient>
+    <linearGradient id="shilpo-mid-facet" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#A855F7" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#6D28D9" />
+    </linearGradient>
+    <linearGradient id="shilpo-lower-outer" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9333EA" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#6B21A8" />
+    </linearGradient>
+    <linearGradient id="shilpo-lower-inner" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4C1D95" />
+      <stop offset="100%" stop-color="#3B0764" />
+    </linearGradient>
+    <linearGradient id="shilpo-iso-top" x1="0%" y1="0%" x2="100%" y2="50%">
+      <stop offset="0%" stop-color="#E9D5FF" />
+      <stop offset="60%" stop-color="#C084FC" />
+      <stop offset="100%" stop-color="#9333EA" />
+    </linearGradient>
+  </defs>
+
+  <!-- 3D Isometric Hexagonal Ribbon S -->
+  <polygon points="50,6 85,26 73,33 50,20 27,33 15,26" fill="url(#shilpo-iso-top)" />
+  <polygon points="85,26 85,42 73,49 73,33" fill="url(#shilpo-upper-outer)" />
+  <polygon points="73,33 73,49 61,42 61,26" fill="url(#shilpo-upper-inner)" />
+  <polygon points="15,26 50,6 50,18 27,32 27,62 15,55" fill="url(#shilpo-upper-outer)" />
+  <polygon points="27,32 50,18 73,31 61,38 50,32 27,45" fill="url(#shilpo-top-highlight)" />
+  <polygon points="27,45 50,32 50,44 27,57" fill="url(#shilpo-upper-inner)" />
+  <polygon points="27,57 50,44 73,57 50,70" fill="url(#shilpo-iso-top)" />
+  <polygon points="27,57 50,70 50,82 27,69" fill="url(#shilpo-mid-facet)" />
+  <polygon points="50,70 73,57 73,69 50,82" fill="url(#shilpo-lower-inner)" />
+  <polygon points="85,55 85,88 50,108 50,96 73,83 73,49" fill="url(#shilpo-lower-outer)" />
+  <polygon points="15,72 27,65 27,81 15,88" fill="url(#shilpo-upper-inner)" />
+  <polygon points="27,65 39,72 39,88 27,81" fill="url(#shilpo-mid-facet)" />
+  <polygon points="15,88 27,81 50,94 73,81 85,88 50,108" fill="url(#shilpo-lower-inner)" />
+  <polygon points="27,81 50,68 73,81 50,94" fill="url(#shilpo-iso-top)" />
+  <polygon points="50,44 50,70 42,65 42,49" fill="#3B0764" opacity="0.6" />
+  <polyline points="15,26 50,6 85,26" stroke="#FAF5FF" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.8" />
+</svg>

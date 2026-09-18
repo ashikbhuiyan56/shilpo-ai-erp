@@ -11,41 +11,34 @@ interface ThemeContextType {
 const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
 
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [theme, setThemeState] = useState<OfficeTheme>(() => {
-    if (typeof window !== 'undefined') {
-      const saved = localStorage.getItem('shilpo_office_theme') as OfficeTheme;
-      if (saved && ['purple', 'slate', 'navy', 'light'].includes(saved)) {
-        return saved;
-      }
-    }
-    return 'light'; // Default to Premium Light-Mode Enterprise ERP
-  });
+  // Permanently locked to 'purple' theme for all visitors, devices, and sessions
+  const [theme] = useState<OfficeTheme>('purple');
 
-  const setTheme = (newTheme: OfficeTheme) => {
-    setThemeState(newTheme);
-    if (typeof window !== 'undefined') {
-      localStorage.setItem('shilpo_office_theme', newTheme);
-    }
+  const setTheme = (_newTheme: OfficeTheme) => {
+    // Theme is fixed to purple; ignore any changes
   };
 
   const toggleTheme = () => {
-    const cycle: Record<OfficeTheme, OfficeTheme> = {
-      purple: 'slate',
-      slate: 'light',
-      light: 'navy',
-      navy: 'purple',
-    };
-    setTheme(cycle[theme]);
+    // Theme is fixed to purple; ignore any toggling
   };
 
   useEffect(() => {
+    // Ignore and clear any previously saved theme in localStorage
+    if (typeof window !== 'undefined') {
+      try {
+        localStorage.removeItem('shilpo_office_theme');
+      } catch {
+        // Ignore storage exceptions
+      }
+    }
+
     const root = document.documentElement;
-    root.classList.remove('theme-official-purple', 'theme-official-slate', 'theme-official-navy', 'theme-official-light');
-    root.classList.add(`theme-official-${theme}`);
-  }, [theme]);
+    root.classList.remove('theme-official-slate', 'theme-official-navy', 'theme-official-light');
+    root.classList.add('theme-official-purple');
+  }, []);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme, toggleTheme }}>
+    <ThemeContext.Provider value={{ theme: 'purple', setTheme, toggleTheme }}>
       {children}
     </ThemeContext.Provider>
   );
@@ -58,3 +51,4 @@ export const useOfficeTheme = () => {
   }
   return context;
 };
+

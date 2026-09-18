@@ -179,10 +179,10 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
   return (
     <div className="space-y-6 pb-12">
       {/* Header */}
-      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs">
+      <div className="flex flex-wrap items-center justify-between gap-4 p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)]">
         <div>
-          <div className="flex items-center gap-2">
-            <h1 className="text-xl font-bold text-[#172033] flex items-center gap-2">
+          <div className="flex items-center gap-2.5">
+            <h1 className="text-2xl font-bold text-[#0B1120] flex items-center gap-2 tracking-tight">
               <Sparkles className="w-5 h-5 text-[#087F6A]" />
               <span>ShilpoAI Operations Copilot</span>
             </h1>
@@ -190,7 +190,7 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
               GEMINI RMG REASONING ENGINE
             </Badge>
           </div>
-          <p className="text-xs text-[#64748B] mt-1">
+          <p className="text-sm text-[#334155] mt-1.5 leading-relaxed">
             Conversational factory intelligence assistant trained on Bangladesh apparel manufacturing workflows, SMV line balancing, and capacity heuristics.
           </p>
         </div>
@@ -206,7 +206,7 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
               },
             ]);
           }}
-          className="px-3.5 py-2 rounded-lg bg-white hover:bg-[#F1F5F9] border border-[#CBD5E1] text-xs font-semibold text-[#334155] flex items-center gap-1.5 transition-colors cursor-pointer"
+          className="px-4 py-2.5 rounded-xl bg-white hover:bg-[#F8FAFC] border border-[#CBD5E1] text-xs font-semibold text-[#1E293B] flex items-center gap-1.5 shadow-2xs hover:shadow-xs transition-all cursor-pointer"
         >
           <RotateCcw className="w-3.5 h-3.5" />
           <span>Clear Chat</span>
@@ -215,7 +215,7 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
 
       {/* Suggested Prompt Chips */}
       <div className="space-y-2">
-        <div className="text-[11px] font-mono text-[#64748B] uppercase tracking-wider">
+        <div className="text-xs font-mono font-bold text-[#334155] uppercase tracking-wider">
           Suggested Operational Queries:
         </div>
         <div className="flex flex-wrap gap-2">
@@ -223,7 +223,7 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
             <button
               key={idx}
               onClick={() => handleSendPrompt(chip)}
-              className="px-3.5 py-2 rounded-xl bg-white hover:bg-emerald-50 border border-[#E2E8F0] hover:border-emerald-300 text-xs text-[#334155] hover:text-[#065F46] transition-all text-left cursor-pointer shadow-2xs font-medium"
+              className="px-4 py-2.5 rounded-xl bg-white hover:bg-emerald-50/70 border border-[#CBD5E1] hover:border-[#087F6A]/50 text-xs text-[#1E293B] hover:text-[#065F46] transition-all text-left cursor-pointer shadow-2xs hover:shadow-xs font-medium"
             >
               {chip}
             </button>
@@ -232,26 +232,26 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
       </div>
 
       {/* Chat Thread Container */}
-      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-xs min-h-[440px] flex flex-col justify-between space-y-4">
+      <div className="p-6 rounded-2xl bg-white border border-[#E2E8F0] shadow-[0_1px_3px_rgba(15,23,42,0.08)] min-h-[460px] flex flex-col justify-between space-y-5">
         {/* Messages */}
-        <div className="space-y-4 overflow-y-auto max-h-[500px] pr-2">
+        <div className="space-y-5 overflow-y-auto max-h-[520px] pr-2">
           {messages.map((m) => (
             <div
               key={m.id}
-              className={`flex gap-3 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
+              className={`flex gap-3.5 ${m.sender === 'user' ? 'justify-end' : 'justify-start'}`}
             >
               {m.sender === 'assistant' && (
-                <div className="w-8 h-8 rounded-xl bg-emerald-50 text-[#087F6A] border border-emerald-200 flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-emerald-50 text-[#087F6A] border border-emerald-200 flex items-center justify-center shrink-0 shadow-2xs">
                   <Bot className="w-4 h-4" />
                 </div>
               )}
 
               <div className={`max-w-2xl space-y-3 ${m.sender === 'user' ? 'items-end' : 'items-start'}`}>
                 <div
-                  className={`p-4 rounded-2xl text-xs sm:text-sm leading-relaxed ${
+                  className={`p-4.5 rounded-2xl text-sm leading-relaxed ${
                     m.sender === 'user'
-                      ? 'bg-[#087F6A] text-white font-medium rounded-tr-none shadow-xs'
-                      : 'bg-[#F8FAFC] text-[#172033] border border-[#E2E8F0] rounded-tl-none'
+                      ? 'bg-[#087F6A] text-white font-medium rounded-tr-none shadow-sm'
+                      : 'bg-[#F8FAFC] text-[#0B1120] border border-[#E2E8F0] rounded-tl-none shadow-2xs font-normal'
                   }`}
                 >
                   {m.text}
@@ -259,22 +259,22 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
 
                 {/* Structured Interactive Card for Assistant Responses */}
                 {m.card && (
-                  <div className="p-5 rounded-xl bg-white border border-[#E2E8F0] space-y-3 text-xs shadow-xs">
-                    <div className="flex items-center justify-between pb-2 border-b border-[#F1F5F9]">
-                      <span className="font-bold text-[#172033] flex items-center gap-1.5">
-                        <Sparkles className="w-3.5 h-3.5 text-[#087F6A]" />
+                  <div className="p-5 rounded-xl bg-white border border-[#CBD5E1] space-y-3.5 text-xs shadow-sm">
+                    <div className="flex items-center justify-between pb-2.5 border-b border-[#F1F5F9]">
+                      <span className="font-bold text-[#0B1120] text-sm flex items-center gap-2">
+                        <Sparkles className="w-4 h-4 text-[#087F6A]" />
                         {m.card.title}
                       </span>
-                      <span className="text-[10px] font-mono text-[#64748B]">STRUCTURED INSIGHT</span>
+                      <span className="text-xs font-mono font-bold text-[#087F6A] bg-emerald-50 px-2.5 py-0.5 rounded-md border border-emerald-200">STRUCTURED INSIGHT</span>
                     </div>
 
                     {m.card.metrics && (
-                      <div className="grid grid-cols-3 gap-2">
+                      <div className="grid grid-cols-3 gap-2.5">
                         {m.card.metrics.map((met, mi) => (
-                          <div key={mi} className="p-2.5 rounded-lg bg-[#F8FAFC] border border-[#E2E8F0] text-center">
-                            <div className="text-[10px] text-[#64748B] font-mono">{met.label}</div>
-                            <div className={`font-mono font-bold text-sm mt-0.5 ${
-                              met.color === 'rose' ? 'text-rose-600' : met.color === 'amber' ? 'text-amber-600' : met.color === 'emerald' ? 'text-[#087F6A]' : 'text-[#172033]'
+                          <div key={mi} className="p-3 rounded-xl bg-[#F8FAFC] border border-[#E2E8F0] text-center shadow-2xs">
+                            <div className="text-xs text-[#475569] font-mono font-medium">{met.label}</div>
+                            <div className={`font-mono font-bold text-lg mt-1 ${
+                              met.color === 'rose' ? 'text-rose-600' : met.color === 'amber' ? 'text-amber-600' : met.color === 'emerald' ? 'text-[#087F6A]' : 'text-[#0B1120]'
                             }`}>
                               {met.value}
                             </div>
@@ -284,8 +284,8 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
                     )}
 
                     {m.card.recommendation && (
-                      <div className="p-3 rounded-lg bg-emerald-50 border border-emerald-200 text-[#065F46] text-xs">
-                        <strong>Recommendation:</strong> {m.card.recommendation}
+                      <div className="p-3.5 rounded-xl bg-emerald-50 border border-emerald-200 text-[#065F46] text-xs leading-relaxed font-medium">
+                        <strong className="font-bold text-[#065F46]">Recommendation:</strong> {m.card.recommendation}
                       </div>
                     )}
 
@@ -293,7 +293,7 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
                       <div className="pt-1">
                         <button
                           onClick={() => onNavigate(m.card!.actionTab!)}
-                          className="px-3.5 py-2 rounded-lg bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-1.5 transition-colors cursor-pointer shadow-xs"
+                          className="px-4 py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center gap-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer shadow-sm"
                         >
                           <span>{m.card.actionLabel}</span>
                           <ArrowRight className="w-3.5 h-3.5" />
@@ -303,13 +303,13 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
                   </div>
                 )}
 
-                <div className={`text-[10px] font-mono text-[#94A3B8] ${m.sender === 'user' ? 'text-right' : 'text-left'}`}>
+                <div className={`text-xs font-mono text-[#64748B] ${m.sender === 'user' ? 'text-right' : 'text-left'}`}>
                   {m.timestamp}
                 </div>
               </div>
 
               {m.sender === 'user' && (
-                <div className="w-8 h-8 rounded-xl bg-[#F1F5F9] text-[#334155] border border-[#CBD5E1] flex items-center justify-center shrink-0">
+                <div className="w-9 h-9 rounded-xl bg-[#F1F5F9] text-[#1E293B] border border-[#CBD5E1] flex items-center justify-center shrink-0 shadow-2xs">
                   <User className="w-4 h-4" />
                 </div>
               )}
@@ -323,19 +323,19 @@ export const DemoCopilot: React.FC<DemoCopilotProps> = ({ onNavigate }) => {
             e.preventDefault();
             handleSendPrompt(inputQuery);
           }}
-          className="pt-4 border-t border-[#F1F5F9] flex items-center gap-2"
+          className="pt-4 border-t border-[#F1F5F9] flex items-center gap-2.5"
         >
           <input
             type="text"
             value={inputQuery}
             onChange={(e) => setInputQuery(e.target.value)}
             placeholder="Ask ShilpoAI Copilot about line speeds, delay predictions, defect patterns, or capacity..."
-            className="flex-1 px-4 py-3 rounded-xl bg-white border border-[#CBD5E1] text-xs sm:text-sm text-[#172033] placeholder-[#94A3B8] focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A]"
+            className="flex-1 px-4 py-3 rounded-xl bg-white border border-[#CBD5E1] text-sm text-[#0B1120] placeholder-[#64748B] focus:outline-none focus:ring-2 focus:ring-[#087F6A]/20 focus:border-[#087F6A] shadow-2xs font-medium"
           />
           <button
             type="submit"
             disabled={!inputQuery.trim()}
-            className="px-5 py-3 rounded-xl bg-[#087F6A] hover:bg-[#066653] disabled:opacity-40 text-white font-bold text-xs flex items-center gap-1.5 transition-all cursor-pointer shadow-xs"
+            className="px-5 py-3 rounded-xl bg-[#087F6A] hover:bg-[#066653] disabled:opacity-40 text-white font-bold text-xs flex items-center gap-2 transition-all duration-200 hover:shadow-md hover:-translate-y-0.5 cursor-pointer shadow-sm"
           >
             <span>Send</span>
             <Send className="w-4 h-4" />
