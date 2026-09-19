@@ -40,19 +40,19 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
   // Preset scenarios
   const scenarios: Record<string, { label: string; desc: string; data: FactoryDataInput }> = {
     bottleneck: {
-      label: 'Scenario A: Capacity Deficit & Fabric Delay',
-      desc: 'High risk (50k order, 14 days left, fabric in transit delay, 9.8k deficit)',
+      label: 'Scenario A: Capacity Deficit & Fabric Delay (BD-2048)',
+      desc: 'High risk (45k order, 14 days left, fabric in transit delay, 18k deficit)',
       data: {
-        orderNumber: 'BD-3048',
+        orderNumber: 'BD-2048',
         buyerName: 'Nordic Apparel Co.',
         category: 'Knitwear',
-        orderQuantity: 50000,
+        orderQuantity: 45000,
         daysRemaining: 14,
-        currentProduction: 15000,
-        dailyCapacity: 1800,
-        inventoryTrimsPercent: 70,
+        currentProduction: 18500,
+        dailyCapacity: 607,
+        inventoryTrimsPercent: 45,
         fabricStatus: 'In Transit / Delayed',
-        defectRate: 4.8,
+        defectRate: 3.5,
         majorDefects: ['Skipped Stitch', 'Shade Variation'],
         shipmentStatus: 'Port Feeder at Risk',
       },
@@ -272,7 +272,7 @@ export const DemoFactoryDataEntry: React.FC<DemoFactoryDataEntryProps> = ({
                     value={form.orderNumber}
                     onChange={(e) => setForm({ ...form, orderNumber: e.target.value })}
                     className="w-full px-3 py-2 rounded-md bg-[#F8FAFC] border border-[#CBD5E1] text-[#0B1120] font-mono font-semibold focus:outline-none focus:border-[#087F6A] focus:ring-1 focus:ring-[#087F6A] shadow-sm"
-                    placeholder="e.g. BD-3048"
+                    placeholder="e.g. BD-2048"
                   />
                 </div>
                 <div className="space-y-1">

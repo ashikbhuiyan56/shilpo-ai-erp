@@ -42,16 +42,16 @@ import {
 import { ThemeProvider, useOfficeTheme } from './context/ThemeContext';
 
 const INITIAL_FACTORY_DATA: FactoryDataInput = {
-  orderNumber: 'BD-3048',
+  orderNumber: 'BD-2048',
   buyerName: 'Nordic Apparel Co.',
   category: 'Knitwear',
-  orderQuantity: 50000,
+  orderQuantity: 45000,
   daysRemaining: 14,
-  currentProduction: 15000,
-  dailyCapacity: 1800,
-  inventoryTrimsPercent: 70,
+  currentProduction: 18500,
+  dailyCapacity: 607,
+  inventoryTrimsPercent: 45,
   fabricStatus: 'In Transit / Delayed',
-  defectRate: 4.8,
+  defectRate: 3.5,
   majorDefects: ['Skipped Stitch', 'Shade Variation'],
   shipmentStatus: 'Port Feeder at Risk',
 };
@@ -151,7 +151,7 @@ function MainApp() {
         </div>
       ) : (
         /* ================= INTERACTIVE PRODUCT DEMO (COMMAND CENTER) ================= */
-        <div className="demo-shell h-screen flex flex-col overflow-hidden bg-[#F5F8FC] text-[#172033]">
+        <div className="h-screen flex flex-col overflow-hidden bg-[#F5F8FC] text-[#172033]">
           <DemoHeader
             activeTab={demoTab}
             onTabChange={setDemoTab}
@@ -193,6 +193,10 @@ function MainApp() {
                   onNavigate={setDemoTab}
                   activeAnalysisResult={activeAnalysisResult}
                   activeDataInput={factoryDataInput}
+                  onUpdateDataInput={(updated) => {
+                    setFactoryDataInput(updated);
+                    setActiveAnalysisResult(calculateFactoryRisk(updated));
+                  }}
                   onSelectCapacityMatch={(payload) => {
                     setSubcontractRequest(payload);
                     setDemoTab('capacity');

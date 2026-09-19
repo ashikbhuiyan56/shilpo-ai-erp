@@ -122,7 +122,7 @@ export const DemoQualityIntelligence: React.FC<DemoQualityIntelligenceProps> = (
   onNavigate,
   currentDefectRate = 4.8,
   onUpdateDefectRate,
-  activeOrderNumber = 'BD-3048',
+  activeOrderNumber = 'BD-2048',
   activeBuyer = 'Nordic Apparel Co.',
 }) => {
   // Input Source Mode: 'samples' | 'camera' | 'upload'

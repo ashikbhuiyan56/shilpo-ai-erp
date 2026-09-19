@@ -90,7 +90,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-xl">
+          <nav className="hidden lg:flex items-center gap-1 bg-white/5 p-1 rounded-full border border-white/10 backdrop-blur-xl">
             {navLinks.map((link) => (
               <a
                 key={link.label}
@@ -103,7 +103,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </nav>
 
           {/* Desktop Actions on the Right (Only visible on lg screens and up) */}
-          <div className="hidden xl:flex items-center gap-3">
+          <div className="hidden lg:flex items-center gap-3">
             <button
               onClick={() => onOpenDemo()}
               className={`inline-flex items-center gap-2 px-4 py-2 rounded-lg text-xs font-bold transition-all cursor-pointer ${
@@ -130,7 +130,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           </div>
 
           {/* Mobile Actions Button Group (Visible ONLY below lg) */}
-          <div className="flex items-center gap-2 xl:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <button
               onClick={() => onOpenDemo()}
               className="px-3 py-1.5 rounded-lg text-xs font-bold bg-purple-600 text-white shadow-[0_0_15px_rgba(168,85,247,0.4)] hover:bg-purple-500 cursor-pointer"
@@ -150,7 +150,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="xl:hidden border-b px-4 pt-3 pb-6 mt-3 space-y-3 backdrop-blur-2xl bg-[#1b032d]/98 border-purple-500/30 text-white">
+        <div className="lg:hidden border-b px-4 pt-3 pb-6 mt-3 space-y-3 backdrop-blur-2xl bg-[#1b032d]/98 border-purple-500/30 text-white">
           <div className="grid grid-cols-2 gap-2 pt-1">
             {navLinks.map((link) => (
               <a

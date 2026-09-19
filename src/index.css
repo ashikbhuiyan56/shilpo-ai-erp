@@ -417,23 +417,3 @@ body {
 .animate-scan {
   animation: scanline 4s linear infinite;
 }
-
-/* --- Dashboard text contrast boost --- */
-.demo-shell [class~="text-[#64748B]"],
-.demo-shell [class~="text-slate-400"],
-.demo-shell [class~="text-slate-500"],
-.demo-shell [class~="text-gray-400"],
-.demo-shell [class~="text-gray-500"],
-.demo-shell [class~="text-[#94A3B8]"] {
-  color: #1E293B !important;
-  font-weight: 500;
-}
-
-.demo-shell h1,
-.demo-shell h2,
-.demo-shell h3,
-.demo-shell [class~="font-bold"],
-.demo-shell [class~="font-extrabold"],
-.demo-shell [class~="font-black"] {
-  color: #0B1120;
-}

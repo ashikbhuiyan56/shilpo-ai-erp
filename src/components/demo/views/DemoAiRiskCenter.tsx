@@ -29,6 +29,7 @@ interface DemoAiRiskCenterProps {
   onSelectOrder?: (orderId: string) => void;
   activeAnalysisResult?: AiAnalysisResult;
   activeDataInput?: FactoryDataInput;
+  onUpdateDataInput?: (data: FactoryDataInput) => void;
   onSelectCapacityMatch?: (payload: {
     orderNumber: string;
     buyer: string;
@@ -45,6 +46,7 @@ export const DemoAiRiskCenter: React.FC<DemoAiRiskCenterProps> = ({
   onSelectOrder,
   activeAnalysisResult,
   activeDataInput,
+  onUpdateDataInput,
   onSelectCapacityMatch,
 }) => {
   const [selectedRiskCategory, setSelectedRiskCategory] = useState<'all' | 'deadline' | 'production' | 'quality' | 'capacity'>('all');
@@ -169,6 +171,114 @@ export const DemoAiRiskCenter: React.FC<DemoAiRiskCenterProps> = ({
           >
             <span>14-Day Trajectory</span>
             <ArrowRight className="w-3.5 h-3.5" />
+          </button>
+        </div>
+      </div>
+
+      {/* Active Order Risk Focus Bar */}
+      <div className="p-4 rounded-xl bg-[#F8FAFC] border border-[#CBD5E1] shadow-2xs flex flex-wrap items-center justify-between gap-3">
+        <div className="flex items-center gap-2.5 flex-wrap">
+          <span className="text-[11px] font-mono font-extrabold text-[#475569] uppercase tracking-wider">
+            Risk Audit Target:
+          </span>
+          <div className="flex items-center gap-2 px-2.5 py-1 rounded-lg bg-white border border-[#CBD5E1] shadow-2xs">
+            <span className={`w-2 h-2 rounded-full ${currentDelayRisk >= 70 ? 'bg-rose-600 animate-pulse' : 'bg-amber-500'}`} />
+            <span className="font-mono font-black text-xs text-[#0B1120]">Order #{currentOrderNumber}</span>
+            <span className="text-xs font-semibold text-[#475569]">({currentBuyer})</span>
+          </div>
+          <span className={`px-2.5 py-0.5 rounded-full font-mono font-extrabold text-[11px] border shadow-2xs ${
+            currentDelayRisk >= 70
+              ? 'bg-rose-50 text-rose-800 border-rose-300/80'
+              : currentDelayRisk >= 40
+              ? 'bg-amber-50 text-amber-800 border-amber-300/80'
+              : 'bg-emerald-50 text-[#065F46] border-emerald-300/80'
+          }`}>
+            {currentDelayRisk}% DELAY RISK {currentCapacityGap > 0 ? `· ${currentCapacityGap.toLocaleString()} PCS DEFICIT` : '· ON PACE'}
+          </span>
+        </div>
+
+        <div className="flex items-center gap-1.5 flex-wrap">
+          <span className="text-[11px] font-mono font-semibold text-[#475569] hidden md:inline">Select Order Target:</span>
+          <button
+            onClick={() => {
+              if (onUpdateDataInput) {
+                onUpdateDataInput({
+                  orderNumber: 'BD-2048',
+                  buyerName: 'Nordic Apparel Co.',
+                  category: 'Knitwear',
+                  orderQuantity: 45000,
+                  daysRemaining: 14,
+                  currentProduction: 18500,
+                  dailyCapacity: 607,
+                  inventoryTrimsPercent: 45,
+                  fabricStatus: 'In Transit / Delayed',
+                  defectRate: 3.5,
+                  majorDefects: ['Skipped Stitch', 'Shade Variation'],
+                  shipmentStatus: 'Port Feeder at Risk',
+                });
+              }
+            }}
+            className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+              currentOrderNumber === 'BD-2048'
+                ? 'bg-rose-100 text-rose-900 border border-rose-300 ring-1 ring-rose-300 font-extrabold'
+                : 'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#EEF3F8]'
+            }`}
+          >
+            BD-2048 (78% Delay Risk)
+          </button>
+          <button
+            onClick={() => {
+              if (onUpdateDataInput) {
+                onUpdateDataInput({
+                  orderNumber: 'BD-2051',
+                  buyerName: 'Zara Inditex Group',
+                  category: 'Woven',
+                  orderQuantity: 32000,
+                  daysRemaining: 20,
+                  currentProduction: 21000,
+                  dailyCapacity: 850,
+                  inventoryTrimsPercent: 75,
+                  fabricStatus: 'In Warehouse',
+                  defectRate: 2.2,
+                  majorDefects: ['Loose Thread'],
+                  shipmentStatus: 'On Schedule',
+                });
+              }
+            }}
+            className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+              currentOrderNumber === 'BD-2051'
+                ? 'bg-amber-100 text-amber-900 border border-amber-300 ring-1 ring-amber-300 font-extrabold'
+                : 'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#EEF3F8]'
+            }`}
+          >
+            BD-2051 (48% Risk)
+          </button>
+          <button
+            onClick={() => {
+              if (onUpdateDataInput) {
+                onUpdateDataInput({
+                  orderNumber: 'BD-2059',
+                  buyerName: 'H&M Global Sourcing',
+                  category: 'Activewear',
+                  orderQuantity: 60000,
+                  daysRemaining: 18,
+                  currentProduction: 38200,
+                  dailyCapacity: 1500,
+                  inventoryTrimsPercent: 82,
+                  fabricStatus: 'In Warehouse',
+                  defectRate: 1.9,
+                  majorDefects: ['Minor Spot'],
+                  shipmentStatus: 'On Schedule',
+                });
+              }
+            }}
+            className={`px-2.5 py-1 rounded-lg font-mono text-xs font-bold transition-all cursor-pointer shadow-2xs ${
+              currentOrderNumber === 'BD-2059'
+                ? 'bg-emerald-100 text-[#065F46] border border-emerald-300 ring-1 ring-emerald-300 font-extrabold'
+                : 'bg-white text-[#334155] border border-[#CBD5E1] hover:bg-[#EEF3F8]'
+            }`}
+          >
+            BD-2059 (42% Risk)
           </button>
         </div>
       </div>
@@ -417,12 +527,15 @@ export const DemoAiRiskCenter: React.FC<DemoAiRiskCenterProps> = ({
               </tr>
             </thead>
             <tbody className="divide-y divide-[#E2E8F0]">
-              {/* Insert current customized order on top if customized */}
-              {isCustomAnalysis && (
-                <tr className="bg-emerald-50/70 hover:bg-emerald-50 transition-colors">
+              {/* Insert current customized order on top ONLY if not already in sample orders */}
+              {isCustomAnalysis && !filteredOrders.some(o => o.orderNumber === currentOrderNumber) && (
+                <tr className="bg-emerald-50/70 hover:bg-emerald-50 transition-colors border-l-4 border-l-[#087F6A]">
                   <td className="py-3 px-3 font-mono font-extrabold text-[#065F46] flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 rounded-full bg-[#087F6A]" />
-                    {currentOrderNumber} (Active Entry)
+                    <span className="w-2 h-2 rounded-full bg-[#087F6A] animate-pulse" />
+                    <span>{currentOrderNumber}</span>
+                    <span className="text-[10px] font-mono font-extrabold px-1.5 py-0.5 rounded bg-emerald-100 text-[#065F46] border border-emerald-300 shadow-2xs">
+                      CUSTOM ENTRY
+                    </span>
                   </td>
                   <td className="py-3 px-3 text-[#0B1120] font-bold">{currentBuyer}</td>
                   <td className="py-3 px-3 text-[#334155] font-medium">{currentCategory}</td>
@@ -465,45 +578,102 @@ export const DemoAiRiskCenter: React.FC<DemoAiRiskCenterProps> = ({
                 </tr>
               )}
 
-              {filteredOrders.map((ord) => (
-                <tr key={ord.id} className="hover:bg-[#F8FAFC] transition-colors">
-                  <td className="py-3 px-3 font-mono font-bold text-[#0B1120]">{ord.orderNumber}</td>
-                  <td className="py-3 px-3 text-[#0B1120] font-bold">{ord.buyer}</td>
-                  <td className="py-3 px-3 text-[#334155] font-medium">{ord.category}</td>
-                  <td className="py-3 px-3 font-mono font-bold text-[#0B1120]">{ord.quantity.toLocaleString()}</td>
-                  <td className="py-3 px-3 font-mono font-medium text-[#475569]">{ord.targetShipDate}</td>
-                  <td className="py-3 px-3">
-                    <span
-                      className={`font-mono font-bold px-2 py-0.5 rounded-full text-xs border shadow-2xs ${
-                        ord.riskScore > 70
-                          ? 'bg-rose-50 text-rose-800 border-rose-300/80'
-                          : ord.riskScore > 30
-                          ? 'bg-amber-50 text-amber-800 border-amber-300/80'
-                          : 'bg-emerald-50 text-[#065F46] border-emerald-300/80'
-                      }`}
-                    >
-                      {ord.riskScore}%
-                    </span>
-                  </td>
-                  <td className="py-3 px-3 text-[#334155] font-medium">
-                    {ord.riskScore > 70 ? 'Fabric Dye-Lot lag' : ord.riskScore > 30 ? 'Trims Inspection Pending' : 'Pacing On Schedule'}
-                  </td>
-                  <td className="py-3 px-3 text-right">
-                    <button
-                      onClick={() => setSelectedOrderForDrawer({
-                        ...ord,
-                        primaryFactor: ord.riskScore > 70 ? 'Fabric Dye-Lot delay + Line 02 bottleneck' : 'On track for port cutoff',
-                        team: 'Industrial Engineering (Dhaka)',
-                        lines: ord.assignedLines || ['Line 01']
-                      })}
-                      className="px-2.5 py-1 rounded bg-white hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#0B1120] font-bold text-xs inline-flex items-center gap-1 cursor-pointer shadow-2xs"
-                    >
-                      <span>View Details</span>
-                      <ChevronRight className="w-3 h-3 text-[#475569]" />
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {filteredOrders.map((ord) => {
+                const isFocused = ord.orderNumber === currentOrderNumber;
+                const displayRisk = isFocused ? currentDelayRisk : ord.riskScore;
+
+                return (
+                  <tr 
+                    key={ord.id} 
+                    className={`transition-colors ${
+                      isFocused 
+                        ? 'bg-rose-50/50 hover:bg-rose-50/70 border-l-4 border-l-rose-600' 
+                        : 'hover:bg-[#F8FAFC]'
+                    }`}
+                  >
+                    <td className="py-3 px-3 font-mono text-[#0B1120]">
+                      <div className="flex items-center gap-1.5 flex-wrap">
+                        {isFocused && <span className="w-2 h-2 rounded-full bg-rose-600 shrink-0 animate-pulse" />}
+                        <span className="font-extrabold">{ord.orderNumber}</span>
+                        {isFocused && (
+                          <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-rose-100 text-rose-900 border border-rose-200">
+                            COMMAND TARGET
+                          </span>
+                        )}
+                      </div>
+                    </td>
+                    <td className="py-3 px-3 text-[#0B1120] font-bold">{ord.buyer}</td>
+                    <td className="py-3 px-3 text-[#334155] font-medium">{ord.category}</td>
+                    <td className="py-3 px-3 font-mono font-bold text-[#0B1120]">{ord.quantity.toLocaleString()}</td>
+                    <td className="py-3 px-3 font-mono font-medium text-[#475569]">{ord.targetShipDate}</td>
+                    <td className="py-3 px-3">
+                      <span
+                        className={`font-mono font-bold px-2 py-0.5 rounded-full text-xs border shadow-2xs ${
+                          displayRisk >= 70
+                            ? 'bg-rose-50 text-rose-800 border-rose-300/80 font-extrabold'
+                            : displayRisk > 30
+                            ? 'bg-amber-50 text-amber-800 border-amber-300/80'
+                            : 'bg-emerald-50 text-[#065F46] border-emerald-300/80'
+                        }`}
+                      >
+                        {displayRisk}%
+                      </span>
+                    </td>
+                    <td className="py-3 px-3 text-[#334155] font-medium">
+                      {ord.orderNumber === 'BD-2048'
+                        ? 'Fabric arrival delay + 18,000 pcs deficit'
+                        : ord.riskScore > 70 
+                        ? 'Fabric Dye-Lot lag' 
+                        : ord.riskScore > 30 
+                        ? 'Trims Inspection Pending' 
+                        : 'Pacing On Schedule'}
+                    </td>
+                    <td className="py-3 px-3 text-right">
+                      <div className="inline-flex items-center gap-1.5 justify-end">
+                        <button
+                          onClick={() => setSelectedOrderForDrawer({
+                            ...ord,
+                            riskScore: displayRisk,
+                            primaryFactor: ord.orderNumber === 'BD-2048'
+                              ? 'Fabric arrival delay (3-day lag on dyed 180 GSM cotton jersey) + Line 02 SMV pacing bottleneck (18,000 unit deficit)'
+                              : ord.riskScore > 70 ? 'Fabric Dye-Lot delay + Line 02 bottleneck' : 'On track for port cutoff',
+                            team: ord.orderNumber === 'BD-2048' ? 'Merchandising Unit 02' : 'Industrial Engineering (Dhaka)',
+                            lines: ord.assignedLines || ['Line 02', 'Line 04']
+                          })}
+                          className="px-2.5 py-1 rounded bg-white hover:bg-[#EEF3F8] border border-[#CBD5E1] text-[#0B1120] font-bold text-xs inline-flex items-center gap-1 cursor-pointer shadow-2xs"
+                        >
+                          <span>View Details</span>
+                          <ChevronRight className="w-3 h-3 text-[#475569]" />
+                        </button>
+
+                        {!isFocused && onUpdateDataInput && (
+                          <button
+                            onClick={() => {
+                              onUpdateDataInput({
+                                orderNumber: ord.orderNumber,
+                                buyerName: ord.buyer,
+                                category: ord.category,
+                                orderQuantity: ord.quantity,
+                                daysRemaining: 14,
+                                currentProduction: ord.completedUnits,
+                                dailyCapacity: Math.round((ord.quantity - ord.completedUnits) / 18),
+                                inventoryTrimsPercent: ord.riskScore > 70 ? 45 : 75,
+                                fabricStatus: ord.fabricStatus === 'Delayed' ? 'In Transit / Delayed' : 'In Warehouse',
+                                defectRate: ord.riskScore > 70 ? 3.5 : 2.0,
+                                majorDefects: ['Skipped Stitch'],
+                                shipmentStatus: ord.riskScore > 70 ? 'Port Feeder at Risk' : 'On Schedule',
+                              });
+                            }}
+                            className="px-2.5 py-1 rounded bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs inline-flex items-center gap-1 cursor-pointer shadow-2xs"
+                          >
+                            <span>Focus</span>
+                          </button>
+                        )}
+                      </div>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
@@ -646,12 +816,26 @@ export const DemoAiRiskCenter: React.FC<DemoAiRiskCenterProps> = ({
             <div className="pt-4 border-t border-[#CBD5E1] flex items-center justify-between gap-3">
               <button
                 onClick={() => {
+                  const targetOrd = selectedOrderForDrawer;
                   setSelectedOrderForDrawer(null);
+                  if (onSelectCapacityMatch && targetOrd) {
+                    onSelectCapacityMatch({
+                      orderNumber: targetOrd.orderNumber,
+                      buyer: targetOrd.buyer,
+                      category: targetOrd.category,
+                      deficitUnits: targetOrd.orderNumber === 'BD-2048' ? 18000 : Math.max(0, targetOrd.quantity - (targetOrd.completedUnits || 0)),
+                      targetDays: 14,
+                      delayRiskScore: targetOrd.riskScore,
+                      reason: `Capacity deficit on Order #${targetOrd.orderNumber}`,
+                    });
+                  }
                   onNavigate('capacity');
                 }}
                 className="flex-1 py-2.5 rounded-xl bg-[#087F6A] hover:bg-[#066653] text-white font-bold text-xs flex items-center justify-center gap-2 shadow-sm hover:shadow-md transition-all duration-200 hover:-translate-y-0.5 cursor-pointer"
               >
-                <span>Activate Capacity Matching</span>
+                <span>
+                  Activate Capacity Matching ({selectedOrderForDrawer.orderNumber === 'BD-2048' ? '18,000 pcs' : 'Surplus Deficit'})
+                </span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </button>
               <button
